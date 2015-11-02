@@ -1,5 +1,13 @@
 package INVENTORY;
-
+/**Class: Item.java
+ * @author: Kevin Anthony
+ * @version: 1.0
+ * Course : ITEC 3860 Fall 2015 Dr. Johnson
+ * Date Written: Oct 30, 2015
+ * Class Description: Abstract class for Items
+ * Purpose: Parent class that provides variables and methods for child classes
+ * to inherit
+ */
 import java.io.Serializable;
 
 public abstract class Item implements Serializable
