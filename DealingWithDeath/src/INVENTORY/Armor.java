@@ -11,7 +11,7 @@ package INVENTORY;
 
 public class Armor extends Item 
 {
-	private static final long serialVersionUID = 1L;
+	
 	private int increaseHP;
 	
 	/**Constructor: Armor.java

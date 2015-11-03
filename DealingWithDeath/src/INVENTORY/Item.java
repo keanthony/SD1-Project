@@ -8,12 +8,9 @@ package INVENTORY;
  * Purpose: Parent class that provides variables and methods for child classes
  * to inherit
  */
-import java.io.Serializable;
 
-public abstract class Item implements Serializable
+public abstract class Item
 {
-
-	private static final long serialVersionUID = 1L;
 	private int location;
 	private boolean isPresent;
 	private String name;

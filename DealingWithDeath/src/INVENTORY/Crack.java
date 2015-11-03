@@ -11,7 +11,7 @@ package INVENTORY;
 
 public class Crack extends Item
 {
-	private static final long serialVersionUID = 1L;
+	
 	private int increaseHealth;
 	private int value;
 	

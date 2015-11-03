@@ -10,7 +10,7 @@ package INVENTORY;
  */
 public class Weapon extends Item 
 {
-	private static final long serialVersionUID = 1L;
+	
 	private int damage;
 	
 	/**Constructor: Weapon.java

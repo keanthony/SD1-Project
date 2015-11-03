@@ -1,6 +1,11 @@
 package MAIN;
+import java.util.ArrayList;
+
 import INVENTORY.Inventory;
+import NPC.NPC;
 import PLAYER.Player;
+import ROOM.Riddle;
+import ROOM.Room;
 /**Class: Weapon.java
  * @author: Kevin Anthony
  * @version: 1.0
@@ -14,7 +19,11 @@ import PLAYER.Player;
 
 public class DealingWithDeath
 {
-
+	protected ArrayList<Room> roomAL = new ArrayList<Room>();
+	protected ArrayList<NPC> npcAL = new ArrayList<NPC>();
+	protected ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
+	protected ArrayList<String> roomDescriptionsAL = new ArrayList<String>();
+	protected Player myPlayer;
 	private String options;
 	private int health;
 	private String name;
@@ -24,6 +33,35 @@ public class DealingWithDeath
 	private String tutorial;
 	private String listOfPlayers;
 
+	/**Constructor: DealingWithDeath.java
+	 * Initializes object with following params.
+	 * @param roomAL
+	 * @param npcAL
+	 * @param riddleAL
+	 */
+	public DealingWithDeath(ArrayList<Room> roomAL, ArrayList<NPC> npcAL,
+			ArrayList<Riddle> riddleAL)
+	{
+		this.roomAL = roomAL;
+		this.npcAL = npcAL;
+		this.riddleAL = riddleAL;
+	}
+	public void makeNPC()
+	{
+		//TODO: Generate NPC descriptions/stats
+	}
+	public void makeRiddle()
+	{
+		//TODO: Generate Puzzle Data
+	}
+	public void makeItem()
+	{
+		//TODO: Generate Item Data
+	}
+	public void makeRoom()
+	{
+		//TODO: Generate rooms
+	}
 	public String newGame()
 	{
 		return null;
