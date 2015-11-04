@@ -1,5 +1,9 @@
 package ROOM;
 
+import java.util.Random;
+import java.util.Vector;
+
+import INVENTORY.Inventory;
 import NPC.NPC;
 /**Class: Room.java
  * @author: 
@@ -12,12 +16,15 @@ import NPC.NPC;
  */
 public class Room {
 
-	private String name;
-	private boolean isEmpty;
-	private String description;
-	private Riddle riddle;
-	private NPC crack;
+	private String rName;
+	private String rDescription;
+	private boolean isREmpty;
+	private boolean rRiddle;
+	//riddle boolean if room is between 1 thru whatever before the devil's house's rooms
+	private NPC crackHeads;
+	private boolean Item;
 	
+<<<<<<< HEAD
 	public Room(String name, boolean isEmpty, String description, Riddle riddle, NPC crack) 
 	{
 		super();
@@ -26,51 +33,102 @@ public class Room {
 		this.description = description;
 		this.riddle = riddle;
 		this.crack = crack;
+=======
+	/**
+	 * @param rName
+	 * @param rDescription
+	 * @param isREmpty
+	 * @param rExit
+	 * @param rRiddle
+	 * @param crackHeads
+	 */
+	
+	public Room()
+	{
+		this.rName = "";
+		this.rDescription = "";
+		this.isREmpty = false;
+		this.rRiddle = false;
+		this.crackHeads = crackHeads;
+		this.Item = false;
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 	}
 
 	
-	public String getName() {
-		return name;
+	public Room(String rName, String rDescription, boolean isREmpty, 
+				boolean rRiddle, NPC crackHeads, boolean Item) 
+	{
+		this.rName = rName;
+		this.rDescription = rDescription;
+		this.isREmpty = isREmpty;
+		this.rRiddle = rRiddle;
+		this.crackHeads = crackHeads;
+		this.Item = Item;
+	}
+	
+	
+	public String getrName() {
+		return rName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setrName(String rName) {
+		this.rName = rName;
 	}
 
-	public boolean isEmpty() {
-		return isEmpty;
+
+	public String getrDescription() {
+		return rDescription;
 	}
 
-	public void setEmpty(boolean isEmpty) {
-		this.isEmpty = isEmpty;
+
+	public void setrDescription(String rDescription) {
+		this.rDescription = rDescription;
 	}
 
-	public String getDescription() {
-		return description;
+
+	public boolean isREmpty() {
+		return isREmpty;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+
+	public void setREmpty(boolean isREmpty) {
+		this.isREmpty = isREmpty;
 	}
 
-	public Riddle getRiddle() {
-		return riddle;
+
+	public boolean getrRiddle() {
+		return rRiddle;
 	}
 
-	public void setRiddle(Riddle riddle) {
-		this.riddle = riddle;
+
+	public void setrRiddle(boolean rRiddle) {
+		this.rRiddle = rRiddle;
 	}
 
-	public NPC getCrack() {
-		return crack;
+
+	public NPC getCrackHeads() {
+		return crackHeads;
 	}
 
-	public void setCrack(NPC crack) {
-		this.crack = crack;
+
+	public void setCrackHeads(NPC crackHeads) {
+		this.crackHeads = crackHeads;
 	}
+	
+	
+
 
 	public NPC initCrack() {
-		return null;
+		System.out.println("Initializing a Random amount of crackheads in Rooms...");
+	    
+	    //note a single Random object is reused here
+	    Random randomGenerator = new Random();
+	    for (int i = 1; i <= 1; ++i){
+	      int crackHeads = randomGenerator.nextInt(10);
+	      System.out.println("Generated : " + crackHeads + " crackheads.");
+	    }
+		return crackHeads;
 	}
 	public String enter() {
 		return null;
