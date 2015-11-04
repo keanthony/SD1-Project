@@ -42,9 +42,4 @@ public class Player
 
 	}
 
-	public void operation0()
-	{
-
-	}
-
 }

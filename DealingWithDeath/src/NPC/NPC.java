@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package NPC;
 
 public class NPC {
@@ -48,3 +49,31 @@ public class NPC {
 	}
 
 }
+=======
+package NPC;
+
+public class NPC
+{
+
+	private boolean dead;
+	private String trade;
+	private String NPC;
+
+	public boolean isDead()
+	{
+		return dead;
+	}
+
+	public void attack()
+	{
+
+		//this should bring down health points of the main player
+	}
+
+	public void die()
+	{
+
+	}
+
+}
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
