@@ -5,7 +5,15 @@ import java.util.Vector;
 
 import INVENTORY.Inventory;
 import NPC.NPC;
-
+/**Class: Room.java
+ * @author: 
+ * @Collaborators:Samuel Medina
+ * @version: 1.0
+ * Course : ITEC 3860 Fall 2015 Dr. Johnson
+ * Date Written: Oct 30, 2015
+ * Class Description: Room class
+ * Purpose: Generate and handle room and room's items
+ */
 public class Room {
 
 	private String rName;
@@ -16,6 +24,16 @@ public class Room {
 	private NPC crackHeads;
 	private boolean Item;
 	
+<<<<<<< HEAD
+	public Room(String name, boolean isEmpty, String description, Riddle riddle, NPC crack) 
+	{
+		super();
+		this.name = name;
+		this.isEmpty = isEmpty;
+		this.description = description;
+		this.riddle = riddle;
+		this.crack = crack;
+=======
 	/**
 	 * @param rName
 	 * @param rDescription
@@ -33,7 +51,9 @@ public class Room {
 		this.rRiddle = false;
 		this.crackHeads = crackHeads;
 		this.Item = false;
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 	}
+
 	
 	public Room(String rName, String rDescription, boolean isREmpty, 
 				boolean rRiddle, NPC crackHeads, boolean Item) 
@@ -112,6 +132,14 @@ public class Room {
 	}
 	public String enter() {
 		return null;
+	}
+	//Sam: This method checks if the item you are attempting to put in 
+	//your inventory is present in the current room
+	public boolean isPresent()
+	{
+		return false;
+		//TODO: create a method to check if an item is present in the room
+		
 	}
 
 }
