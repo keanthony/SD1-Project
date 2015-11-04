@@ -11,7 +11,6 @@ package INVENTORY;
 
 public class Armor extends Item 
 {
-	
 	private int increaseHP;
 	
 	/**Constructor: Armor.java
@@ -23,10 +22,9 @@ public class Armor extends Item
 	 * @param limit
 	 * @param quantitiy
 	 */
-	public Armor(int location, boolean isPresent, String name,
-			String description, int limit, int quantitiy, int increaseHP)
+	public Armor(String name, String description, int itemIndex, int increaseHP)
 	{
-		super(location, isPresent, name, description, limit, quantitiy);
+		super(name, description, itemIndex);
 		this.increaseHP = increaseHP;
 	}
 	
@@ -38,15 +36,16 @@ public class Armor extends Item
 		return increaseHP;
 	}
 
-	/** Method Name: usable
+	
+	/** Method Name: useItem
 	 * Description: Override 
 	 * @return String representation of object
-	 * @see INVENTORY.Item#usable()
+	 * @see INVENTORY.Item#useItem()
 	 */
 	@Override
-	public String usable()
+	public String useItem()
 	{
-		return null;
+		return "" + increaseHP;
 	}
 
 

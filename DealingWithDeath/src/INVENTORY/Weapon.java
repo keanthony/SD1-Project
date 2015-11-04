@@ -22,14 +22,11 @@ public class Weapon extends Item
 	 * @param limit
 	 * @param quantitiy
 	 */
-	public Weapon(int location, boolean isPresent, String name,
-			String description, int limit, int quantitiy, int damage)
+	public Weapon(String name, String description, int itemIndex, int value, int damage)
 	{
-		super(location, isPresent, name, description, limit, quantitiy);
+		super(name, description, itemIndex);
 		this.damage = damage;
 	}
-
-	
 
 	/**Method Name: getDamage
 	 * @return the damage
@@ -39,17 +36,15 @@ public class Weapon extends Item
 		return damage;
 	}
 
-
-
 	/** Method Name: usable
 	 * Description: Override 
 	 * @return String representation of object
 	 * @see INVENTORY.Item#usable()
 	 */
 	@Override
-	public String usable()
+	public String useItem()
 	{
-		return null;
+		return "" + damage;
 	}
 
 }
