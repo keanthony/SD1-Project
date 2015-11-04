@@ -19,11 +19,12 @@ import ROOM.Room;
 
 public class DealingWithDeath
 {
-	protected ArrayList<Room> roomAL = new ArrayList<Room>();
-	protected ArrayList<NPC> npcAL = new ArrayList<NPC>();
-	protected ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
+	protected static ArrayList<Room> roomAL = new ArrayList<Room>();
+	protected static ArrayList<NPC> npcAL = new ArrayList<NPC>();
+	protected static ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
 	protected ArrayList<String> roomDescriptionsAL = new ArrayList<String>();
 	protected Player myPlayer;
+	protected static DealingWithDeath status;
 	private String options;
 	private int health;
 	private String name;
@@ -45,6 +46,15 @@ public class DealingWithDeath
 		this.roomAL = roomAL;
 		this.npcAL = npcAL;
 		this.riddleAL = riddleAL;
+		status = this;
+	}
+	public static DealingWithDeath getStatus()
+	{
+		if(status == null)
+		{
+			status = new DealingWithDeath(roomAL, npcAL, riddleAL);
+		}
+		return status;
 	}
 	public void makeNPC()
 	{
