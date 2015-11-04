@@ -2,6 +2,7 @@ package MAIN;
 import java.util.ArrayList;
 
 import INVENTORY.Inventory;
+import INVENTORY.Item;
 import NPC.NPC;
 import PLAYER.Player;
 import ROOM.Riddle;
@@ -22,6 +23,7 @@ public class DealingWithDeath
 	protected static ArrayList<Room> roomAL = new ArrayList<Room>();
 	protected static ArrayList<NPC> npcAL = new ArrayList<NPC>();
 	protected static ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
+	protected static ArrayList<Item> itemAL = new ArrayList<Item>();
 	protected ArrayList<String> roomDescriptionsAL = new ArrayList<String>();
 	protected Player myPlayer;
 	protected static DealingWithDeath status;
@@ -41,18 +43,19 @@ public class DealingWithDeath
 	 * @param riddleAL
 	 */
 	public DealingWithDeath(ArrayList<Room> roomAL, ArrayList<NPC> npcAL,
-			ArrayList<Riddle> riddleAL)
+			ArrayList<Riddle> riddleAL, ArrayList<Item> itemAL)
 	{
-		this.roomAL = roomAL;
-		this.npcAL = npcAL;
-		this.riddleAL = riddleAL;
+		DealingWithDeath.roomAL = roomAL;
+		DealingWithDeath.npcAL = npcAL;
+		DealingWithDeath.riddleAL = riddleAL;
+		DealingWithDeath.itemAL = itemAL;
 		status = this;
 	}
 	public static DealingWithDeath getStatus()
 	{
 		if(status == null)
 		{
-			status = new DealingWithDeath(roomAL, npcAL, riddleAL);
+			status = new DealingWithDeath(roomAL, npcAL, riddleAL, itemAL);
 		}
 		return status;
 	}

@@ -11,12 +11,9 @@ package INVENTORY;
 
 public abstract class Item
 {
-	private int location;
-	private boolean isPresent;
-	private String name;
-	private String description;
-	private int limit;
-	private int quantitiy;
+	protected String name;
+	protected String description;
+	protected int itemIndex;
 
 	
 	/**Constructor: Item.java
@@ -28,18 +25,14 @@ public abstract class Item
 	 * @param limit
 	 * @param quantitiy
 	 */
-	public Item(int location, boolean isPresent, String name,
-			String description, int limit, int quantitiy)
+	public Item(String name,String description, int itemIndex)
 	{
-		this.location = location;
-		this.isPresent = isPresent;
 		this.name = name;
 		this.description = description;
-		this.limit = limit;
-		this.quantitiy = quantitiy;
+		this.itemIndex = itemIndex;
 	}
 
-	public abstract String usable();
+	public abstract String useItem();
 	public String getDescription()
 	{
 		return description;
@@ -48,15 +41,15 @@ public abstract class Item
 	{
 		return name;
 	}
-	public boolean isEquipable(Weapon weapon)
-	{
-		return false;
-	}
 
-	public boolean isEquipable(Armor armor)
+	/**Method Name: getItemIndex
+	 * @return the itemIndex
+	 */
+	public int getItemIndex()
 	{
-		return false;
+		return itemIndex;
 	}
+	
 	
 	
 	
