@@ -41,10 +41,8 @@ public class Room {
 		this.rRiddle = false;
 		this.crackHeads = crackHeads;
 		this.Item = false;
-
 	}
 
-	
 	public Room(String rName, String rDescription, boolean isREmpty, 
 				boolean rRiddle, NPC crackHeads, boolean Item) 
 	{
@@ -105,9 +103,14 @@ public class Room {
 	public void setCrackHeads(NPC crackHeads) {
 		this.crackHeads = crackHeads;
 	}
-	
-	
 
+	public boolean isItem() {
+		return Item;
+	}
+
+	public void setItem(boolean item) {
+		Item = item;
+	}
 
 	public NPC initCrack() {
 		System.out.println("Initializing a Random amount of crackheads in Rooms...");
@@ -127,9 +130,26 @@ public class Room {
 	//your inventory is present in the current room
 	public boolean isPresent()
 	{
-		return false;
+		if (isItem() == true)
+		{
+			Item = true;
+			System.out.println(Item + "is present");
+		}
+		else
+		{
+			return false;
+		}
 		//TODO: create a method to check if an item is present in the room
-		
+		return Item;	
 	}
+
+
+	@Override
+	public String toString() {
+		return "Room [rName=" + rName + ", rDescription=" + rDescription + ", isREmpty=" + isREmpty + ", rRiddle="
+				+ rRiddle + ", crackHeads=" + crackHeads + ", Item=" + Item + "]";
+	}
+	
+	
 
 }
