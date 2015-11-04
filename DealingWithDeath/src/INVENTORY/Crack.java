@@ -1,4 +1,5 @@
 package INVENTORY;
+import MAIN.DealingWithDeath;
 
 /**Class: Crack.java
  * @author: Kevin Anthony
@@ -32,7 +33,10 @@ public class Crack extends Item
 		this.value = value;
 	}
 
-	
+	public String useCrack()
+	{
+		DealingWithDeath.getStatus().
+	}
 
 	/**Method Name: getIncreaseHealth
 	 * @return the increaseHealth
