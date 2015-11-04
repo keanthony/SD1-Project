@@ -1,6 +1,8 @@
 package PLAYER;
 import ROOM.Room;
+
 import java.util.ArrayList;
+
 import INVENTORY.Armor;
 import INVENTORY.Crack;
 import INVENTORY.Item;
@@ -8,7 +10,8 @@ import INVENTORY.Weapon;
 import NPC.NPC;
 
 /**Class: Player.java
- * @author: Kevin Anthony
+ * @author: Samuel Medina
+ * @collaborator: Kevin Anthony 
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -17,10 +20,10 @@ import NPC.NPC;
  */
 
 
-public class Player
+public class Player 
 {
 	private int health;
-	private ArrayList<Item> inventory;
+	private ArrayList<Integer> inventory;
 	private Item it;
 	private Commands command;
 	private Weapon weap;
@@ -40,7 +43,7 @@ public class Player
 	 * @param health
 	 * @param inventory
 	 */
-	public Player(int health, ArrayList<Item> inventory)
+	public Player(int health, ArrayList<Integer> inventory)
 	{
 		this.health = health;
 		this.inventory = inventory;
@@ -57,16 +60,25 @@ public class Player
 
 	public void goTo(Room room)
 	{
+		room.enter();
 
 	}
 
-	public Item take(Item item)
+	public String take(int numItem)
 	{
-		return null;
+		Room roomItem = new Room();
+		if(roomItem.isPresent())
+		{
+			inventory.add(numItem);
+		}
+		
+		return "Item is in your inventory";
 	}
-
+	//gives a description of the item
 	public String inspect(Item item)
 	{
+		
+		
 		return null;
 	}
 
