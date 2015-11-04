@@ -6,11 +6,20 @@ public class Riddle extends Room {
 
 	private boolean isCorrect;
 	
-	public Riddle(String name, boolean isEmpty, String description, Riddle riddle, NPC crack, boolean isCorrect) {
-		super(name, isEmpty, description, riddle, crack);
+	/**
+	 * @param rName
+	 * @param rDescription
+	 * @param isREmpty
+	 * @param rRiddle
+	 * @param crackHeads
+	 * @param isCorrect
+	 */
+	public Riddle(String rName, String rDescription, boolean isREmpty, Riddle rRiddle, NPC crackHeads,
+			boolean isCorrect) {
+		super(rName, rDescription, isREmpty, rRiddle, crackHeads);
 		this.isCorrect = isCorrect;
 	}
-	
+
 	public boolean isCorrect() {
 		return isCorrect;
 	}

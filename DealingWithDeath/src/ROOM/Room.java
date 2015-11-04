@@ -1,5 +1,6 @@
 package ROOM;
 
+import java.util.Random;
 import java.util.Vector;
 
 import NPC.NPC;
@@ -9,7 +10,6 @@ public class Room {
 	private String rName;
 	private String rDescription;
 	private boolean isREmpty;
-	private Vector<Exit> rExit;
 	private Riddle rRiddle;
 	private NPC crackHeads;
 	
@@ -22,12 +22,11 @@ public class Room {
 	 * @param crackHeads
 	 */
 	public Room(String rName, String rDescription, boolean isREmpty, 
-				Vector<Exit> rExit, Riddle rRiddle, NPC crackHeads) 
+				Riddle rRiddle, NPC crackHeads) 
 	{
 		this.rName = rName;
 		this.rDescription = rDescription;
 		this.isREmpty = isREmpty;
-		this.rExit = rExit;
 		this.rRiddle = rRiddle;
 		this.crackHeads = crackHeads;
 	}
@@ -63,16 +62,6 @@ public class Room {
 	}
 
 
-	public Vector getrExit() {
-		return rExit;
-	}
-
-
-	public void setrExit(Vector rExit) {
-		this.rExit = rExit;
-	}
-
-
 	public Riddle getrRiddle() {
 		return rRiddle;
 	}
@@ -94,7 +83,15 @@ public class Room {
 
 
 	public NPC initCrack() {
-		return null;
+		System.out.println("Initializing a Random amount of crackheads in Rooms...");
+	    
+	    //note a single Random object is reused here
+	    Random randomGenerator = new Random();
+	    for (int i = 1; i <= 10; ++i){
+	      int crackHeads = randomGenerator.nextInt(10);
+	      System.out.println("Generated : " + crackHeads + "crackheads.");
+	    }
+		return crackHeads;
 	}
 	public String enter() {
 		return null;
