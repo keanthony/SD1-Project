@@ -2,7 +2,6 @@ package ROOM;
 
 import java.util.Random;
 import java.util.Vector;
-
 import INVENTORY.Inventory;
 import NPC.NPC;
 /**Class: Room.java
@@ -24,16 +23,7 @@ public class Room {
 	private NPC crackHeads;
 	private boolean Item;
 	
-<<<<<<< HEAD
-	public Room(String name, boolean isEmpty, String description, Riddle riddle, NPC crack) 
-	{
-		super();
-		this.name = name;
-		this.isEmpty = isEmpty;
-		this.description = description;
-		this.riddle = riddle;
-		this.crack = crack;
-=======
+
 	/**
 	 * @param rName
 	 * @param rDescription
@@ -51,7 +41,7 @@ public class Room {
 		this.rRiddle = false;
 		this.crackHeads = crackHeads;
 		this.Item = false;
->>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
+
 	}
 
 	

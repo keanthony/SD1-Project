@@ -15,8 +15,9 @@ public class Riddle extends Room {
 	 * @param isCorrect
 	 */
 	public Riddle(String rName, String rDescription, boolean isREmpty, Riddle rRiddle, NPC crackHeads,
-			boolean isCorrect) {
-		super(rName, rDescription, isREmpty, rRiddle, crackHeads);
+			boolean isCorrect) 
+	{
+		super();
 		this.isCorrect = isCorrect;
 	}
 
