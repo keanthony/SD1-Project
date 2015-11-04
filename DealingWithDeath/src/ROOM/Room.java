@@ -125,6 +125,7 @@ public class Room {
 	}
 	//Sam: This method checks if the item you are attempting to put in 
 	//your inventory is present in the current room
+	
 	public boolean isPresent()
 	{
 		return false;

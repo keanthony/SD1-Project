@@ -11,7 +11,7 @@ import NPC.NPC;
 
 /**Class: Player.java
  * @author: Samuel Medina
- * @collaborator: Kevin Anthony 
+ * @collaborator: Kevin Anthony
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -29,7 +29,7 @@ public class Player
 	private Weapon weap;
 	private Armor arm;
 	private Crack crac;
-	
+	Room item = new Room();
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 */
@@ -53,8 +53,15 @@ public class Player
 	/**Method Name: getWeap
 	 * @return the weap
 	 */
-	public Weapon getWeap()
+	public Weapon getWeap(int numItem)
 	{
+
+		if(item.isPresent())
+		{
+			
+		inventory.add(numItem);
+		
+		}
 		return weap;
 	}
 
@@ -66,8 +73,7 @@ public class Player
 
 	public String take(int numItem)
 	{
-		Room roomItem = new Room();
-		if(roomItem.isPresent())
+		if(item.isPresent())
 		{
 			inventory.add(numItem);
 		}
@@ -75,11 +81,15 @@ public class Player
 		return "Item is in your inventory";
 	}
 	//gives a description of the item
-	public String inspect(Item item)
+	public String inspect(Item inspectItem)
 	{
+		if(item.isPresent())
+		{
+			inspectItem.getDescription();
+		}
 		
 		
-		return null;
+		return inspectItem.getDescription();
 	}
 
 	public void fight(NPC enemy)
@@ -87,8 +97,16 @@ public class Player
 
 	}
 
-	public void goToHell()
+	public void goToHell(Room hell)
 	{
+		Player player = new Player();
+		
+		if(health < 1)
+		{
+			player.goTo(hell);
+		}
+		//TODO: Once room is created change the hell to the room number since 
+		//what's going to be passed is an integer
 
 	}
 
@@ -96,9 +114,10 @@ public class Player
 	{
 
 	}
-
+//Gives options to ether fight 
 	public void approach(NPC enemy)
 	{
+		
 
 	}
 
