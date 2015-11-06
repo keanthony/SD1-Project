@@ -18,9 +18,6 @@ public class Armor extends Item
 	 * @param location
 	 * @param isPresent
 	 * @param name
-	 * @param description
-	 * @param limit
-	 * @param quantitiy
 	 */
 	public Armor(String name, String description, int itemIndex, int increaseHP)
 	{

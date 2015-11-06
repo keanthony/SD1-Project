@@ -14,16 +14,12 @@ public abstract class Item
 	protected String name;
 	protected String description;
 	protected int itemIndex;
-
 	
 	/**Constructor: Item.java
 	 * Initializes object with following params.
-	 * @param location
-	 * @param isPresent
 	 * @param name
 	 * @param description
-	 * @param limit
-	 * @param quantitiy
+	 * @param itemIndex
 	 */
 	public Item(String name,String description, int itemIndex)
 	{
@@ -33,6 +29,7 @@ public abstract class Item
 	}
 
 	public abstract String useItem();
+	
 	public String getDescription()
 	{
 		return description;
@@ -49,8 +46,4 @@ public abstract class Item
 	{
 		return itemIndex;
 	}
-	
-	
-	
-	
 }

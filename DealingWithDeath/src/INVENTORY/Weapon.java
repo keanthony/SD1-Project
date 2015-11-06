@@ -10,7 +10,6 @@ package INVENTORY;
  */
 public class Weapon extends Item 
 {
-	
 	private int damage;
 	
 	/**Constructor: Weapon.java
