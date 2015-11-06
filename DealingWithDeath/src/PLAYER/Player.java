@@ -61,7 +61,6 @@ public class Player
 	public void goTo(Room room)
 	{
 		room.enter();
-
 	}
 
 	public String take(int numItem)

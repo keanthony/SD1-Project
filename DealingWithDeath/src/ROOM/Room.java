@@ -1,5 +1,7 @@
 package ROOM;
 import java.util.Random;
+import java.util.Scanner;
+
 import NPC.NPC;
 /**Class: Room.java
  * @author: Adrianna Valdivia
@@ -20,7 +22,6 @@ public class Room {
 	private NPC crackHeads;
 	private boolean Item;
 	
-
 	/**
 	 * @param rName
 	 * @param rDescription
@@ -28,8 +29,7 @@ public class Room {
 	 * @param rExit
 	 * @param rRiddle
 	 * @param crackHeads
-	 */
-	
+	 */	
 	public Room()
 	{
 		this.rName = "";
@@ -125,8 +125,23 @@ public class Room {
 		
 		
 	}
-	public String enter() {
-		return null;
+	
+	public void enter() {
+		
+		Scanner user_input = new Scanner( System.in );
+		String move = "move";
+		if (!(user_input.next() == move))
+		{
+			System.out.println("Room Information");
+			System.out.println(getrName());
+			System.out.println(getrDescription());
+// what else should i return?
+		}
+		else
+		{
+			System.out.println("Invalid");
+		}
+		
 	}
 	//Sam: This method checks if the item you are attempting to put in 
 	//your inventory is present in the current room
@@ -144,6 +159,9 @@ public class Room {
 		//TODO: create a method to check if an item is present in the room
 		return Item;	
 	}
+	
+	// implement Inpect method? to return 
+	//specific information of different objects: room, item, crackhead;
 
 
 	@Override
