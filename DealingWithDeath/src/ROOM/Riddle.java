@@ -4,6 +4,8 @@ import NPC.NPC;
 
 public class Riddle extends Room {
 
+	private int riddleId;
+	private String question;
 	private boolean isCorrect;
 	
 	/**
@@ -14,6 +16,13 @@ public class Riddle extends Room {
 	 * @param crackHeads
 	 * @param isCorrect
 	 */
+	public Riddle() 
+	{
+		
+		this.riddleId = 0;
+		this.isCorrect = false;
+	}
+	
 	public Riddle(String rName, String rDescription, boolean isREmpty, Riddle rRiddle, NPC crackHeads,
 			boolean isCorrect) 
 	{

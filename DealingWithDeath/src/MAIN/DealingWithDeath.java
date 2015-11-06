@@ -25,6 +25,7 @@ public class DealingWithDeath
 	protected static ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
 	protected static ArrayList<Item> itemAL = new ArrayList<Item>();
 	protected ArrayList<String> roomDescriptionsAL = new ArrayList<String>();
+	
 	protected Player myPlayer;
 	protected static DealingWithDeath status;
 	private String options;
@@ -92,6 +93,7 @@ public class DealingWithDeath
 
 	public void enterUserName(String userName)
 	{
+		
 
 	}
 

@@ -40,6 +40,7 @@ public class NPC {
 	public void attack() {
 
 		//this should bring down health points of the main player
+		
 	}
 
 	public void die() {

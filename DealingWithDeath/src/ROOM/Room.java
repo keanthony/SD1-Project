@@ -1,12 +1,9 @@
 package ROOM;
-
 import java.util.Random;
-import java.util.Vector;
-import INVENTORY.Inventory;
 import NPC.NPC;
 /**Class: Room.java
- * @author: 
- * @Collaborators:Samuel Medina
+ * @author: Adrianna Valdivia
+ * @Collaborators:Samuel Medina, Kevin Anthony
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -113,15 +110,20 @@ public class Room {
 	}
 
 	public NPC initCrack() {
+		
 		System.out.println("Initializing a Random amount of crackheads in Rooms...");
 	    
+		if (isREmpty() == false) {
 	    //note a single Random object is reused here
 	    Random randomGenerator = new Random();
 	    for (int i = 1; i <= 1; ++i){
 	      int crackHeads = randomGenerator.nextInt(10);
 	      System.out.println("Generated : " + crackHeads + " crackheads.");
 	    }
+	  }
 		return crackHeads;
+		
+		
 	}
 	public String enter() {
 		return null;
@@ -146,8 +148,8 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room [rName=" + rName + ", rDescription=" + rDescription + ", isREmpty=" + isREmpty + ", rRiddle="
-				+ rRiddle + ", crackHeads=" + crackHeads + ", Item=" + Item + "]";
+		return "Room [Name:" + rName + ", Description: " + rDescription + ", Is Room Empty ?" + isREmpty + ", Riddle:"
+				+ rRiddle + ", crackHeads: " + crackHeads + ", Item: " + Item + "]";
 	}
 	
 	
