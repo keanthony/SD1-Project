@@ -1,7 +1,8 @@
 package MAIN;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-import INVENTORY.Inventory;
+
 import INVENTORY.Item;
 import NPC.NPC;
 import PLAYER.Player;
@@ -32,7 +33,7 @@ public class DealingWithDeath
 	private int health;
 	private String name;
 	private int damage;
-	private Inventory bag;
+
 	private int money;
 	private String tutorial;
 	private String listOfPlayers;
@@ -91,10 +92,16 @@ public class DealingWithDeath
 		return null;
 	}
 
-	public void enterUserName(String userName)
+	//Adrianna
+	public void enterUserName()
 	{
+		Scanner user_input = new Scanner( System.in );
 		
-
+		System.out.print("Who am i?.. ");
+		
+		String userName = user_input.next( );
+		
+		System.out.println("You are " + userName);
 	}
 
 	public void initPlayer(Player player)
@@ -102,9 +109,30 @@ public class DealingWithDeath
 
 	}
 
-	public String help()
+	//Adrianna
+	public void help()
 	{
-		return null;
+		Scanner user_input = new Scanner( System.in );
+		String keyword = "help";
+		if (!(user_input.next() == keyword))
+		{
+			System.out.println("List of Commands\n");
+			System.out.println("Say -attack- to harm NPC");
+			System.out.println("Say -move- to move foward to the next room");
+			System.out.println("Say -inventory- to see a list items you are holding");
+			System.out.println("Say -equip- to put a wearable item on");
+			System.out.println("Say -drop- to release an item from yourself");
+			System.out.println("Say -take- to add an item to your inventory");
+			System.out.println("Say -deal- to begin a transaction with an NPC");
+			System.out.println("Say -sell- to trade money for drugs with an NPC");
+		}
+		else
+		{
+			System.out.println("Invalid");
+		}
+			
 	}
+	
+	
 
 }
