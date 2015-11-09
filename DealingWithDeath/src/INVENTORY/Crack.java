@@ -11,21 +11,19 @@ package INVENTORY;
 
 public class Crack extends Item
 {
-	private int value;
+	protected int value;
 	
 	/**Constructor: Crack.java
 	 * Initializes object with following params.
-	 * @param location
-	 * @param isPresent
+	 * @param itemIndex
 	 * @param name
 	 * @param description
-	 * @param limit
-	 * @param quantitiy
+	 * @param value
 	 */
-	public Crack(String name, String description, int itemIndex, int value)
+	public Crack(int itemIndex, String name, String description, int value)
 	{
-		super(name, description, itemIndex);
-		this.value = value;
+		super(itemIndex, name, description);
+		value = 0;
 	}
 
 	/**Method Name: getValue
@@ -36,13 +34,13 @@ public class Crack extends Item
 		return value;
 	}
 
-	/** Method Name: useItem
+	/** Method Name: equipItem
 	 * Description: Override 
 	 * @return String representation of object
-	 * @see INVENTORY.Item#useItem()
+	 * @see INVENTORY.Item#equipItem()
 	 */
 	@Override
-	public String useItem()
+	public String equipItem()
 	{
 		return null;
 	}

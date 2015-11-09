@@ -11,32 +11,21 @@ package INVENTORY;
 
 public abstract class Item
 {
+	protected int itemIndex;
 	protected String name;
 	protected String description;
-	protected int itemIndex;
-	
+		
 	/**Constructor: Item.java
 	 * Initializes object with following params.
 	 * @param name
 	 * @param description
 	 * @param itemIndex
 	 */
-	public Item(String name,String description, int itemIndex)
+	public Item(int itemIndex, String name,String description)
 	{
-		this.name = name;
-		this.description = description;
-		this.itemIndex = itemIndex;
-	}
-
-	public abstract String useItem();
-	
-	public String getDescription()
-	{
-		return description;
-	}
-	public String getName()
-	{
-		return name;
+		itemIndex = 0;
+		name = "";
+		description = "";
 	}
 
 	/**Method Name: getItemIndex
@@ -46,4 +35,16 @@ public abstract class Item
 	{
 		return itemIndex;
 	}
+	
+	public String getDescription()
+	{
+		return description;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+
+	public abstract String equipItem();
 }

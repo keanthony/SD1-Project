@@ -5,7 +5,7 @@ public class DealingWithDeathTester {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		DealingWithDeath dwd = new DealingWithDeath(null, null, null, null);
+		DWD dwd = new DWD(null, null, null, null);
 		
 		dwd.enterUserName();
 		dwd.help();

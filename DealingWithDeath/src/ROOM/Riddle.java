@@ -1,36 +1,36 @@
 package ROOM;
 
-import MAIN.DealingWithDeath;
-import NPC.NPC;
 import PLAYER.Player;
 
+/**Class: Riddle.java
+* @author: 
+* @collaborator: Kevin Anthony 
+* @version: 1.0
+* Course : ITEC 3860 Fall 2015 Dr. Johnson
+* Date Written: Oct 30, 2015
+* Class Description: Riddle class
+* Purpose: Set attributes for Riddles
+*/
 public class Riddle
 {
-	private int riddleId;
-	private String question;
-	private boolean isCorrect;
-	private String riddleDesc;
-	private Room backToRoom;
+	protected int riddleId;
+	protected String question;
 	private int solution;
+	private boolean isCorrect;
+	private Room backToRoom;
+	
 
 	/**Constructor: Riddle.java
 	 * Initializes object with following params.
 	 * @param riddleId
 	 * @param question
-	 * @param isCorrect
-	 * @param riddleDesc
-	 * @param backToRoom
 	 * @param solution
 	 */
-	public Riddle(int riddleId, String question, boolean isCorrect,
-			String riddleDesc, Room backToRoom, int solution)
+	public Riddle(int riddleId, String question, int solution)
 	{
-		this.riddleId = riddleId;
-		this.question = question;
-		this.isCorrect = false;
-		this.riddleDesc = riddleDesc;
-		this.backToRoom = backToRoom;
-		this.solution = solution;
+		riddleId = 0;
+		question = "";
+		solution = 0;
 	}
 
 	public int getSolution()

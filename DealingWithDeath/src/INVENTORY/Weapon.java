@@ -10,21 +10,19 @@ package INVENTORY;
  */
 public class Weapon extends Item 
 {
-	private int damage;
+	protected int damage;
 	
 	/**Constructor: Weapon.java
 	 * Initializes object with following params.
-	 * @param location
-	 * @param isPresent
+	 * @param itemIndex
 	 * @param name
 	 * @param description
-	 * @param limit
-	 * @param quantitiy
+	 * @param damage
 	 */
-	public Weapon(String name, String description, int itemIndex, int value, int damage)
+	public Weapon(int itemIndex, String name, String description, int damage)
 	{
-		super(name, description, itemIndex);
-		this.damage = damage;
+		super(itemIndex, name, description);
+		damage = 0;
 	}
 
 	/**Method Name: getDamage
@@ -35,15 +33,15 @@ public class Weapon extends Item
 		return damage;
 	}
 
-	/** Method Name: usable
+	/** Method Name: equipItem
 	 * Description: Override 
 	 * @return String representation of object
-	 * @see INVENTORY.Item#usable()
+	 * @see INVENTORY.Item#equipItem()
 	 */
 	@Override
-	public String useItem()
+	public String equipItem()
 	{
-		return "" + damage;
+		return "This weapon increases damage by " + damage;
 	}
 
 }

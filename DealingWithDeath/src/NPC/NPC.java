@@ -1,53 +1,52 @@
 package NPC;
+/**Class: NPC.java
+* @author: 
+* @collaborator: Kevin Anthony 
+* @version: 1.0
+* Course : ITEC 3860 Fall 2015 Dr. Johnson
+* Date Written: Oct 30, 2015
+* Class Description: NPC class
+* Purpose: Set attributes for NPC's
+*/
+public class NPC
+{
+	protected int npcID;
+	protected String name;
+	protected String description;
+	protected int health;
+	protected int damage;
+	protected boolean attack;
 
-public class NPC {
-
-	private boolean dead;
-	private String trade;
-	private String NPC;
-
-	public NPC(boolean dead, String trade, String nPC) {
-		this.dead = dead;
-		this.trade = trade;
-		NPC = nPC;
-	}
-
-	public String getTrade() {
-		return trade;
-	}
-
-	public void setTrade(String trade) {
-		this.trade = trade;
-	}
-
-	public String getNPC() {
-		return NPC;
-	}
-
-	public void setNPC(String nPC) {
-		NPC = nPC;
-	}
-
-	public void setDead(boolean dead) {
-		this.dead = dead;
-	}
-
-	public boolean isDead()
+	/**Constructor: NPC.java
+	 * Initializes object with following params.
+	 * @param npcID
+	 * @param name
+	 * @param description
+	 * @param health
+	 * @param damage
+	 * @param attack
+	 */
+	public NPC(int npcID, String name, String description, int health,
+			int damage, boolean attack)
 	{
-		return dead;
+		npcID = 0;
+		name = "";
+		description = "";
+		health = 0;
+		damage = 0;
+		attack = false;
 	}
 
-	public void attack() {
+	public void attack()
+	{
 
 		//this should bring down health points of the main player
-		
+
 	}
 
-	public void die() {
-		
+	public void die()
+	{
 
 	}
 
 }
-
-

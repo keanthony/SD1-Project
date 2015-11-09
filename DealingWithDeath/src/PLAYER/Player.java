@@ -2,7 +2,6 @@ package PLAYER;
 import ROOM.Room;
 
 import java.util.ArrayList;
-
 import INVENTORY.Armor;
 import INVENTORY.Crack;
 import INVENTORY.Item;
@@ -56,6 +55,15 @@ public class Player
 	public Weapon getWeap()
 	{
 		return weap;
+	}
+
+	
+	/**Method Name: getInventory
+	 * @return the inventory
+	 */
+	public ArrayList<Integer> getInventory()
+	{
+		return inventory;
 	}
 
 	public void goTo(Room room)

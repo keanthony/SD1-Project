@@ -11,7 +11,7 @@ package INVENTORY;
 
 public class Armor extends Item 
 {
-	private int increaseHP;
+	protected int increaseHP;
 	
 	/**Constructor: Armor.java
 	 * Initializes object with following params.
@@ -19,10 +19,10 @@ public class Armor extends Item
 	 * @param isPresent
 	 * @param name
 	 */
-	public Armor(String name, String description, int itemIndex, int increaseHP)
+	public Armor(int itemIndex, String name, String description, int increaseHP)
 	{
-		super(name, description, itemIndex);
-		this.increaseHP = increaseHP;
+		super(itemIndex, name, description);
+		increaseHP = 0;
 	}
 	
 	/**Method Name: getIncreaseHP
@@ -32,17 +32,16 @@ public class Armor extends Item
 	{
 		return increaseHP;
 	}
-
 	
-	/** Method Name: useItem
+	/** Method Name: equipItem
 	 * Description: Override 
 	 * @return String representation of object
-	 * @see INVENTORY.Item#useItem()
+	 * @see INVENTORY.Item#equipItem()
 	 */
 	@Override
-	public String useItem()
+	public String equipItem()
 	{
-		return "" + increaseHP;
+		return "This armor increases your health by " + increaseHP;
 	}
 
 
