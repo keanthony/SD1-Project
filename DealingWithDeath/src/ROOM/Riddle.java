@@ -1,5 +1,6 @@
 package ROOM;
 
+import Room;
 import PLAYER.Player;
 
 /**Class: Riddle.java
