@@ -1,6 +1,4 @@
 package PLAYER;
-import Room;
-
 import java.util.ArrayList;
 
 import INVENTORY.Armor;
@@ -8,6 +6,7 @@ import INVENTORY.Crack;
 import INVENTORY.Item;
 import INVENTORY.Weapon;
 import NPC.NPC;
+import ROOM.Room;
 
 /**Class: Player.java
  * @author: Samuel Medina
