@@ -97,6 +97,11 @@ public class DWD
 		return status;
 	}
 
+	/**Method Name: makeNPC
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the NPC objects.  The Devil is a special 
+	 * NPC that only appears in rooms 24-29
+	 */
 	public void makeNPC()
 	{
 		System.out.println("Populating the rooms with crackheads...");
@@ -139,6 +144,11 @@ public class DWD
 		}
 	}
 
+	/**Method Name: makeNPC
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the NPC objects.  The Devil is a special 
+	 * NPC that only appears in rooms 24-29
+	 */
 	public void makeRiddle()
 	{
 		System.out.println("Populating the rooms with riddles...");
