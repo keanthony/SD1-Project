@@ -1,5 +1,5 @@
 package PLAYER;
-import ROOM.Room;
+import Room;
 
 import java.util.ArrayList;
 
@@ -65,10 +65,18 @@ public class Player
 		return weap;
 	}
 
+	
+	/**Method Name: getInventory
+	 * @return the inventory
+	 */
+	public ArrayList<Integer> getInventory()
+	{
+		return inventory;
+	}
+
 	public void goTo(Room room)
 	{
 		room.enter();
-
 	}
 
 	public String take(int numItem)

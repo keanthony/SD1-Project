@@ -1,5 +1,4 @@
 package INVENTORY;
-import MAIN.DealingWithDeath;
 
 /**Class: Crack.java
  * @author: Kevin Anthony
@@ -12,41 +11,20 @@ import MAIN.DealingWithDeath;
 
 public class Crack extends Item
 {
-	
-	private int increaseHealth;
-	private int value;
+	protected int value;
 	
 	/**Constructor: Crack.java
 	 * Initializes object with following params.
-	 * @param location
-	 * @param isPresent
+	 * @param itemIndex
 	 * @param name
 	 * @param description
-	 * @param limit
-	 * @param quantitiy
+	 * @param value
 	 */
-	public Crack(int location, boolean isPresent, String name,
-			String description, int limit, int quantitiy, int increaseHealth, int value)
+	public Crack(int itemIndex, String name, String description, int value)
 	{
-		super(location, isPresent, name, description, limit, quantitiy);
-		this.increaseHealth = increaseHealth;
-		this.value = value;
+		super(itemIndex, name, description);
+		value = 0;
 	}
-
-	public String useCrack()
-	{
-		DealingWithDeath.getStatus().
-	}
-
-	/**Method Name: getIncreaseHealth
-	 * @return the increaseHealth
-	 */
-	public int getIncreaseHealth()
-	{
-		return increaseHealth;
-	}
-
-
 
 	/**Method Name: getValue
 	 * @return the value
@@ -56,15 +34,13 @@ public class Crack extends Item
 		return value;
 	}
 
-
-
-	/** Method Name: usable
+	/** Method Name: equipItem
 	 * Description: Override 
 	 * @return String representation of object
-	 * @see INVENTORY.Item#usable()
+	 * @see INVENTORY.Item#equipItem()
 	 */
 	@Override
-	public String usable()
+	public String equipItem()
 	{
 		return null;
 	}

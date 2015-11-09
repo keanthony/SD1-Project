@@ -1,136 +1,134 @@
 package ROOM;
 
 import java.util.Random;
-import java.util.Vector;
-import INVENTORY.Inventory;
+import java.util.Scanner;
+
+import INVENTORY.Item;
+import MAIN.DWD;
 import NPC.NPC;
+
 /**Class: Room.java
- * @author: 
- * @Collaborators:Samuel Medina
+ * @author: Adrianna Valdivia
+ * @Collaborators:Samuel Medina, Kevin Anthony
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
  * Class Description: Room class
  * Purpose: Generate and handle room and room's items
  */
-public class Room {
+public class Room
+{
 
-	private String rName;
-	private String rDescription;
-	private boolean isREmpty;
-	private boolean rRiddle;
+	protected int roomID;
+	protected String rDescription;
+	protected Riddle rRiddle;
 	//riddle boolean if room is between 1 thru whatever before the devil's house's rooms
-	private NPC crackHeads;
-	private boolean Item;
-	
+	protected NPC crackHeads;
+	protected Item item;
+	protected boolean npcPresent;
+	protected boolean itemPresent;
 
 	/**
 	 * @param rName
 	 * @param rDescription
-	 * @param isREmpty
+	 * @param npcPresent
 	 * @param rExit
 	 * @param rRiddle
 	 * @param crackHeads
 	 */
-	
 	public Room()
 	{
-		this.rName = "";
-		this.rDescription = "";
-		this.isREmpty = false;
-		this.rRiddle = false;
-		this.crackHeads = crackHeads;
-		this.Item = false;
-
+		roomID = 0;
+		rDescription = "";
+		npcPresent = false;
+		rRiddle = null;
+		crackHeads = null;
+		item = null;
 	}
 
-	
-	public Room(String rName, String rDescription, boolean isREmpty, 
-				boolean rRiddle, NPC crackHeads, boolean Item) 
+	/**Constructor: Room.java
+	 * Initializes object with following params.
+	 * @param roomID
+	 * @param rDescription
+	 * @param rRiddle
+	 * @param crackHeads
+	 * @param item
+	 */
+	public Room(int roomID, String rDescription, Riddle rRiddle, NPC crackHeads,
+			Item item)
 	{
-		this.rName = rName;
-		this.rDescription = rDescription;
-		this.isREmpty = isREmpty;
-		this.rRiddle = rRiddle;
-		this.crackHeads = crackHeads;
-		this.Item = Item;
-	}
-	
-	
-	public String getrName() {
-		return rName;
+		roomID = 0;
+		rDescription = "";
+		rRiddle = null;
+		crackHeads = null;
+		item = null;
 	}
 
-
-	public void setrName(String rName) {
-		this.rName = rName;
-	}
-
-
-	public String getrDescription() {
+	public String getrDescription()
+	{
 		return rDescription;
 	}
 
-
-	public void setrDescription(String rDescription) {
-		this.rDescription = rDescription;
+	public boolean getNpcPresent()
+	{
+		return npcPresent;
 	}
 
-
-	public boolean isREmpty() {
-		return isREmpty;
-	}
-
-
-	public void setREmpty(boolean isREmpty) {
-		this.isREmpty = isREmpty;
-	}
-
-
-	public boolean getrRiddle() {
+	public Riddle getrRiddle()
+	{
 		return rRiddle;
 	}
 
-
-	public void setrRiddle(boolean rRiddle) {
-		this.rRiddle = rRiddle;
-	}
-
-
-	public NPC getCrackHeads() {
+	public NPC getCrackHeads()
+	{
 		return crackHeads;
 	}
 
-
-	public void setCrackHeads(NPC crackHeads) {
-		this.crackHeads = crackHeads;
+	/**Method Name: getItem
+	 * @return the item
+	 */
+	public Item getItem()
+	{
+		return item;
 	}
-	
-	
 
+	/**Method Name: isItemPresent
+	 * @return the itemPresent
+	 */
+	public boolean isItemPresent()
+	{
+		return itemPresent;
+	}
 
-	public NPC initCrack() {
-		System.out.println("Initializing a Random amount of crackheads in Rooms...");
-	    
-	    //note a single Random object is reused here
-	    Random randomGenerator = new Random();
-	    for (int i = 1; i <= 1; ++i){
-	      int crackHeads = randomGenerator.nextInt(10);
-	      System.out.println("Generated : " + crackHeads + " crackheads.");
-	    }
-		return crackHeads;
+	public void enter()
+	{
+		Scanner user_input = new Scanner(System.in);
+		String move = "move";
+		if (!(user_input.next() == move))
+		{
+			System.out.println("Room Information");
+			System.out.println(getrDescription());
+			// what else should i return?
+		}
+		else
+		{
+			System.out.println("Invalid");
+		}
+		user_input.close();
 	}
-	public String enter() {
-		return null;
-	}
+
 	//Sam: This method checks if the item you are attempting to put in 
 	//your inventory is present in the current room
-	
 	public boolean isPresent()
 	{
-		return false;
-		//TODO: create a method to check if an item is present in the room
-		
+		DWD d = new DWD();
+		if (d.getRoomAL().get(d.getStatus().getRoomID()).itemPresent)
+			return true;
+		else
+			return false;
 	}
+
+	// implement Inpect method? to return 
+	//specific information of different objects: room, item, crackhead;
 
 }

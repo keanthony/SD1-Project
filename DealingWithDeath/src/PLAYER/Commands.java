@@ -11,7 +11,7 @@ package PLAYER;
 
 public enum Commands
 {
-	attack, moveForward, moveBackward, inventory, use, equipArmor, equipWeapon,
-	drop, take,	deal, sell
+	attack, move, inventory, equip,
+	drop, take,	deal, sell, inspect
 	
 }

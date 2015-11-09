@@ -11,53 +11,40 @@ package INVENTORY;
 
 public abstract class Item
 {
-	private int location;
-	private boolean isPresent;
-	private String name;
-	private String description;
-	private int limit;
-	private int quantitiy;
-
-	
+	protected int itemIndex;
+	protected String name;
+	protected String description;
+		
 	/**Constructor: Item.java
 	 * Initializes object with following params.
-	 * @param location
-	 * @param isPresent
 	 * @param name
 	 * @param description
-	 * @param limit
-	 * @param quantitiy
+	 * @param itemIndex
 	 */
-	public Item(int location, boolean isPresent, String name,
-			String description, int limit, int quantitiy)
+	public Item(int itemIndex, String name,String description)
 	{
-		this.location = location;
-		this.isPresent = isPresent;
-		this.name = name;
-		this.description = description;
-		this.limit = limit;
-		this.quantitiy = quantitiy;
+		itemIndex = 0;
+		name = "";
+		description = "";
 	}
 
-	public abstract String usable();
+	/**Method Name: getItemIndex
+	 * @return the itemIndex
+	 */
+	public int getItemIndex()
+	{
+		return itemIndex;
+	}
+	
 	public String getDescription()
 	{
 		return description;
 	}
+	
 	public String getName()
 	{
 		return name;
 	}
-	public boolean isEquipable(Weapon weapon)
-	{
-		return false;
-	}
 
-	public boolean isEquipable(Armor armor)
-	{
-		return false;
-	}
-	
-	
-	
+	public abstract String equipItem();
 }
