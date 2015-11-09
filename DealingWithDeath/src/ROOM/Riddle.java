@@ -25,6 +25,7 @@ public class Riddle
 	 * @param question
 	 * @param solution
 	 */
+	// NO ARG CONSTRUCTOR NEED TO BE CREATED
 	public Riddle(int riddleId, String question, int solution)
 	{
 		riddleId = 0;
@@ -65,10 +66,6 @@ public class Riddle
 			result = "Sorry, your answer was incorrect";
 		}
 		return result;
-		// if in room [1] riddle is " question 1 "
-		// else if in room [2] riddle is " questions 2"
-		// etc so on
-		// has to be at least 6 rooms, so 6 riddles
 	}
 
 	public void reward(Room lastRoom)

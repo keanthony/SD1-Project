@@ -173,6 +173,9 @@ public class DWD
 				"What has a foot, but no legs?\n 1. A Roach\n2. A Turtle\n3. A Snail\n4. A Human",
 				3));
 		//TODO: Generate Riddle Data
+		// IF WE ADD RIDDLE SOLUTION TO ARRAY LIST, IT CANNOT PRINT WITH THE RIDDLE
+		// CHANGE THE CONSTRUCTOR?
+		// THE USER INPUTS THE ANSWER MUST CALL THE QUESTION METHOD IN RIDDLE CLASS
 	}
 
 	public void makeItem()
