@@ -9,6 +9,7 @@ import ROOM.*;
 
 /**Class: DWD.java
  * @author: Kevin Anthony
+ * @collaborator 
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -143,10 +144,10 @@ public class DWD
 		}
 	}
 
-	/**Method Name: makeNPC
+	/**Method Name: makeRiddle
 	 *  @author: Kevin Anthony
-	 * Description: Generates all of the NPC objects.  The Devil is a special 
-	 * NPC that only appears in rooms 24-29
+	 * Description: Generates all of the Riddle objects.  The Riddles only 
+	 * appear in rooms 24-29
 	 */
 	public void makeRiddle()
 	{
@@ -173,11 +174,14 @@ public class DWD
 				"What has a foot, but no legs?\n 1. A Roach\n2. A Turtle\n3. A Snail\n4. A Human",
 				3));
 		//TODO: Generate Riddle Data
-		// IF WE ADD RIDDLE SOLUTION TO ARRAY LIST, IT CANNOT PRINT WITH THE RIDDLE
-		// CHANGE THE CONSTRUCTOR?
-		// THE USER INPUTS THE ANSWER MUST CALL THE QUESTION METHOD IN RIDDLE CLASS
 	}
 
+	/**Method Name: makeItem
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the Item objects.  There are 3 types of 
+	 * Items: Armor, Weapon, and Crack.  They all extend Item.  Armor boosts
+	 * Health, Weapons boost Damage, Crack has a value and can be sold to NPC's
+	 */
 	public void makeItem()
 	{
 		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
@@ -246,7 +250,6 @@ public class DWD
 	 * Description: Rooms 0-23 do not get a Riddle or the Devil NPC.  Rooms 24-
 	 * 29 get a random Riddle and a random chance of the Devil.
 	 */
-	
 	public void makeRoom()
 	{
 		roomAL.add(new Room(0,
