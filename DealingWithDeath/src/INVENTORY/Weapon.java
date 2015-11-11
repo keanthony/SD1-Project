@@ -1,7 +1,7 @@
 package INVENTORY;
 
 /**Class: Weapon.java
- * @author: Kevin Anthony
+ * @author: Kevin Anthony 100%
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -24,7 +24,6 @@ public class Weapon extends Item
 		super(itemIndex, name, description);
 		damage = 0;
 	}
-
 
 	/**Method Name: getDamage
 	 * @return the damage

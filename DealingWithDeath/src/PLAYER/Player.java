@@ -1,10 +1,9 @@
 package PLAYER;
-import java.util.ArrayList;
 
-import INVENTORY.Armor;
-import INVENTORY.Crack;
-import INVENTORY.Item;
-import INVENTORY.Weapon;
+import ROOM.*;
+//>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
+import java.util.ArrayList;
+import INVENTORY.*;
 import NPC.NPC;
 import ROOM.Room;
 

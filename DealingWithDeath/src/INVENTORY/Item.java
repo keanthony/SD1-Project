@@ -1,6 +1,6 @@
 package INVENTORY;
 /**Class: Item.java
- * @author: Kevin Anthony
+ * @author: Kevin Anthony 100%
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015

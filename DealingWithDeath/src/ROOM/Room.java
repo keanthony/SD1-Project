@@ -1,8 +1,5 @@
 package ROOM;
-
-import java.util.Random;
 import java.util.Scanner;
-
 import INVENTORY.Item;
 import MAIN.DWD;
 import NPC.NPC;

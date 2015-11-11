@@ -1,11 +1,13 @@
 package MAIN;
 
+
 import ROOM.Room;
 
+//=======
+//>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
 import INVENTORY.*;
 import NPC.NPC;
 import PLAYER.Player;
@@ -13,6 +15,7 @@ import ROOM.*;
 
 /**Class: DWD.java
  * @author: Kevin Anthony
+ * @collaborator 
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -100,6 +103,11 @@ public class DWD
 		return status;
 	}
 
+	/**Method Name: makeNPC
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the NPC objects.  The Devil is a special 
+	 * NPC that only appears in rooms 24-29
+	 */
 	public void makeNPC()
 	{
 		System.out.println("Populating the rooms with crackheads...");
@@ -142,6 +150,11 @@ public class DWD
 		}
 	}
 
+	/**Method Name: makeRiddle
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the Riddle objects.  The Riddles only 
+	 * appear in rooms 24-29
+	 */
 	public void makeRiddle()
 	{
 		System.out.println("Populating the rooms with riddles...");
@@ -169,6 +182,12 @@ public class DWD
 		//TODO: Generate Riddle Data
 	}
 
+	/**Method Name: makeItem
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the Item objects.  There are 3 types of 
+	 * Items: Armor, Weapon, and Crack.  They all extend Item.  Armor boosts
+	 * Health, Weapons boost Damage, Crack has a value and can be sold to NPC's
+	 */
 	public void makeItem()
 	{
 		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
@@ -237,7 +256,6 @@ public class DWD
 	 * Description: Rooms 0-23 do not get a Riddle or the Devil NPC.  Rooms 24-
 	 * 29 get a random Riddle and a random chance of the Devil.
 	 */
-	
 	public void makeRoom()
 	{
 		roomAL.add(new Room(0,
