@@ -1,7 +1,9 @@
 package PLAYER;
+
 import ROOM.*;
 import java.util.ArrayList;
 import INVENTORY.*;
+import MAIN.DWD;
 import NPC.NPC;
 
 /**Class: Player.java
@@ -14,23 +16,29 @@ import NPC.NPC;
  * Purpose: Generate and handle Player interactions
  */
 
-
-public class Player 
+public class Player
 {
-	private int health;
-	private ArrayList<Integer> inventory;
+	protected int health;
+	protected ArrayList<Integer> inventory;
 	private Item it;
 	private Commands command;
 	private Weapon weap;
 	private Armor arm;
 	private Crack crac;
-	Room item = new Room();
+	protected Room item;
+	protected Player player; 
+	protected DWD dwd;
+
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 */
 	public Player()
 	{
 		health = 100;
+		player = new Player();
+		item  = new Room();
+		dwd  = new DWD();
+		inventory = new ArrayList<Integer>();
 	}
 
 	/**Constructor: Player.java
@@ -40,27 +48,25 @@ public class Player
 	 */
 	public Player(int health, ArrayList<Integer> inventory)
 	{
-		this.health = health;
+		health = 100;
 		this.inventory = inventory;
 	}
 
-	
 	/**Method Name: getWeap
 	 * @return the weap
+	 * Checks to see if the weapon is in the room and adds it to the ArrayList
 	 */
-	public Weapon getWeap(int numItem)
+	public String getWeap(int numItem)
 	{
-
-		if(item.isPresent())
+		if (item.isPresent())
 		{
-			
-		inventory.add(numItem);
-		
+
+			inventory.add(numItem);
+
 		}
-		return weap;
+		return "Armor is now in your inventory";
 	}
 
-	
 	/**Method Name: getInventory
 	 * @return the inventory
 	 */
@@ -76,22 +82,22 @@ public class Player
 
 	public String take(int numItem)
 	{
-		if(item.isPresent())
+		if (item.isPresent())
 		{
 			inventory.add(numItem);
 		}
-		
-		return "Item is in your inventory";
+
+		return "Item is now in your inventory";
 	}
+
 	//gives a description of the item
 	public String inspect(Item inspectItem)
 	{
-		if(item.isPresent())
+		if (item.isPresent())
 		{
 			inspectItem.getDescription();
 		}
-		
-		
+
 		return inspectItem.getDescription();
 	}
 
@@ -102,9 +108,9 @@ public class Player
 
 	public void goToHell(Room hell)
 	{
-		Player player = new Player();
 		
-		if(health < 1)
+
+		if (health < 1)
 		{
 			player.goTo(hell);
 		}
@@ -117,10 +123,10 @@ public class Player
 	{
 
 	}
-//Gives options to ether fight 
+
+	//Gives options to ether fight 
 	public void approach(NPC enemy)
 	{
-		
 
 	}
 
