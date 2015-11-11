@@ -48,7 +48,7 @@ public class Player
 		score = new Score();
 		damage = 5;
 		crac = new Crack(damage, null, null, damage);
-		
+
 	}
 
 	/**Constructor: Player.java
@@ -65,7 +65,7 @@ public class Player
 		score = sc;
 		damage = dm;
 	}
-	
+
 
 	/**
 	 * @return the health
@@ -102,11 +102,21 @@ public class Player
 		}
 	}
 
+	/**goTo
+	 * @param room
+	 * lets you enter a new room
+	 */
 	public void goTo(Room room)
 	{
 		room.enter();
 	}
 
+	/**
+	 * take
+	 * @param numItem
+	 * @return
+	 * lets you take an item and put in on your inventory
+	 */
 	public String take(int numItem)
 	{
 		if (item.isPresent())
@@ -127,11 +137,10 @@ public class Player
 
 		return inspectItem.getDescription();
 	}
-
-	public void fight(NPC enemy)
+	//Calls the actions to fight the NPC
+	public void fight(Battle enemy)
 	{
-		
-
+		//enemy.npcAttack();
 	}
 
 	public void goToHell(Room hell)
@@ -145,12 +154,12 @@ public class Player
 
 	}
 	/*//trades crack with the NPC
-	*//**
+	 *//**
 	 * @param trade
 	 *//*
 	public void trade(NPC trade)
 	{
-	
+
 
 	}
 
@@ -159,5 +168,5 @@ public class Player
 	{
 
 	}
-*/
+	  */
 }
