@@ -41,6 +41,11 @@ public class NPC
 	{
 		health = 100;
 	}
+	//used to get the health of the current NPC
+	public NPC(int health)
+	{
+		health = 100;
+	}
 
 	public void attack()
 	{
