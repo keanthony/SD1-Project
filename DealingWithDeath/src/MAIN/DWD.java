@@ -24,7 +24,6 @@ public class DWD
 	protected ArrayList<NPC> npcAL = new ArrayList<NPC>();
 	protected ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
 	protected ArrayList<Item> itemAL = new ArrayList<Item>();
-	protected ArrayList<String> roomDescriptionsAL = new ArrayList<String>();
 	protected int roomID;
 	protected Player myPlayer;
 	protected static DWD status;
@@ -460,6 +459,7 @@ public class DWD
 		if (roomAL.get(room).getNpcPresent())
 		{
 			NPC npc = roomAL.get(room).getCrackHeads();
+			System.out.println(roomAL.get(room).getCrackHeads());
 		}
 	}
 

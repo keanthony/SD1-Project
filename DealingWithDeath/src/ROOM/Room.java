@@ -127,5 +127,5 @@ public class Room
 
 	// implement Inpect method? to return 
 	//specific information of different objects: room, item, crackhead;
-
+	
 }
