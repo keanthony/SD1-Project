@@ -28,6 +28,8 @@ public class Player
 	protected Room item;
 	protected Player player; 
 	protected DWD dwd;
+	protected Score score;
+	protected int damage;
 
 	/**Constructor: Player.java
 	 * Initializes object with following params.
@@ -39,17 +41,25 @@ public class Player
 		item  = new Room();
 		dwd  = new DWD();
 		inventory = new ArrayList<Integer>();
+		score = new Score();
+		damage = 5;
+		crac = new Crack(damage, null, null, damage);
+		
 	}
 
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param health
 	 * @param inventory
+	 * @param score
+	 * @param damage
 	 */
-	public Player(int health, ArrayList<Integer> inventory)
+	public Player(int health, ArrayList<Integer> inventory, Score sc, int dm)
 	{
 		health = 100;
-		this.inventory = inventory;
+		inventory = new ArrayList<Integer>();
+		score = sc;
+		damage = dm;
 	}
 
 	/**Method Name: getWeap
@@ -69,10 +79,14 @@ public class Player
 
 	/**Method Name: getInventory
 	 * @return the inventory
+	 * Checks what's on the inventory and shows it to the user
 	 */
-	public ArrayList<Integer> getInventory()
+	public void  getInventory()
 	{
-		return inventory;
+		for (Item item : dwd.getItemAL())
+		{
+			System.out.println(item);
+		}
 	}
 
 	public void goTo(Room room)
@@ -103,13 +117,12 @@ public class Player
 
 	public void fight(NPC enemy)
 	{
+		
 
 	}
 
 	public void goToHell(Room hell)
 	{
-		
-
 		if (health < 1)
 		{
 			player.goTo(hell);
@@ -118,16 +131,20 @@ public class Player
 		//what's going to be passed is an integer
 
 	}
-
+	/*//trades crack with the NPC
+	*//**
+	 * @param trade
+	 *//*
 	public void trade(NPC trade)
 	{
+	
 
 	}
 
-	//Gives options to ether fight 
+	//Gives options to ether fight or trade 
 	public void approach(NPC enemy)
 	{
 
 	}
-
+*/
 }

@@ -71,6 +71,14 @@ public class DWD
 		r = new Random();
 	}
 
+	
+	/**
+	 * @return the itemAL
+	 */
+	public ArrayList<Item> getItemAL() {
+		return itemAL;
+	}
+
 	/**Method Name: getRoomAL
 	 * @return the roomAL
 	 */
