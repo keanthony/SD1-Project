@@ -120,12 +120,26 @@ public class Room
 	{
 		DWD d = new DWD();
 		if (d.getRoomAL().get(d.getStatus().getRoomID()).itemPresent)
+		{
 			return true;
+		}
 		else
+		{
 			return false;
+		}
+			
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "Room [Room Number: " + roomID + ", Room Description: " + rDescription + ", Crackhead Count: "
+				+ crackHeads + ", Other NPC Present: " + npcPresent + ", Items Present " + itemPresent + "]";
 	}
 
 	// implement Inpect method? to return 
 	//specific information of different objects: room, item, crackhead;
+	
+	
 	
 }
