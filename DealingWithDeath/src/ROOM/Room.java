@@ -60,6 +60,7 @@ public class Room
 		crackHeads = null;
 		item = null;
 	}
+	
 
 	public String getrDescription()
 	{

@@ -34,6 +34,10 @@ public class Player
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 */
+	public Player(int health)
+	{
+		health = 100; 
+	}
 	public Player()
 	{
 		health = 100;
@@ -60,6 +64,15 @@ public class Player
 		inventory = new ArrayList<Integer>();
 		score = sc;
 		damage = dm;
+	}
+	
+
+	/**
+	 * @return the health
+	 */
+	public int getHealth() 
+	{
+		return health;
 	}
 
 	/**Method Name: getWeap

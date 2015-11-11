@@ -9,7 +9,7 @@ import ROOM.*;
 
 /**Class: DWD.java
  * @author: Kevin Anthony
- * @collaborator 
+ * @collaborator:
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -46,6 +46,8 @@ public class DWD
 	public DWD(ArrayList<Room> roomAL, ArrayList<NPC> npcAL,
 			ArrayList<Riddle> riddleAL, ArrayList<Item> itemAL)
 	{
+		myPlayer = new Player();
+		health = 100;
 		roomAL = null;
 		npcAL = null;
 		riddleAL = null;
@@ -59,8 +61,14 @@ public class DWD
 	/**Constructor: DWD.java
 	 * Initializes object with following params.
 	 */
+	public DWD(int damage)
+	{
+		damage = 20;
+	}
+	
 	public DWD()
 	{
+		myPlayer = new Player();
 		roomAL = null;
 		npcAL = null;
 		riddleAL = null;
@@ -72,10 +80,28 @@ public class DWD
 	}
 
 	
+	
+	/**
+	 * @return the health
+	 */
+	public int getHealth() 
+	{
+		return health;
+	}
+
+	/**
+	 * @return the myPlayer
+	 */
+	public Player getMyPlayer() 
+	{
+		return myPlayer;
+	}
+
 	/**
 	 * @return the itemAL
 	 */
-	public ArrayList<Item> getItemAL() {
+	public ArrayList<Item> getItemAL() 
+	{
 		return itemAL;
 	}
 
@@ -141,7 +167,6 @@ public class DWD
 		{ npc0, npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
 
 		//note a single Random object is reused here
-		Random r = new Random();
 		for (int i = 0; i < 30; i++)
 		{
 			if (r.nextInt(10) < 8)
