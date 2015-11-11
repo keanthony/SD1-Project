@@ -29,6 +29,7 @@ public class Player
 	private Armor arm;
 	private Crack crac;
 	Room item = new Room();
+	NPC npc = new NPC(health);
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 */
@@ -101,6 +102,7 @@ public class Player
 
 	public void fight(NPC enemy)
 	{
+		
 
 	}
 
@@ -121,11 +123,15 @@ public class Player
 	{
 
 	}
-//Gives options to ether fight 
+//Gives options to either fight or deal  
 	public void approach(NPC enemy)
 	{
 		
 
+	}
+	public void attack()
+	{
+		
 	}
 
 }

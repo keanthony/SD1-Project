@@ -32,9 +32,14 @@ public class NPC
 		npcID = 0;
 		name = "";
 		description = "";
-		health = 0;
+		health = 100;
 		damage = 0;
 		attack = false;
+	}
+	//used to get the health of the current NPC
+	public NPC(int health)
+	{
+		health = 100;
 	}
 
 	public void attack()

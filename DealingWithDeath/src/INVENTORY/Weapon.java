@@ -25,6 +25,7 @@ public class Weapon extends Item
 		damage = 0;
 	}
 
+
 	/**Method Name: getDamage
 	 * @return the damage
 	 */

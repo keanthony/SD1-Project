@@ -1,6 +1,6 @@
 package MAIN;
 
-import Room;
+import ROOM.Room;
 
 import java.util.ArrayList;
 import java.util.Random;
