@@ -10,6 +10,7 @@ import ROOM.*;
 /**Class: DWD.java
  * @author: Kevin Anthony
  * @collaborator:Soheb Samshuddin
+ * @collaborator:
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -56,6 +57,7 @@ public class DWD
 	 */
 	public DWD()
 	{
+		myPlayer = new Player();
 		roomAL = null;
 		npcAL = null;
 		riddleAL = null;
@@ -64,6 +66,32 @@ public class DWD
 		roomID = -1;
 		fight = false;
 		r = new Random();
+	}
+
+	
+	
+	/**
+	 * @return the health
+	 */
+	public int getHealth() 
+	{
+		return health;
+	}
+
+	/**
+	 * @return the myPlayer
+	 */
+	public Player getMyPlayer() 
+	{
+		return myPlayer;
+	}
+
+	/**
+	 * @return the itemAL
+	 */
+	public ArrayList<Item> getItemAL() 
+	{
+		return itemAL;
 	}
 
 	/**Method Name: getRoomAL
@@ -128,7 +156,6 @@ public class DWD
 		{ npc0, npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
 
 		//note a single Random object is reused here
-		Random r = new Random();
 		for (int i = 0; i < 30; i++)
 		{
 			if (r.nextInt(10) < 8)

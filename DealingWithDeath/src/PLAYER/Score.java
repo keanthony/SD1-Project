@@ -1,18 +1,55 @@
 package PLAYER;
+/**Class: Score.java
+ * @author: Samuel Medina
+ * @collaborator: 
+ * @version: 1.0
+ * Course : ITEC 3860 Fall 2015 Dr. Johnson
+ * Date Written: Oct 30, 2015
+ * Class Description: Score class
+ * Purpose: Generate and handle Score interactions
+ */
 
 public class Score {
 
 	private int money;
+	
+	public Score()
+	{
+		money = 0;
+	}
+	
 
-	public void makeMoney() {
+	/**
+	 * @return the money
+	 */
+	public int getMoney() 
+	{
+		return money;
+	}
+
+
+	/**
+	 * @param money the money to set
+	 */
+	public void setMoney(int money) 
+	{
+		this.money = money;
+	}
+
+
+	public void makeMoney() 
+	{
+		
 
 	}
 
-	public void loseMoney() {
+	public void loseMoney() 
+	{
 
 	}
 
-	public void saveMoney() {
+	public void saveMoney() 
+	{
 
 	}
 

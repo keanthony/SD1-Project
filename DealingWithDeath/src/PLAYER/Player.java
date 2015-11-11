@@ -1,9 +1,11 @@
 package PLAYER;
+
 import ROOM.*;
 
 import java.util.ArrayList;
 
 import INVENTORY.*;
+import MAIN.DWD;
 import NPC.NPC;
 
 /**Class: Player.java
@@ -16,98 +18,137 @@ import NPC.NPC;
  * Purpose: Generate and handle Player interactions
  */
 
-
-public class Player 
+public class Player
 {
-	private int health;
-	private ArrayList<Integer> inventory;
+	protected int health;
+	protected ArrayList<Integer> inventory;
 	private Item it;
 	private Commands command;
 	private Weapon weap;
 	private Armor arm;
 	private Crack crac;
-	Room item = new Room();
+	protected Room item;
+	protected Player player; 
+	protected DWD dwd;
+	protected Score score;
+	protected int damage;
+
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param userName 
 	 */
+	public Player(int health)
+	{
+		health = 100; 
+	}
 	public Player(String userName)
 	{
 		health = 100;
+		player = new Player();
+		item  = new Room();
+		dwd  = new DWD();
+		inventory = new ArrayList<Integer>();
+		score = new Score();
+		damage = 5;
+		crac = new Crack(damage, null, null, damage);
+
 	}
 
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param health
 	 * @param inventory
+	 * @param score
+	 * @param damage
 	 */
-	public Player(int health, ArrayList<Integer> inventory)
+	public Player(int health, ArrayList<Integer> inventory, Score sc, int dm)
 	{
-		this.health = health;
-		this.inventory = inventory;
+		health = 100;
+		inventory = new ArrayList<Integer>();
+		score = sc;
+		damage = dm;
 	}
 
-	
+
+	/**
+	 * @return the health
+	 */
+	public int getHealth() 
+	{
+		return health;
+	}
+
 	/**Method Name: getWeap
 	 * @return the weap
+	 * Checks to see if the weapon is in the room and adds it to the ArrayList
 	 */
-	public Weapon getWeap(int numItem)
+	public String getWeap(int numItem)
 	{
-
-		if(item.isPresent())
+		if (item.isPresent())
 		{
-			
-		inventory.add(numItem);
-		
+
+			inventory.add(numItem);
+
 		}
-		return weap;
+		return "Armor is now in your inventory";
 	}
 
-	
 	/**Method Name: getInventory
 	 * @return the inventory
+	 * Checks what's on the inventory and shows it to the user
 	 */
-	public ArrayList<Integer> getInventory()
+	public void  getInventory()
 	{
-		return inventory;
+		for (Item item : dwd.getItemAL())
+		{
+			System.out.println(item);
+		}
 	}
 
+	/**goTo
+	 * @param room
+	 * lets you enter a new room
+	 */
 	public void goTo(Room room)
 	{
 		room.enter();
 	}
 
+	/**
+	 * take
+	 * @param numItem
+	 * @return
+	 * lets you take an item and put in on your inventory
+	 */
 	public String take(int numItem)
 	{
-		if(item.isPresent())
+		if (item.isPresent())
 		{
 			inventory.add(numItem);
 		}
-		
-		return "Item is in your inventory";
+
+		return "Item is now in your inventory";
 	}
+
 	//gives a description of the item
 	public String inspect(Item inspectItem)
 	{
-		if(item.isPresent())
+		if (item.isPresent())
 		{
 			inspectItem.getDescription();
 		}
-		
-		
+
 		return inspectItem.getDescription();
 	}
-
-	public void fight(NPC enemy)
+	//Calls the actions to fight the NPC
+	public void fight(Battle enemy)
 	{
-
+		//enemy.npcAttack();
 	}
 
 	public void goToHell(Room hell)
 	{
-		Player player = new Player();
-		
-		if(health < 1)
+		if (health < 1)
 		{
 			player.goTo(hell);
 		}
@@ -115,15 +156,19 @@ public class Player
 		//what's going to be passed is an integer
 
 	}
-
+	/*//trades crack with the NPC
+	 *//**
+	 * @param trade
+	 *//*
 	public void trade(NPC trade)
 	{
 
+
 	}
-//Gives options to ether fight 
+
+	//Gives options to ether fight or trade 
 	public void approach(NPC enemy)
 	{
-		
 
 	}
 
@@ -133,4 +178,6 @@ public class Player
 	}
 
 
+}
+	  */
 }
