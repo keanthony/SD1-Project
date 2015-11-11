@@ -76,4 +76,11 @@ public class Riddle
 			p.goTo(lastRoom);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Riddle [Riddle ID: " + riddleId + ", Riddle: " + question + "]";
+	}
+	
+	
 }
