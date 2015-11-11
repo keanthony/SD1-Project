@@ -12,7 +12,7 @@ package INVENTORY;
 public class Crack extends Item
 {
 	protected int value;
-	
+		
 	/**Constructor: Crack.java
 	 * Initializes object with following params.
 	 * @param itemIndex
