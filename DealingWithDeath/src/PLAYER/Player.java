@@ -1,11 +1,8 @@
 package PLAYER;
-
 import ROOM.*;
-//>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 import java.util.ArrayList;
 import INVENTORY.*;
 import NPC.NPC;
-import ROOM.Room;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -28,7 +25,6 @@ public class Player
 	private Armor arm;
 	private Crack crac;
 	Room item = new Room();
-	NPC npc = new NPC(health);
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 */
@@ -101,7 +97,6 @@ public class Player
 
 	public void fight(NPC enemy)
 	{
-		
 
 	}
 
@@ -122,15 +117,11 @@ public class Player
 	{
 
 	}
-//Gives options to either fight or deal  
+//Gives options to ether fight 
 	public void approach(NPC enemy)
 	{
 		
 
-	}
-	public void attack()
-	{
-		
 	}
 
 }
