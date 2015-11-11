@@ -1,6 +1,8 @@
 package PLAYER;
 import ROOM.*;
+
 import java.util.ArrayList;
+
 import INVENTORY.*;
 import NPC.NPC;
 
@@ -27,8 +29,9 @@ public class Player
 	Room item = new Room();
 	/**Constructor: Player.java
 	 * Initializes object with following params.
+	 * @param userName 
 	 */
-	public Player()
+	public Player(String userName)
 	{
 		health = 100;
 	}
@@ -123,5 +126,11 @@ public class Player
 		
 
 	}
+
+	public static String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

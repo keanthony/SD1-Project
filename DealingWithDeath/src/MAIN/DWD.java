@@ -9,6 +9,7 @@ import ROOM.*;
 
 /**Class: DWD.java
  * @author: Kevin Anthony
+ * @collaborator:Soheb Samshuddin
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -23,19 +24,13 @@ public class DWD
 	protected ArrayList<NPC> npcAL = new ArrayList<NPC>();
 	protected ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
 	protected ArrayList<Item> itemAL = new ArrayList<Item>();
-	protected ArrayList<String> roomDescriptionsAL = new ArrayList<String>();
 	protected int roomID;
 	protected Player myPlayer;
 	protected static DWD status;
 	protected boolean fight;
 	protected Random r;
 	private String options;
-	private int health;
-	private String name;
-	private int damage;
-	private int money;
-	private String tutorial;
-	private String listOfPlayers;
+
 
 	/**Constructor: DWD.java
 	 * Initializes object with following params.
@@ -143,10 +138,10 @@ public class DWD
 		}
 	}
 
-	/**Method Name: makeNPC
+	/**Method Name: makeRiddle
 	 *  @author: Kevin Anthony
-	 * Description: Generates all of the NPC objects.  The Devil is a special 
-	 * NPC that only appears in rooms 24-29
+	 * Description: Generates all of the Riddle objects.  The Riddles only 
+	 * appear in rooms 24-29
 	 */
 	public void makeRiddle()
 	{
@@ -175,6 +170,12 @@ public class DWD
 		//TODO: Generate Riddle Data
 	}
 
+	/**Method Name: makeItem
+	 *  @author: Kevin Anthony
+	 * Description: Generates all of the Item objects.  There are 3 types of 
+	 * Items: Armor, Weapon, and Crack.  They all extend Item.  Armor boosts
+	 * Health, Weapons boost Damage, Crack has a value and can be sold to NPC's
+	 */
 	public void makeItem()
 	{
 		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
@@ -243,7 +244,6 @@ public class DWD
 	 * Description: Rooms 0-23 do not get a Riddle or the Devil NPC.  Rooms 24-
 	 * 29 get a random Riddle and a random chance of the Devil.
 	 */
-	
 	public void makeRoom()
 	{
 		roomAL.add(new Room(0,
@@ -389,20 +389,7 @@ public class DWD
 		//TODO: Generate rooms
 	}
 
-	public String newGame()
-	{
-		return null;
-	}
-
-	public void save()
-	{
-
-	}
-
-	public String load()
-	{
-		return null;
-	}
+	
 
 	//Adrianna
 	public void enterUserName()
@@ -454,6 +441,7 @@ public class DWD
 		if (roomAL.get(room).getNpcPresent())
 		{
 			NPC npc = roomAL.get(room).getCrackHeads();
+			System.out.println(roomAL.get(room).getCrackHeads());
 		}
 	}
 
