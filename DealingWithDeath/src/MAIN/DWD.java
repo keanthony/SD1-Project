@@ -57,7 +57,7 @@ public class DWD
 	 */
 	public DWD()
 	{
-		myPlayer = new Player();
+		myPlayer = new Player(100);
 		roomAL = null;
 		npcAL = null;
 		riddleAL = null;
@@ -66,16 +66,6 @@ public class DWD
 		roomID = -1;
 		fight = false;
 		r = new Random();
-	}
-
-	
-	
-	/**
-	 * @return the health
-	 */
-	public int getHealth() 
-	{
-		return health;
 	}
 
 	/**
@@ -471,10 +461,4 @@ public class DWD
 			System.out.println(roomAL.get(room).getCrackHeads());
 		}
 	}
-
-	public static void main(String[] args)
-	{
-		status.enterUserName();
-	}
-
 }

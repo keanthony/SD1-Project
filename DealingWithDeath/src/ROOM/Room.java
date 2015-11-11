@@ -117,10 +117,10 @@ public class Room
 
 	//Sam: This method checks if the item you are attempting to put in 
 	//your inventory is present in the current room
-	public boolean isPresent()
+	public boolean isPresent(Item item)
 	{
 		DWD d = new DWD();
-		if (d.getRoomAL().get(d.getStatus().getRoomID()).itemPresent)
+		if (d.getRoomAL().get(d.getStatus().getRoomID()).getItem() == item)
 		{
 			return true;
 		}

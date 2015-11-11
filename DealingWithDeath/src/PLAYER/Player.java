@@ -21,18 +21,33 @@ import NPC.NPC;
 public class Player
 {
 	protected int health;
-	protected ArrayList<Integer> inventory;
+	protected ArrayList<Item> inventory;
 	private Item it;
 	private Commands command;
 	private Weapon weap;
 	private Armor arm;
 	private Crack crac;
-	protected Room item;
+	protected Room room;
 	protected Player player; 
 	protected DWD dwd;
 	protected Score score;
 	protected int damage;
 
+	
+	/**
+	 * 
+	 */
+	public Player() 
+	{
+		health = 100;
+		player = new Player(health);
+		room  = new Room();
+		dwd  = new DWD();
+		inventory = new ArrayList<Item>();
+		score = new Score();
+		damage = 5;
+		crac = new Crack(damage, null, null, damage);
+	}
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param userName 
@@ -41,13 +56,15 @@ public class Player
 	{
 		health = 100; 
 	}
-	public Player(String userName)
+	
+	public Player(String userName, int health, int damage, Score score, 
+			Room room, ArrayList<Item> inventory)
 	{
 		health = 100;
-		player = new Player();
-		item  = new Room();
+		player = new Player(health);
+		room  = new Room();
 		dwd  = new DWD();
-		inventory = new ArrayList<Integer>();
+		inventory = new ArrayList<Item>();
 		score = new Score();
 		damage = 5;
 		crac = new Crack(damage, null, null, damage);
@@ -82,15 +99,14 @@ public class Player
 	 * @return the weap
 	 * Checks to see if the weapon is in the room and adds it to the ArrayList
 	 */
-	public String getWeap(int numItem)
+	public String getWeap(Item item)
 	{
-		if (item.isPresent())
+		if (room.isPresent(item))
 		{
-
-			inventory.add(numItem);
-
+			inventory.add(item);
+			return "Item is now in your inventory";
 		}
-		return "Armor is now in your inventory";
+		else return "Item not found";
 	}
 
 	/**Method Name: getInventory
@@ -120,25 +136,24 @@ public class Player
 	 * @return
 	 * lets you take an item and put in on your inventory
 	 */
-	public String take(int numItem)
+	public String take(Item item)
 	{
-		if (item.isPresent())
+		if (room.isPresent(item))
 		{
-			inventory.add(numItem);
+			inventory.add(item);
 		}
 
 		return "Item is now in your inventory";
 	}
 
 	//gives a description of the item
-	public String inspect(Item inspectItem)
+	public String inspect(Item item)
 	{
-		if (item.isPresent())
+		if (room.isPresent(item))
 		{
-			inspectItem.getDescription();
+			return item.getDescription();
 		}
-
-		return inspectItem.getDescription();
+		else return "Item not found";
 	}
 	//Calls the actions to fight the NPC
 	public void fight(Battle enemy)
