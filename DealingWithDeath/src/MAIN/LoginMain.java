@@ -14,8 +14,8 @@ public class LoginMain {
 	/**
 	 * @param userName
 	 */
-	public LoginMain(SimpleStringProperty userName) {
-		this.userName = userName;
+	public LoginMain(String userName) {
+		this.userName = new SimpleStringProperty(userName);
 	}
 
 	public String getUserName() {
