@@ -10,7 +10,6 @@ import ROOM.*;
 /**Class: DWD.java
  * @author: Kevin Anthony
  * @collaborator:Soheb Samshuddin
- * @collaborator:
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -32,7 +31,6 @@ public class DWD
 	protected Random r;
 	private String options;
 
-
 	/**Constructor: DWD.java
 	 * Initializes object with following params.
 	 * @param roomAL
@@ -42,10 +40,10 @@ public class DWD
 	public DWD(ArrayList<Room> roomAL, ArrayList<NPC> npcAL,
 			ArrayList<Riddle> riddleAL, ArrayList<Item> itemAL)
 	{
-		roomAL = null;
-		npcAL = null;
-		riddleAL = null;
-		itemAL = null;
+		this.roomAL = roomAL;
+		this.npcAL = npcAL;
+		this.riddleAL = riddleAL;
+		this.itemAL = itemAL;
 		status = this;
 		roomID = -1;
 		fight = false;
