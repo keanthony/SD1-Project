@@ -57,6 +57,7 @@ public class Player
 		health = 100; 
 	}
 	
+	
 	public Player(String userName, int health, int damage, Score score, 
 			Room room, ArrayList<Item> inventory)
 	{
