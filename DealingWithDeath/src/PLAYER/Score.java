@@ -1,5 +1,7 @@
 package PLAYER;
 
+import java.io.Serializable;
+
 /**Class: Score.java
  * @author: Samuel Medina
  * @collaborator: 
@@ -10,7 +12,7 @@ package PLAYER;
  * Purpose: Generate and handle Score interactions
  */
 
-public class Score
+public class Score implements Serializable
 {
 
 	private int money;

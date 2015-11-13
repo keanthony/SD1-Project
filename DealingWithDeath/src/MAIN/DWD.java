@@ -1,5 +1,6 @@
 package MAIN;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,7 +20,7 @@ import ROOM.*;
  * Monsters, and Puzzles
  */
 
-public class DWD
+public class DWD implements Serializable
 {
 	protected ArrayList<Room> roomAL = new ArrayList<Room>();
 	protected ArrayList<NPC> npcAL = new ArrayList<NPC>();
