@@ -1,4 +1,5 @@
 package MAIN;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -29,7 +30,6 @@ public class DWD
 	protected static DWD status;
 	protected boolean fight;
 	protected Random r;
-	private String options;
 
 	/**Constructor: DWD.java
 	 * Initializes object with following params.
@@ -69,7 +69,7 @@ public class DWD
 	/**
 	 * @return the myPlayer
 	 */
-	public Player getMyPlayer() 
+	public Player getMyPlayer()
 	{
 		return myPlayer;
 	}
@@ -77,7 +77,7 @@ public class DWD
 	/**
 	 * @return the itemAL
 	 */
-	public ArrayList<Item> getItemAL() 
+	public ArrayList<Item> getItemAL()
 	{
 		return itemAL;
 	}
@@ -98,6 +98,12 @@ public class DWD
 		return roomID;
 	}
 
+	/**Method Name: getStatus
+	 * Description: Attempting to create an instance of the game that we can 
+	 * refer to in order to get current player status 
+	 * @author: Kevin Anthony
+	 * @return status
+	 */
 	public DWD getStatus()
 	{
 		if (status == null)
@@ -119,20 +125,20 @@ public class DWD
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
 				30, true);
 		NPC npc1 = new NPC(1, "Leon in the Sky with Diamonds",
-				"Silly clown with rainbows coming out of his mouth. His laughter is freightening!", 60,
-				10, r.nextBoolean());
+				"Silly clown with rainbows coming out of his mouth. His laughter is freightening!",
+				60, 10, r.nextBoolean());
 		NPC npc2 = new NPC(2, "Suzie Q",
-				"Smooth talkin', smooth walkin' witch who uses her mysterious spells as power and strength.", 50,
-				10, r.nextBoolean());
+				"Smooth talkin', smooth walkin' witch who uses her mysterious spells as power and strength.",
+				50, 10, r.nextBoolean());
 		NPC npc3 = new NPC(3, "Freaky Freddie",
 				"Freak on a leash. You must not let him off this leash!", 80,
 				10, r.nextBoolean());
 		NPC npc4 = new NPC(4, "Furious Fiona",
-				"Tall beast who is trying to make you eat her poisonous apples.", 60,
-				10, r.nextBoolean());
+				"Tall beast who is trying to make you eat her poisonous apples.",
+				60, 10, r.nextBoolean());
 		NPC npc5 = new NPC(5, "Jake The Jester",
-				"Running around, making jokes and distracting you from your mission!", 100,
-				10, r.nextBoolean());
+				"Running around, making jokes and distracting you from your mission!",
+				100, 10, r.nextBoolean());
 		NPC npc6 = new NPC(6, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
 				10, r.nextBoolean());
@@ -246,6 +252,11 @@ public class DWD
 		//TODO: Generate Item Data
 	}
 
+	/**Method Name: devil
+	 * Description: Random chance for the devil to appear in the Hell rooms
+	 * @author: Kevin Anthony
+	 * @return n
+	 */
 	public NPC devil()
 	{
 		NPC n = null;
@@ -263,103 +274,79 @@ public class DWD
 	public void makeRoom()
 	{
 		roomAL.add(new Room(0,
-			"A furious rumble resounds in the area as stones come "
-					+ "clattering through the doorway, along with a thick cloud of "
-					+ "rock dust. The room beyond is filled with rubble.",
-			null, npcAL.get(r.nextInt(7) + 1),
-			itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come "
+						+ "clattering through the doorway, along with a thick cloud of "
+						+ "rock dust. The room beyond is filled with rubble.",
+				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(1,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(2,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(3,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(4,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(5,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(6,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(7,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(8,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(9,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(10,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(11,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(12,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(13,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(14,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(15,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(16,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(17,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(18,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(19,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(20,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(21,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(22,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(23,
-				"A furious rumble resounds in the area as stones come ",
-				null, npcAL.get(r.nextInt(7) + 1),
-				itemAL.get(r.nextInt(15))));
+				"A furious rumble resounds in the area as stones come ", null,
+				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(24,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
@@ -405,8 +392,6 @@ public class DWD
 		//TODO: Generate rooms
 	}
 
-	
-
 	//Adrianna
 	public void enterUserName()
 	{
@@ -448,10 +433,13 @@ public class DWD
 		user_input.close();
 	}
 
+	/**Method Name: getUserInput
+	 * Description: To give the user a status update when they enter a room
+	 * @author: Kevin Anthony
+	 */
 	public void getUserInput()
 	{
 		int room = getStatus().roomID;
-		//int moveRoom = room + 1;
 		System.out.println("You are in room " + room);
 		System.out.println("The room is " + roomAL.get(room).getrDescription());
 		if (roomAL.get(room).getNpcPresent())

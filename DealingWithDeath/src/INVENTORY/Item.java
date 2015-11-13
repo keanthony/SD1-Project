@@ -1,4 +1,7 @@
 package INVENTORY;
+
+import java.io.Serializable;
+
 /**Class: Item.java
  * @author: Kevin Anthony 100%
  * @version: 1.0
@@ -9,12 +12,12 @@ package INVENTORY;
  * to inherit
  */
 
-public abstract class Item
+public abstract class Item implements Serializable
 {
 	protected int itemIndex;
 	protected String name;
 	protected String description;
-		
+
 	/**Constructor: Item.java
 	 * Initializes object with following params.
 	 */
@@ -31,7 +34,7 @@ public abstract class Item
 	 * @param description
 	 * @param itemIndex
 	 */
-	public Item(int itemIndex, String name,String description)
+	public Item(int itemIndex, String name, String description)
 	{
 		itemIndex = 0;
 		name = "";
@@ -45,12 +48,12 @@ public abstract class Item
 	{
 		return itemIndex;
 	}
-	
+
 	public String getDescription()
 	{
 		return description;
 	}
-	
+
 	public String getName()
 	{
 		return name;

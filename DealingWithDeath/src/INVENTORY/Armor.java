@@ -1,5 +1,7 @@
 package INVENTORY;
 
+import java.io.Serializable;
+
 /**Class: Armor.java
  * @author: Kevin Anthony 100%
  * @version: 1.0
@@ -9,10 +11,10 @@ package INVENTORY;
  * Purpose: Generate and handle Armor items
  */
 
-public class Armor extends Item 
+public class Armor extends Item implements Serializable
 {
 	protected int increaseHP;
-	
+
 	/**Constructor: Armor.java
 	 * Initializes object with following params.
 	 * @param location
@@ -24,7 +26,7 @@ public class Armor extends Item
 		super(itemIndex, name, description);
 		increaseHP = 0;
 	}
-	
+
 	/**Method Name: getIncreaseHP
 	 * @return the increaseHP
 	 */
@@ -32,7 +34,7 @@ public class Armor extends Item
 	{
 		return increaseHP;
 	}
-	
+
 	/** Method Name: equipItem
 	 * Description: Override 
 	 * @return String representation of object
@@ -43,7 +45,5 @@ public class Armor extends Item
 	{
 		return "This armor increases your health by " + increaseHP;
 	}
-
-
 
 }
