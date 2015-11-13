@@ -40,7 +40,7 @@ public class Battle
 	public int playerAttack()
 	{
 		int currentHealth = currentNPC.getCrackHeads().getHealth();
-		currentHealth = currentHealth - player.getDamage();
+	//	currentHealth = currentHealth - player.getDamage();
 		
 		return currentHealth;
 		

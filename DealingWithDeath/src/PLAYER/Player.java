@@ -1,11 +1,23 @@
 package PLAYER;
+
+import ROOM.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import INVENTORY.Item;
+import INVENTORY.*;
 import MAIN.DWD;
-import ROOM.Room;
+import NPC.NPC;
 
+/**Class: Player.java
+ * @author: Samuel Medina
+ * @collaborator: Kevin Anthony
+ * @version: 1.0
+ * Course : ITEC 3860 Fall 2015 Dr. Johnson
+ * Date Written: Oct 30, 2015
+ * Class Description: Player class
+ * Purpose: Generate and handle Player interactions
+ */
 
 public class Player implements Serializable
 {
@@ -16,8 +28,6 @@ public class Player implements Serializable
 	protected Room room;
 	protected ArrayList<Item> inventory;
 	protected DWD dwd;
-	protected int money;
-
 
 	/**
 	 * 
@@ -31,7 +41,6 @@ public class Player implements Serializable
 		room = new Room();
 		inventory = new ArrayList<Item>();
 		dwd = new DWD();
-		money = 0;
 	}
 
 	/**Constructor: Player.java
@@ -47,7 +56,6 @@ public class Player implements Serializable
 		room = new Room();
 		inventory = new ArrayList<Item>();
 		dwd = new DWD();
-		money = 0;
 	}
 
 	/**Constructor: Player.java
@@ -63,11 +71,10 @@ public class Player implements Serializable
 		room = new Room();
 		inventory = new ArrayList<Item>();
 		dwd = new DWD();
-		money = 0;
 	}
 
 	public Player(String name, int health, int damage, Score score, Room room,
-			ArrayList<Item> inventory, int money)
+			ArrayList<Item> inventory)
 	{
 		this.name = name;
 		this.health = health;
@@ -76,24 +83,6 @@ public class Player implements Serializable
 		this.room = room;
 		this.inventory = inventory;
 		dwd = new DWD();
-		this.money = money;
-	}
-
-	
-	/**
-	 * @return the money
-	 */
-	public int getMoney()
-	{
-		return money;
-	}
-
-	/**
-	 * @param money the money to set
-	 */
-	public void setMoney(int money) 
-	{
-		this.money = money;
 	}
 
 	/**
@@ -102,22 +91,6 @@ public class Player implements Serializable
 	public int getHealth()
 	{
 		return health;
-	}
-	
-
-	/**
-	 * @return the damage
-	 */
-	public int getDamage() 
-	{
-		return damage;
-	}
-
-	/**
-	 * @param damage the damage to set
-	 */
-	public void setDamage(int damage) {
-		this.damage = damage;
 	}
 
 	/**Method Name: getWeap
@@ -180,11 +153,12 @@ public class Player implements Serializable
 	}
 
 	//Calls the actions to fight the NPC
-	public void fight(Battle enemy)
+	//TODO Where is the Battle class?
+	/*public void fight(Battle enemy)
 	{
-		enemy.playerAttack();
+		//enemy.npcAttack();
 	}
-	
+	*/
 	public void goToHell(Room hell)
 	{
 
@@ -194,38 +168,39 @@ public class Player implements Serializable
 	}
 	/*//trades crack with the NPC
 	 *//**
-		* @param trade
-		*//*
+<<<<<<< HEAD
+	 * @param trade
+	 *//*
+	public void trade(NPC trade)
+	{
+	}
+	//Gives options to ether fight or trade 
+	public void approach(NPC enemy)
+	{
+	}
+	public static String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+	  */
+
 			public void trade(NPC trade)
 			{
 			
 			
 			}
 			
-			//Gives options to either fight or trade 
+			//Gives options to ether fight or trade 
 			public void approach(NPC enemy)
 			{
 			
 			}
 			
-			public static String getName() {
-			// TODO Auto-generated method stub
-			return null;
+			public static String getName()
+			{
+				return null;
 			}
-			
-			
-			}
-			*/
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Player [name=" + name + ", health=" + health + ", damage="
-				+ damage + ", score=" + score + ", room=" + room
-				+ ", inventory=" + inventory + ", dwd=" + dwd
-				+ ", getInventory()=" + getInventory() + "]";
-	}
-	
+			
 }

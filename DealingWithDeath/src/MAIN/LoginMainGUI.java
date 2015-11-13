@@ -32,7 +32,8 @@ public  class LoginMainGUI extends Application {
 				gp.setPadding(new Insets(15, 15, 15, 15));
 				
 				gp.add(new Label("User Name:"), 0, 4);
-				gp.add(new TextField(), 1, 4);
+				//THIS WILL NOT WORK?!?!?!? WHY!!!!
+				//gp.add(tfUserName = new TextField(), 1, 4);
 				
 				Button newGame = new Button("New Game");
 				Button loadGame = new Button("Load Game");
