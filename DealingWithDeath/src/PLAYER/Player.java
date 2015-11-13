@@ -4,8 +4,10 @@ import ROOM.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import INVENTORY.*;
 import MAIN.DWD;
+import NPC.NPC;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -182,9 +184,7 @@ public class Player implements Serializable
 	}
 }
 	  */
-=======
-		* @param trade
-		*//*
+
 			public void trade(NPC trade)
 			{
 			
@@ -197,13 +197,10 @@ public class Player implements Serializable
 			
 			}
 			
-			public static String getName() {
-			// TODO Auto-generated method stub
-			return null;
+			public static String getName()
+			{
+				return null;
 			}
+
 			
-			
-			}
-			*/
->>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 }
