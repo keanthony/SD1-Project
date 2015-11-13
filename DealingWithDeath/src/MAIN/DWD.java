@@ -18,7 +18,7 @@ import ROOM.*;
  * Purpose: Creates the game, handles saving and loading, generates Rooms
  * Monsters, and Puzzles
  */
-
+//Sam: We need the NPC to have some type of money t trade
 public class DWD
 {
 	protected ArrayList<Room> roomAL = new ArrayList<Room>();
@@ -123,28 +123,28 @@ public class DWD
 		System.out.println("Populating the rooms with crackheads...");
 		NPC npc0 = new NPC(0, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
-				30, true);
+				30, true, 0);
 		NPC npc1 = new NPC(1, "Leon in the Sky with Diamonds",
 				"Silly clown with rainbows coming out of his mouth. His laughter is freightening!",
-				60, 10, r.nextBoolean());
+				60, 10, r.nextBoolean(), 0);
 		NPC npc2 = new NPC(2, "Suzie Q",
 				"Smooth talkin', smooth walkin' witch who uses her mysterious spells as power and strength.",
-				50, 10, r.nextBoolean());
+				50, 10, r.nextBoolean(),0);
 		NPC npc3 = new NPC(3, "Freaky Freddie",
 				"Freak on a leash. You must not let him off this leash!", 80,
-				10, r.nextBoolean());
+				10, r.nextBoolean(),0);
 		NPC npc4 = new NPC(4, "Furious Fiona",
 				"Tall beast who is trying to make you eat her poisonous apples.",
-				60, 10, r.nextBoolean());
+				60, 10, r.nextBoolean(),0);
 		NPC npc5 = new NPC(5, "Jake The Jester",
 				"Running around, making jokes and distracting you from your mission!",
-				100, 10, r.nextBoolean());
+				100, 10, r.nextBoolean(), 0);
 		NPC npc6 = new NPC(6, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
-				10, r.nextBoolean());
+				10, r.nextBoolean(),0);
 		NPC npc7 = new NPC(7, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
-				10, r.nextBoolean());
+				10, r.nextBoolean(),0);
 		//TODO: Generate NPC descriptions/stats
 		NPC[] npcArray =
 		{ npc1, npc2, npc3, npc4, npc5, npc6, npc7 };

@@ -2,15 +2,18 @@ package NPC;
 
 /**Class: NPC.java
 * @author: 
-* @collaborator: Kevin Anthony 
+* @collaborator: Kevin Anthony, Samuel medina 
 * @version: 1.0
 * Course : ITEC 3860 Fall 2015 Dr. Johnson
 * Date Written: Oct 30, 2015
 * Class Description: NPC class
 * Purpose: Set attributes for NPC's
 */
+//Sam: I am going to create a variable for trade. if a player 
+//wants to trade or "deal" with an NPC. We still don't have this.
 public class NPC
 {
+	protected int money;
 	protected int npcID;
 	protected String name;
 	protected String description;
@@ -28,8 +31,9 @@ public class NPC
 	 * @param attack
 	 */
 	public NPC(int npcID, String name, String description, int health,
-			int damage, boolean attack)
+			int damage, boolean attack, int money)
 	{
+		money = 0;
 		npcID = 0;
 		name = "";
 		description = "";
@@ -38,11 +42,24 @@ public class NPC
 		attack = false;
 	}
 
-	//used to get the health of the current NPC
-	public NPC(int health)
+
+	/**
+	 * @return the money
+	 */
+	public int getMoney() 
 	{
-		health = 150;
+		return money;
 	}
+
+
+	/**
+	 * @param money the money to set
+	 */
+	public void setMoney(int money) 
+	{
+		this.money = money;
+	}
+
 
 	/**
 	 * @return the damage
