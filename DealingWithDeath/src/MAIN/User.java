@@ -30,7 +30,7 @@ public class User
 	protected final String PLAYERLIST = "PlayerList.txt";
 	protected boolean passMainMenu = false;
 	protected String userName = "";
-	protected Player play = new Player(100);
+	protected Player play = new Player();
 	protected Scanner input = new Scanner(System.in);;
 	
 	public void mainMenu()

@@ -26,7 +26,7 @@ public class DWD
 	protected ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
 	protected ArrayList<Item> itemAL = new ArrayList<Item>();
 	protected int roomID;
-	protected Player myPlayer;
+	private Player myPlayer;
 	protected static DWD status;
 	protected boolean fight;
 	protected Random r;
@@ -55,7 +55,7 @@ public class DWD
 	 */
 	public DWD()
 	{
-		myPlayer = new Player(100);
+		//myPlayer = new Player();
 		roomAL = null;
 		npcAL = null;
 		riddleAL = null;
@@ -72,6 +72,14 @@ public class DWD
 	public Player getMyPlayer()
 	{
 		return myPlayer;
+	}
+
+	/**Method Name: setMyPlayer
+	 * @param myPlayer the myPlayer to set
+	 */
+	public void setMyPlayer(Player myPlayer)
+	{
+		this.myPlayer = myPlayer;
 	}
 
 	/**

@@ -1,6 +1,8 @@
 package PLAYER;
 
 import ROOM.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import INVENTORY.*;
 import MAIN.DWD;
@@ -15,7 +17,7 @@ import MAIN.DWD;
  * Purpose: Generate and handle Player interactions
  */
 
-public class Player
+public class Player implements Serializable
 {
 	protected String name;
 	protected int health;
