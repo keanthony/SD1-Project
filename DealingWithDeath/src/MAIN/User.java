@@ -293,8 +293,10 @@ public class User
 
 	public static void main(String[] args)
 	{
+		
+		
 		User game = new User();
-		LoginMainGUI lmg = new LoginMainGUI(userList);
+		
 		game.mainMenu();
 		System.out.println("\nPerhaps we should start from the begining...\n");
 	}
