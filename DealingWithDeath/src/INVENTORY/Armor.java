@@ -1,5 +1,4 @@
 package INVENTORY;
-
 import java.io.Serializable;
 
 /**Class: Armor.java

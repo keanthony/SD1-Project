@@ -1,21 +1,13 @@
 package PLAYER;
-
-import ROOM.*;
+import java.io.Serializable;
 import java.util.ArrayList;
-import INVENTORY.*;
+
+import INVENTORY.Item;
 import MAIN.DWD;
+import ROOM.Room;
 
-/**Class: Player.java
- * @author: Samuel Medina
- * @collaborator: Kevin Anthony
- * @version: 1.0
- * Course : ITEC 3860 Fall 2015 Dr. Johnson
- * Date Written: Oct 30, 2015
- * Class Description: Player class
- * Purpose: Generate and handle Player interactions
- */
 
-public class Player
+public class Player implements Serializable
 {
 	protected String name;
 	protected int health;

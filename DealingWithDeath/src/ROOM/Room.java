@@ -1,5 +1,6 @@
 package ROOM;
 
+import java.io.Serializable;
 import java.util.Scanner;
 import INVENTORY.Item;
 import MAIN.DWD;
@@ -14,7 +15,7 @@ import NPC.NPC;
  * Class Description: Room class
  * Purpose: Generate and handle room and room's items
  */
-public class Room
+public class Room implements Serializable
 {
 	protected int roomID;
 	protected String rDescription;

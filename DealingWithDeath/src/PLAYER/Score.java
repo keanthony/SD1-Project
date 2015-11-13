@@ -1,9 +1,13 @@
 package PLAYER;
 
 
+
 import java.util.ArrayList;
 
 import ROOM.Room;
+
+import java.io.Serializable;
+
 
 /**Class: Score.java
  * @author: Samuel Medina
@@ -15,11 +19,14 @@ import ROOM.Room;
  * Purpose: Generate and handle Score interactions
  */
 
+
 /**
  * @author Sam
  *
  */
-public class Score
+
+public class Score implements Serializable
+
 {
 	private ArrayList<Integer> moneyAL = new ArrayList<Integer>();
 	private int money;
