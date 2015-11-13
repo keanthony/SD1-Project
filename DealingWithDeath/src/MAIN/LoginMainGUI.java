@@ -16,6 +16,11 @@ public class LoginMainGUI extends Stage {
 	
 	private TextField tfUserName;
 	
+	//ObseravableList comes from an arrayList that we can add in another class 
+	//once we figure out what comes
+	//from the .dat file
+	//
+	
 	ObservableList<LoginMain> credentials;
 	
 	public LoginMainGUI (ObservableList<LoginMain> credentialsB)
@@ -56,15 +61,29 @@ public class LoginMainGUI extends Stage {
     public void newGame()
     {
 
-		String userName = tfUserName.getText();
+		/*String userName = tfUserName.getText();
         LoginMain p = new LoginMain(userName);
-        credentials.add(p);
+        credentials.add(p);   
+        System.out.println("User Name Stored. . . \n" + p);*/
         
-        System.out.println("User Name Stored. . . \n" + p);
+        User userInput = new User();
+        
+        userInput.newGame("userName");
     }
     
     public void loadGame()
     {
+    	User userInput = new User();
+    	
+    	userInput.load();
+    	
+    }
+    
+    public void saveGame()
+    {
+    	User userInput = new User();
+    	
+    	userInput.save();
     	
     }
     
