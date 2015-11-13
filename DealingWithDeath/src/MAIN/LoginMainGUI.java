@@ -1,6 +1,7 @@
 package MAIN;
 
 import java.awt.TextField;
+import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
@@ -21,11 +22,11 @@ public class LoginMainGUI extends Stage {
 	//from the .dat file
 	//
 	
-	ObservableList<LoginMain> credentials;
+	ArrayList<User> userList;
 	
-	public LoginMainGUI (ObservableList<LoginMain> credentialsB)
+	public LoginMainGUI (ArrayList<User> userList1)
 	{
-		credentials = credentialsB;
+		userList = userList1;
 		
 		Stage stage = new Stage();
 		
