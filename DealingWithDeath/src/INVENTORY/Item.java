@@ -17,6 +17,16 @@ public abstract class Item
 		
 	/**Constructor: Item.java
 	 * Initializes object with following params.
+	 */
+	public Item()
+	{
+		itemIndex = 0;
+		name = "";
+		description = "";
+	}
+
+	/**Constructor: Item.java
+	 * Initializes object with following params.
 	 * @param name
 	 * @param description
 	 * @param itemIndex

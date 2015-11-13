@@ -1,12 +1,8 @@
 package PLAYER;
-
 import ROOM.*;
-
 import java.util.ArrayList;
-
 import INVENTORY.*;
 import MAIN.DWD;
-import NPC.NPC;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -20,73 +16,69 @@ import NPC.NPC;
 
 public class Player
 {
+	protected String name;
 	protected int health;
-	protected ArrayList<Item> inventory;
-	private Item it;
-	private Commands command;
-	private Weapon weap;
-	private Armor arm;
-	private Crack crac;
-	protected Room room;
-	protected Player player; 
-	protected DWD dwd;
-	protected Score score;
 	protected int damage;
-
+	protected Score score;
+	protected Room room;
+	protected ArrayList<Item> inventory;
+	protected DWD dwd;
 	
 	/**
 	 * 
 	 */
 	public Player() 
 	{
+		name = "";
 		health = 100;
-		player = new Player(health);
-		room  = new Room();
-		dwd  = new DWD();
-		inventory = new ArrayList<Item>();
-		score = new Score();
 		damage = 5;
-		crac = new Crack(damage, null, null, damage);
+		score = new Score();
+		room  = new Room();
+		inventory = new ArrayList<Item>();
+		dwd  = new DWD();
 	}
+	
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param userName 
 	 */
 	public Player(int health)
 	{
-		health = 100; 
-	}
-	
-	
-	public Player(String userName, int health, int damage, Score score, 
-			Room room, ArrayList<Item> inventory)
-	{
-		health = 100;
-		player = new Player(health);
-		room  = new Room();
-		dwd  = new DWD();
-		inventory = new ArrayList<Item>();
-		score = new Score();
+		name = "";
+		this.health = health;
 		damage = 5;
-		crac = new Crack(damage, null, null, damage);
-
+		score = new Score();
+		room  = new Room();
+		inventory = new ArrayList<Item>();
+		dwd  = new DWD();
 	}
-
+	
 	/**Constructor: Player.java
 	 * Initializes object with following params.
-	 * @param health
-	 * @param inventory
-	 * @param score
-	 * @param damage
+	 * @param name
 	 */
-	public Player(int health, ArrayList<Integer> inventory, Score sc, int dm)
+	public Player(String name)
 	{
+		this.name = name;
 		health = 100;
-		inventory = new ArrayList<Integer>();
-		score = sc;
-		damage = dm;
+		damage = 5;
+		score = new Score();
+		room  = new Room();
+		inventory = new ArrayList<Item>();
+		dwd  = new DWD();
 	}
-
+	
+	public Player(String name, int health, int damage, Score score, 
+			Room room, ArrayList<Item> inventory)
+	{
+		this.name = name;
+		this.health = health;
+		this.damage = damage;
+		this.score = score;
+		this.room = room;
+		this.inventory = inventory;
+		dwd  = new DWD();
+	}
 
 	/**
 	 * @return the health
@@ -112,16 +104,12 @@ public class Player
 
 	/**Method Name: getInventory
 	 * @return the inventory
-	 * Checks what's on the inventory and shows it to the user
 	 */
-	public void  getInventory()
+	public ArrayList<Item> getInventory()
 	{
-		for (Item item : dwd.getItemAL())
-		{
-			System.out.println(item);
-		}
+		return inventory;
 	}
-
+	
 	/**goTo
 	 * @param room
 	 * lets you enter a new room
@@ -156,18 +144,17 @@ public class Player
 		}
 		else return "Item not found";
 	}
+	
 	//Calls the actions to fight the NPC
-	public void fight(Battle enemy)
+	//TODO Where is the Battle class?
+	/*public void fight(Battle enemy)
 	{
 		//enemy.npcAttack();
 	}
-
+*/
 	public void goToHell(Room hell)
 	{
-		if (health < 1)
-		{
-			player.goTo(hell);
-		}
+		
 		//TODO: Once room is created change the hell to the room number since 
 		//what's going to be passed is an integer
 
@@ -178,22 +165,15 @@ public class Player
 	 *//*
 	public void trade(NPC trade)
 	{
-
-
 	}
-
 	//Gives options to ether fight or trade 
 	public void approach(NPC enemy)
 	{
-
 	}
-
 	public static String getName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }
 	  */
 }
