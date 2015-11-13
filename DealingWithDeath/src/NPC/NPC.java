@@ -1,4 +1,5 @@
 package NPC;
+
 /**Class: NPC.java
 * @author: 
 * @collaborator: Kevin Anthony 
@@ -36,28 +37,29 @@ public class NPC
 		damage = 0;
 		attack = false;
 	}
+
 	//used to get the health of the current NPC
 	public NPC(int health)
 	{
 		health = 150;
 	}
-	
 
 	/**
 	 * @return the damage
 	 */
-	public int getDamage() 
+	public int getDamage()
 	{
 		return damage;
 	}
-	
+
 	/**
 	 * @return the health
 	 */
-	public int getHealth() 
+	public int getHealth()
 	{
 		return health;
 	}
+
 	public void attack()
 	{
 
@@ -69,5 +71,4 @@ public class NPC
 	{
 
 	}
-
 }

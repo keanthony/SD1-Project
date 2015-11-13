@@ -1,4 +1,5 @@
 package ROOM;
+
 import PLAYER.Player;
 
 /**Class: Riddle.java
@@ -14,10 +15,21 @@ public class Riddle
 {
 	protected int riddleId;
 	protected String question;
-	private int solution;
-	private boolean isCorrect;
-	private Room backToRoom;
-	
+	protected int solution;
+	protected boolean isCorrect;
+	protected Room backToRoom;
+
+	/**Constructor: Riddle.java
+	 * Initializes object with following params.
+	 */
+	public Riddle()
+	{
+		riddleId = 0;
+		question = "";
+		solution = 0;
+		isCorrect = false;
+		backToRoom = null;
+	}
 
 	/**Constructor: Riddle.java
 	 * Initializes object with following params.
@@ -25,12 +37,13 @@ public class Riddle
 	 * @param question
 	 * @param solution
 	 */
-	// NO ARG CONSTRUCTOR NEED TO BE CREATED
 	public Riddle(int riddleId, String question, int solution)
 	{
-		riddleId = 0;
-		question = "";
-		solution = 0;
+		this.riddleId = riddleId;
+		this.question = question;
+		this.solution = solution;
+		isCorrect = false;
+		backToRoom = null;
 	}
 
 	public int getSolution()
@@ -49,6 +62,12 @@ public class Riddle
 		isCorrect = true;
 	}
 
+	/**Method Name: question
+	 * Description: Checks to see if the Riddle was solved correctly
+	 * @author Kevin Anthony
+	 * @param answer
+	 * @return
+	 */
 	public String question(int answer)
 	{
 		String result = "";
@@ -68,6 +87,11 @@ public class Riddle
 		return result;
 	}
 
+	/**Method Name: reward
+	 * Description: Return Player to their last Room if they solve the Riddle
+	 * @author Kevin Anthony
+	 * @param lastRoom
+	 */
 	public void reward(Room lastRoom)
 	{
 		Player p = new Player();
@@ -78,9 +102,9 @@ public class Riddle
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Riddle [Riddle ID: " + riddleId + ", Riddle: " + question + "]";
 	}
-	
-	
+
 }

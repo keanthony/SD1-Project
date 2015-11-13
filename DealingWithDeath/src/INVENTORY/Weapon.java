@@ -1,5 +1,7 @@
 package INVENTORY;
 
+import java.io.Serializable;
+
 /**Class: Weapon.java
  * @author: Kevin Anthony 100%
  * @version: 1.0
@@ -8,10 +10,10 @@ package INVENTORY;
  * Class Description: Weapon child class of Item
  * Purpose: Generate and handle Weapon items
  */
-public class Weapon extends Item 
+public class Weapon extends Item implements Serializable
 {
 	protected int damage;
-	
+
 	/**Constructor: Weapon.java
 	 * Initializes object with following params.
 	 * @param itemIndex

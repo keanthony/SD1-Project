@@ -1,4 +1,6 @@
 package ROOM;
+
+import java.io.Serializable;
 import java.util.Scanner;
 import INVENTORY.Item;
 import MAIN.DWD;
@@ -13,9 +15,8 @@ import NPC.NPC;
  * Class Description: Room class
  * Purpose: Generate and handle room and room's items
  */
-public class Room
+public class Room implements Serializable
 {
-
 	protected int roomID;
 	protected String rDescription;
 	protected Riddle rRiddle;
@@ -25,14 +26,6 @@ public class Room
 	protected boolean npcPresent;
 	protected boolean itemPresent;
 
-	/**
-	 * @param rName
-	 * @param rDescription
-	 * @param npcPresent
-	 * @param rExit
-	 * @param rRiddle
-	 * @param crackHeads
-	 */
 	public Room()
 	{
 		roomID = 0;
@@ -41,6 +34,8 @@ public class Room
 		rRiddle = null;
 		crackHeads = null;
 		item = null;
+		npcPresent = false;
+		itemPresent = false;
 	}
 
 	/**Constructor: Room.java
@@ -50,17 +45,20 @@ public class Room
 	 * @param rRiddle
 	 * @param crackHeads
 	 * @param item
+	 * @param npcPresent
+	 * @param itemPresent
 	 */
 	public Room(int roomID, String rDescription, Riddle rRiddle, NPC crackHeads,
 			Item item)
 	{
-		roomID = 0;
-		rDescription = "";
-		rRiddle = null;
-		crackHeads = null;
-		item = null;
+		this.roomID = roomID;
+		this.rDescription = rDescription;
+		this.rRiddle = rRiddle;
+		this.crackHeads = crackHeads;
+		this.item = item;
+		npcPresent = false;
+		itemPresent = false;
 	}
-	
 
 	public String getrDescription()
 	{
@@ -128,19 +126,18 @@ public class Room
 		{
 			return false;
 		}
-			
+
 	}
 
 	@Override
-	public String toString() 
+	public String toString()
 	{
-		return "Room [Room Number: " + roomID + ", Room Description: " + rDescription + ", Crackhead Count: "
-				+ crackHeads + ", Other NPC Present: " + npcPresent + ", Items Present " + itemPresent + "]";
+		return "Room [Room Number: " + roomID + ", Room Description: "
+				+ rDescription + ", Crackhead Count: " + crackHeads
+				+ ", Other NPC Present: " + npcPresent + ", Items Present "
+				+ itemPresent + "]";
 	}
 
 	// implement Inpect method? to return 
 	//specific information of different objects: room, item, crackhead;
-	
-	
-	
 }

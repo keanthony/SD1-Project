@@ -1,5 +1,8 @@
 package PLAYER;
+
 import ROOM.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import INVENTORY.*;
 import MAIN.DWD;
@@ -14,7 +17,7 @@ import MAIN.DWD;
  * Purpose: Generate and handle Player interactions
  */
 
-public class Player
+public class Player implements Serializable
 {
 	protected String name;
 	protected int health;
@@ -23,21 +26,21 @@ public class Player
 	protected Room room;
 	protected ArrayList<Item> inventory;
 	protected DWD dwd;
-	
+
 	/**
 	 * 
 	 */
-	public Player() 
+	public Player()
 	{
 		name = "";
 		health = 100;
 		damage = 5;
 		score = new Score();
-		room  = new Room();
+		room = new Room();
 		inventory = new ArrayList<Item>();
-		dwd  = new DWD();
+		dwd = new DWD();
 	}
-	
+
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param userName 
@@ -48,11 +51,11 @@ public class Player
 		this.health = health;
 		damage = 5;
 		score = new Score();
-		room  = new Room();
+		room = new Room();
 		inventory = new ArrayList<Item>();
-		dwd  = new DWD();
+		dwd = new DWD();
 	}
-	
+
 	/**Constructor: Player.java
 	 * Initializes object with following params.
 	 * @param name
@@ -63,13 +66,13 @@ public class Player
 		health = 100;
 		damage = 5;
 		score = new Score();
-		room  = new Room();
+		room = new Room();
 		inventory = new ArrayList<Item>();
-		dwd  = new DWD();
+		dwd = new DWD();
 	}
-	
-	public Player(String name, int health, int damage, Score score, 
-			Room room, ArrayList<Item> inventory)
+
+	public Player(String name, int health, int damage, Score score, Room room,
+			ArrayList<Item> inventory)
 	{
 		this.name = name;
 		this.health = health;
@@ -77,13 +80,13 @@ public class Player
 		this.score = score;
 		this.room = room;
 		this.inventory = inventory;
-		dwd  = new DWD();
+		dwd = new DWD();
 	}
 
 	/**
 	 * @return the health
 	 */
-	public int getHealth() 
+	public int getHealth()
 	{
 		return health;
 	}
@@ -99,7 +102,8 @@ public class Player
 			inventory.add(item);
 			return "Item is now in your inventory";
 		}
-		else return "Item not found";
+		else
+			return "Item not found";
 	}
 
 	/**Method Name: getInventory
@@ -109,7 +113,7 @@ public class Player
 	{
 		return inventory;
 	}
-	
+
 	/**goTo
 	 * @param room
 	 * lets you enter a new room
@@ -142,25 +146,27 @@ public class Player
 		{
 			return item.getDescription();
 		}
-		else return "Item not found";
+		else
+			return "Item not found";
 	}
-	
+
 	//Calls the actions to fight the NPC
 	//TODO Where is the Battle class?
 	/*public void fight(Battle enemy)
 	{
 		//enemy.npcAttack();
 	}
-*/
+	*/
 	public void goToHell(Room hell)
 	{
-		
+
 		//TODO: Once room is created change the hell to the room number since 
 		//what's going to be passed is an integer
 
 	}
 	/*//trades crack with the NPC
 	 *//**
+<<<<<<< HEAD
 	 * @param trade
 	 *//*
 	public void trade(NPC trade)
@@ -176,4 +182,28 @@ public class Player
 	}
 }
 	  */
+=======
+		* @param trade
+		*//*
+			public void trade(NPC trade)
+			{
+			
+			
+			}
+			
+			//Gives options to ether fight or trade 
+			public void approach(NPC enemy)
+			{
+			
+			}
+			
+			public static String getName() {
+			// TODO Auto-generated method stub
+			return null;
+			}
+			
+			
+			}
+			*/
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 }

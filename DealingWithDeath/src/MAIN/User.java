@@ -30,8 +30,9 @@ public class User
 	protected final String PLAYERLIST = "PlayerList.txt";
 	protected boolean passMainMenu = false;
 	protected String userName = "";
-	protected Player play = new Player(100);
-	protected Scanner input = new Scanner(System.in);;
+	protected Player play = new Player();
+	protected Scanner input = new Scanner(System.in);
+	protected ArrayList<String> userList;
 	
 	public void mainMenu()
 	{
@@ -224,7 +225,7 @@ public class User
 		}
 
 		// Output all users available to load and temp store them in userList AL
-		ArrayList<String> userList = new ArrayList<String>();
+		userList = new ArrayList<String>();
 		int userCount = 1;
 		while(inputScan.hasNext())
 		{
@@ -293,6 +294,7 @@ public class User
 	public static void main(String[] args)
 	{
 		User game = new User();
+		LoginMainGUI lmg = new LoginMainGUI(userList);
 		game.mainMenu();
 		System.out.println("\nPerhaps we should start from the begining...\n");
 	}

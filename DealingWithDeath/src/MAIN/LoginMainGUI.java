@@ -1,6 +1,7 @@
 package MAIN;
 
 import java.awt.TextField;
+import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
@@ -16,11 +17,16 @@ public class LoginMainGUI extends Stage {
 	
 	private TextField tfUserName;
 	
-	ObservableList<LoginMain> credentials;
+	//ObseravableList comes from an arrayList that we can add in another class 
+	//once we figure out what comes
+	//from the .dat file
+	//
 	
-	public LoginMainGUI (ObservableList<LoginMain> credentialsB)
+	ArrayList<User> userList;
+	
+	public LoginMainGUI (ArrayList<User> userList1)
 	{
-		credentials = credentialsB;
+		userList = userList1;
 		
 		Stage stage = new Stage();
 		
@@ -56,15 +62,29 @@ public class LoginMainGUI extends Stage {
     public void newGame()
     {
 
-		String userName = tfUserName.getText();
+		/*String userName = tfUserName.getText();
         LoginMain p = new LoginMain(userName);
-        credentials.add(p);
+        credentials.add(p);   
+        System.out.println("User Name Stored. . . \n" + p);*/
         
-        System.out.println("User Name Stored. . . \n" + p);
+        User userInput = new User();
+        
+        userInput.newGame("userName");
     }
     
     public void loadGame()
     {
+    	User userInput = new User();
+    	
+    	userInput.load();
+    	
+    }
+    
+    public void saveGame()
+    {
+    	User userInput = new User();
+    	
+    	userInput.save();
     	
     }
     

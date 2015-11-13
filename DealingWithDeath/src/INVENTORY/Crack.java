@@ -1,5 +1,7 @@
 package INVENTORY;
 
+import java.io.Serializable;
+
 /**Class: Crack.java
  * @author: Kevin Anthony 100%
  * @version: 1.0
@@ -9,10 +11,10 @@ package INVENTORY;
  * Purpose: Generate and handle Crack items
  */
 
-public class Crack extends Item
+public class Crack extends Item implements Serializable
 {
 	protected int value;
-		
+
 	/**Constructor: Crack.java
 	 * Initializes object with following params.
 	 * @param itemIndex
