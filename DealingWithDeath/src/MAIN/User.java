@@ -31,7 +31,8 @@ public class User
 	protected boolean passMainMenu = false;
 	protected String userName = "";
 	protected Player play = new Player();
-	protected Scanner input = new Scanner(System.in);;
+	protected Scanner input = new Scanner(System.in);
+	protected ArrayList<String> userList;
 	
 	public void mainMenu()
 	{
@@ -224,7 +225,7 @@ public class User
 		}
 
 		// Output all users available to load and temp store them in userList AL
-		ArrayList<String> userList = new ArrayList<String>();
+		userList = new ArrayList<String>();
 		int userCount = 1;
 		while(inputScan.hasNext())
 		{
