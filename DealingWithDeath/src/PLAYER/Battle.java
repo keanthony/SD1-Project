@@ -17,8 +17,8 @@ public class Battle
 {
 	protected  Player player;
 	protected Room currentNPC;
-	
-	
+
+
 	/**
 	 * 
 	 * this methods handles the way the NPC will attack
@@ -28,10 +28,10 @@ public class Battle
 	{	
 		int currentHealth = player.getHealth();
 		currentHealth = currentHealth - currentNPC.getCrackHeads().getDamage();
-		
+
 		return currentHealth;
 	}
-	
+
 	/**
 	 * 
 	 * this methods handles the way the NPC will attack
@@ -40,12 +40,12 @@ public class Battle
 	public int playerAttack()
 	{
 		int currentHealth = currentNPC.getCrackHeads().getHealth();
-	//	currentHealth = currentHealth - player.getDamage();
-		
+		currentHealth = currentHealth - player.getDamage();
+
 		return currentHealth;
-		
+
 	}
-		
-	
+
+
 
 }

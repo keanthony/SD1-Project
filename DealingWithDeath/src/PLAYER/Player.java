@@ -4,8 +4,10 @@ import ROOM.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import INVENTORY.*;
 import MAIN.DWD;
+import MAIN.User;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -205,27 +207,26 @@ public class Player implements Serializable
 	/*//trades crack with the NPC
 	 *//**
 		* @param trade
-		*//*
-			public void trade(NPC trade)
-			{
-			
-			
-			}
+		*/
 			
 			//Gives options to either fight or trade 
-			public void approach(NPC enemy)
+			public void approach(Battle enemy, Score trade1)
 			{
+				int fight = enemy.playerAttack();
+				int trade  = trade1.Sale();
+				
+				System.out.println("Would you like to " + fight + " or " + trade );
 			
 			}
 			
-			public static String getName() {
+			public static String getName() 
+			{
 			// TODO Auto-generated method stub
 			return null;
 			}
 			
 			
-			}
-			*/
+			
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -236,6 +237,12 @@ public class Player implements Serializable
 				+ damage + ", score=" + score + ", room=" + room
 				+ ", inventory=" + inventory + ", dwd=" + dwd
 				+ ", getInventory()=" + getInventory() + "]";
+	}
+	public static void main(String[] args)
+	{
+		
+		Player player = new Player();
+		player.fight(null);
 	}
 	
 }

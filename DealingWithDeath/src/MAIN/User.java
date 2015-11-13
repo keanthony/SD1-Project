@@ -298,6 +298,7 @@ public class User
 		User game = new User();
 		
 		game.mainMenu();
+		
 		System.out.println("\nPerhaps we should start from the begining...\n");
 	}
 }

@@ -31,7 +31,7 @@ import ROOM.*;
  * Monsters, and Puzzles
  */
 
-//Sam: We need the NPC to have some type of money t trade
+//Sam: We need the NPC to have some type of money to make some trades
 
 public class DWD implements Serializable
 
