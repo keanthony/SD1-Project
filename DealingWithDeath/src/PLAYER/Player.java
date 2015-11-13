@@ -166,6 +166,23 @@ public class Player implements Serializable
 	}
 	/*//trades crack with the NPC
 	 *//**
+<<<<<<< HEAD
+	 * @param trade
+	 *//*
+	public void trade(NPC trade)
+	{
+	}
+	//Gives options to ether fight or trade 
+	public void approach(NPC enemy)
+	{
+	}
+	public static String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+	  */
+=======
 		* @param trade
 		*//*
 			public void trade(NPC trade)
@@ -188,4 +205,5 @@ public class Player implements Serializable
 			
 			}
 			*/
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 }
