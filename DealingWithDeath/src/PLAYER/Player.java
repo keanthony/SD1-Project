@@ -46,21 +46,6 @@ public class Player implements Serializable
 		money = 0;
 	}
 
-	/**Constructor: Player.java
-	 * Initializes object with following params.
-	 * @param userName 
-	 */
-	public Player(int health)
-	{
-		name = "";
-		this.health = health;
-		damage = 5;
-		score = new Score();
-		room = new Room();
-		inventory = new ArrayList<Item>();
-		dwd = new DWD();
-		money = 0;
-	}
 
 	/**Constructor: Player.java
 	 * Initializes object with following params.
@@ -91,7 +76,79 @@ public class Player implements Serializable
 		this.money = money;
 	}
 
-	
+
+	/**
+	 * @return the score
+	 */
+	public Score getScore() {
+		return score;
+	}
+
+
+	/**
+	 * @param score the score to set
+	 */
+	public void setScore(Score score) {
+		this.score = score;
+	}
+
+
+	/**
+	 * @return the room
+	 */
+	public Room getRoom() {
+		return room;
+	}
+
+
+	/**
+	 * @param room the room to set
+	 */
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+
+	/**
+	 * @return the dwd
+	 */
+	public DWD getDwd() {
+		return dwd;
+	}
+
+
+	/**
+	 * @param dwd the dwd to set
+	 */
+	public void setDwd(DWD dwd) {
+		this.dwd = dwd;
+	}
+
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	/**
+	 * @param health the health to set
+	 */
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+
+	/**
+	 * @param inventory the inventory to set
+	 */
+	public void setInventory(ArrayList<Item> inventory) {
+		this.inventory = inventory;
+	}
+
+
 	/**
 	 * @return the money
 	 */
@@ -115,7 +172,7 @@ public class Player implements Serializable
 	{
 		return health;
 	}
-	
+
 
 	/**
 	 * @return the damage
@@ -196,7 +253,7 @@ public class Player implements Serializable
 	{
 		enemy.playerAttack();
 	}
-	
+
 	public void goToHell(Room hell)
 	{
 
@@ -206,27 +263,27 @@ public class Player implements Serializable
 	}
 	/*//trades crack with the NPC
 	 *//**
-		* @param trade
-		*/
-			
-			//Gives options to either fight or trade 
-			public void approach(Battle enemy, Score trade1)
-			{
-				int fight = enemy.playerAttack();
-				int trade  = trade1.Sale();
-				
-				System.out.println("Would you like to " + fight + " or " + trade );
-			
-			}
-			
-			public static String getName() 
-			{
-			// TODO Auto-generated method stub
-			return null;
-			}
-			
-			
-			
+	 * @param trade
+	 */
+
+	//Gives options to either fight or trade 
+	public void approach(Battle enemy, Score trade1)
+	{
+		int fight = enemy.playerAttack();
+		int trade  = trade1.Sale();
+
+		System.out.println("Would you like to " + fight + " or " + trade );
+
+	}
+
+	public static String getName() 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -238,11 +295,6 @@ public class Player implements Serializable
 				+ ", inventory=" + inventory + ", dwd=" + dwd
 				+ ", getInventory()=" + getInventory() + "]";
 	}
-	public static void main(String[] args)
-	{
-		
-		Player player = new Player();
-		player.fight(null);
-	}
 	
+
 }

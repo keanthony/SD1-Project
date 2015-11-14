@@ -17,19 +17,26 @@ public class Battle
 {
 	protected  Player player;
 	protected Room currentNPC;
-
+	
+public Battle()
+{
+	player = new Player();
+	currentNPC = new Room();
+}
 
 	/**
 	 * 
 	 * this methods handles the way the NPC will attack
 	 * 
 	 */
+	
 	public int npcAttack()
 	{	
 		int currentHealth = player.getHealth();
-		currentHealth = currentHealth - currentNPC.getCrackHeads().getDamage();
+		int newhealth = currentHealth - currentNPC.getCrackHeads().getDamage();
 
-		return currentHealth;
+		System.out.println(currentNPC.getCrackHeads().getDamage());
+		return newhealth;
 	}
 
 	/**

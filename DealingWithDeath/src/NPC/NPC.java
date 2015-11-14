@@ -38,8 +38,36 @@ public class NPC
 		name = "";
 		description = "";
 		health = 150;
-		damage = 0;
+		damage = 50;
 		attack = false;
+	}
+	public NPC()
+	{
+		money = 0;
+		npcID = 0;
+		name = "";
+		description = "";
+		health = 150;
+		damage = 10;
+		attack = false;
+	}
+
+
+	/**
+	 * @param health the health to set
+	 */
+	public void setHealth(int health) 
+	{
+		this.health = health;
+	}
+
+
+	/**
+	 * @param damage the damage to set
+	 */
+	public void setDamage(int damage) 
+	{
+		this.damage = damage;
 	}
 
 

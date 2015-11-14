@@ -30,11 +30,11 @@ public class Room implements Serializable
 	{
 		roomID = 0;
 		rDescription = "";
-		npcPresent = false;
+		npcPresent = true;
 		rRiddle = null;
-		crackHeads = null;
+		crackHeads = new NPC();
 		item = null;
-		npcPresent = false;
+		npcPresent = true;
 		itemPresent = false;
 	}
 
