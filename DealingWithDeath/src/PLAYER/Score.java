@@ -56,10 +56,9 @@ public class Score implements Serializable
 		if(room.getNpcPresent())
 		{
 
-			money = player.getMoney();
 			money = money + room.getCrackHeads().getMoney();
 		}
-
+		System.out.println("you got cash");
 		return money;
 	}
 	/**
@@ -72,8 +71,8 @@ public class Score implements Serializable
 		{
 			money = player.getMoney() - player.getMoney();
 		}
-		return money;
 
+		return money;
 	}
 
 	/**

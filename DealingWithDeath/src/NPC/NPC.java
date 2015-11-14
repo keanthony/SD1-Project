@@ -38,7 +38,7 @@ public class NPC
 		name = "";
 		description = "";
 		health = 150;
-		damage = 50;
+		damage = 20;
 		attack = false;
 	}
 	public NPC()
@@ -48,7 +48,7 @@ public class NPC
 		name = "";
 		description = "";
 		health = 150;
-		damage = 10;
+		damage = 20;
 		attack = false;
 	}
 

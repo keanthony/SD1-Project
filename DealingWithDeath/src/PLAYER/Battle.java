@@ -26,7 +26,7 @@ public Battle()
 
 	/**
 	 * 
-	 * this methods handles the way the NPC will attack
+	 * this methods handles the way the NPC attacks
 	 * 
 	 */
 	
@@ -34,14 +34,12 @@ public Battle()
 	{	
 		int currentHealth = player.getHealth();
 		int newhealth = currentHealth - currentNPC.getCrackHeads().getDamage();
-
-		System.out.println(currentNPC.getCrackHeads().getDamage());
 		return newhealth;
 	}
 
 	/**
 	 * 
-	 * this methods handles the way the NPC will attack
+	 * this methods handles the way the player attacks
 	 * 
 	 */
 	public int playerAttack()
