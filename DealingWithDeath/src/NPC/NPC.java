@@ -1,5 +1,7 @@
 package NPC;
 
+import PLAYER.Score;
+
 /**Class: NPC.java
 * @author: 
 * @collaborator: Kevin Anthony, Samuel medina 
@@ -33,7 +35,7 @@ public class NPC
 	public NPC(int npcID, String name, String description, int health,
 			int damage, boolean attack, int money)
 	{
-		money = 0;
+		money = 1000;
 		npcID = 0;
 		name = "";
 		description = "";
@@ -43,7 +45,7 @@ public class NPC
 	}
 	public NPC()
 	{
-		money = 0;
+		money = 1000;
 		npcID = 0;
 		name = "";
 		description = "";

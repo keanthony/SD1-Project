@@ -34,9 +34,13 @@ public class Score implements Serializable
 	protected Room room;
 	protected Player player;
 
+	
 	public Score()
 	{
-		money = 0;
+		money = 1000;
+		room = new Room();
+		player = new Player();
+
 	}
 
 	/**
@@ -53,13 +57,13 @@ public class Score implements Serializable
 	public int Sale()
 	{
 
-		if(room.getNpcPresent())
-		{
-
-			money = money + room.getCrackHeads().getMoney();
-		}
-		System.out.println("you got cash");
-		return money;
+		//if(room.getNpcPresent())
+//		{
+		
+			int current = player.getMoney() + room.getCrackHeads().getMoney();
+			System.out.println(player.getMoney());
+	//	}
+		return current;
 	}
 	/**
 	 * @return
@@ -67,10 +71,10 @@ public class Score implements Serializable
 
 	public int loseMoney()
 	{
-		if(player.getHealth() < 1)
-		{
+	//	if(player.getHealth() < 1)
+		//{
 			money = player.getMoney() - player.getMoney();
-		}
+		//}
 
 		return money;
 	}
@@ -83,7 +87,7 @@ public class Score implements Serializable
 		if(player.getMoney() > 0)
 		{
 			money = player.getMoney();
-			moneyAL.add(money);
+			moneyAL.add(player.getMoney());
 
 			System.out.println("Your money has been saved");
 		}

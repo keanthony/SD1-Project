@@ -39,11 +39,11 @@ public class Player implements Serializable
 		name = "";
 		health = 100;
 		damage = 5;
-		score = new Score();
+		//score = new Score();
 		room = new Room();
 		inventory = new ArrayList<Item>();
 		dwd = new DWD();
-		money = 0;
+		money = 1000;
 	}
 
 
@@ -60,7 +60,7 @@ public class Player implements Serializable
 		room = new Room();
 		inventory = new ArrayList<Item>();
 		dwd = new DWD();
-		money = 0;
+		money = 1000;
 	}
 
 	public Player(String name, int health, int damage, Score score, Room room,
