@@ -3,7 +3,7 @@ package INVENTORY;
 import java.io.Serializable;
 
 /**Class: Crack.java
- * @author: Kevin Anthony 100%
+ * @author: Kevin Anthony 
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -25,7 +25,7 @@ public class Crack extends Item implements Serializable
 	public Crack(int itemIndex, String name, String description, int value)
 	{
 		super(itemIndex, name, description);
-		value = 0;
+		this.value = value;
 	}
 
 	/**Method Name: getValue
@@ -37,14 +37,25 @@ public class Crack extends Item implements Serializable
 	}
 
 	/** Method Name: equipItem
-	 * Description: Override 
+	 * Description: Crack cannot be equipped
 	 * @return String representation of object
 	 * @see INVENTORY.Item#equipItem()
 	 */
 	@Override
 	public String equipItem()
 	{
-		return null;
+		return "Crack cannot be equipped";
+	}
+
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "Crack [value=" + value + " " + super.toString();
 	}
 
 }

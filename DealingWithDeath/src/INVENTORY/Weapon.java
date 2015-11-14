@@ -1,9 +1,8 @@
 package INVENTORY;
-
 import java.io.Serializable;
 
 /**Class: Weapon.java
- * @author: Kevin Anthony 100%
+ * @author: Kevin Anthony u
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -24,7 +23,7 @@ public class Weapon extends Item implements Serializable
 	public Weapon(int itemIndex, String name, String description, int damage)
 	{
 		super(itemIndex, name, description);
-		damage = 0;
+		this.damage = damage;
 	}
 
 	/**Method Name: getDamage
@@ -44,6 +43,17 @@ public class Weapon extends Item implements Serializable
 	public String equipItem()
 	{
 		return "This weapon increases damage by " + damage;
+	}
+
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "Weapon [damage=" + damage + " " + super.toString();
 	}
 
 }

@@ -2,14 +2,13 @@ package INVENTORY;
 import java.io.Serializable;
 
 /**Class: Armor.java
- * @author: Kevin Anthony 100%
+ * @author: Kevin Anthony 
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
  * Class Description: Armor child class of Item
  * Purpose: Generate and handle Armor items
  */
-
 public class Armor extends Item implements Serializable
 {
 	protected int increaseHP;
@@ -23,7 +22,7 @@ public class Armor extends Item implements Serializable
 	public Armor(int itemIndex, String name, String description, int increaseHP)
 	{
 		super(itemIndex, name, description);
-		increaseHP = 0;
+		this.increaseHP = increaseHP;
 	}
 
 	/**Method Name: getIncreaseHP
@@ -43,6 +42,17 @@ public class Armor extends Item implements Serializable
 	public String equipItem()
 	{
 		return "This armor increases your health by " + increaseHP;
+	}
+
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "Armor [increaseHP=" + increaseHP + " " + super.toString();
 	}
 
 }
