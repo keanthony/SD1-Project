@@ -13,14 +13,15 @@ package NPC;
 //wants to trade or "deal" with an NPC. We still don't have this.
 public class NPC
 {
-	protected int money;
 	protected int npcID;
 	protected String name;
 	protected String description;
 	protected int health;
 	protected int damage;
 	protected boolean attack;
-
+	protected int money;
+	
+	
 	/**Constructor: NPC.java
 	 * Initializes object with following params.
 	 * @param npcID
@@ -29,30 +30,30 @@ public class NPC
 	 * @param health
 	 * @param damage
 	 * @param attack
+	 * @param money
 	 */
 	public NPC(int npcID, String name, String description, int health,
 			int damage, boolean attack, int money)
 	{
-		money = 1000;
-		npcID = 0;
-		name = "";
-		description = "";
-		health = 150;
-		damage = 20;
-		attack = false;
-	}
-	
-	public NPC()
-	{
-		money = 1000;
-		npcID = 0;
-		name = "";
-		description = "";
-		health = 150;
-		damage = 20;
-		attack = false;
+		this.npcID = npcID;
+		this.name = name;
+		this.description = description;
+		this.health = health;
+		this.damage = damage;
+		this.attack = attack;
+		this.money = money;
 	}
 
+	public NPC()
+	{
+		npcID = 0;
+		name = "";
+		description = "";
+		health = 150;
+		damage = 20;
+		attack = false;
+		money = 1000;
+	}
 
 	/**
 	 * @param health the health to set
@@ -62,7 +63,6 @@ public class NPC
 		this.health = health;
 	}
 
-
 	/**
 	 * @param damage the damage to set
 	 */
@@ -70,7 +70,6 @@ public class NPC
 	{
 		this.damage = damage;
 	}
-
 
 	/**
 	 * @return the money
@@ -80,7 +79,6 @@ public class NPC
 		return money;
 	}
 
-
 	/**
 	 * @param money the money to set
 	 */
@@ -88,7 +86,6 @@ public class NPC
 	{
 		this.money = money;
 	}
-
 
 	/**
 	 * @return the damage
@@ -117,4 +114,18 @@ public class NPC
 	{
 
 	}
+
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "NPC [npcID=" + npcID + ", name=" + name + ", description="
+				+ description + ", health=" + health + ", damage=" + damage
+				+ ", attack=" + attack + ", money=" + money + "]";
+	}
+
 }

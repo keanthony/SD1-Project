@@ -25,10 +25,8 @@ public class DWD implements Serializable
 	protected static ArrayList<NPC> npcAL;
 	protected static ArrayList<Riddle> riddleAL;
 	protected static ArrayList<Item> itemAL;
-	protected int roomID;
-	private Player myPlayer;
 	protected static DWD status;
-	protected boolean fight;
+	protected int roomID;
 	protected Random r;
 
 	/**Constructor: DWD.java
@@ -37,38 +35,13 @@ public class DWD implements Serializable
 	{
 		status = this;
 		roomID = -1;
-		fight = false;
 		r = new Random();
-	}
-
-	/**
-	 * @return the myPlayer
-	 */
-	public Player getMyPlayer()
-	{
-		return myPlayer;
-	}
-
-	/**Method Name: setMyPlayer
-	 * @param myPlayer the myPlayer to set
-	 */
-	public void setMyPlayer(Player myPlayer)
-	{
-		this.myPlayer = myPlayer;
-	}
-
-	/**
-	 * @return the itemAL
-	 */
-	public ArrayList<Item> getItemAL()
-	{
-		return itemAL;
 	}
 
 	/**Method Name: getRoomAL
 	 * @return the roomAL
 	 */
-	public ArrayList<Room> getRoomAL()
+	public static ArrayList<Room> getRoomAL()
 	{
 		return roomAL;
 	}
@@ -79,21 +52,6 @@ public class DWD implements Serializable
 	public int getRoomID()
 	{
 		return roomID;
-	}
-
-	/**Method Name: getStatus
-	 * Description: Attempting to create an instance of the game that we can 
-	 * refer to in order to get current player status 
-	 * @author: Kevin Anthony
-	 * @return status
-	 */
-	public DWD getStatus()
-	{
-		if (status == null)
-		{
-			status = new DWD();
-		}
-		return status;
 	}
 
 	/**Method Name: makeNPC
@@ -386,7 +344,7 @@ public class DWD implements Serializable
 	 */
 	public void getUserInput()
 	{
-		int room = getStatus().roomID;
+		int room = roomID;
 		System.out.println("You are in room " + room);
 		System.out.println("The room is " + roomAL.get(room).getrDescription());
 		if (roomAL.get(room).getNpcPresent())
@@ -395,4 +353,16 @@ public class DWD implements Serializable
 			System.out.println(roomAL.get(room).getCrackHeads());
 		}
 	}
+
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "DWD [roomID=" + roomID + ", r=" + r;
+	}
+	
 }
