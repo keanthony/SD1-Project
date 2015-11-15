@@ -33,7 +33,7 @@ public class Player implements Serializable
 	protected ArrayList<Item> inventory;
 	protected DWD dwd;
 	protected int money;
-	Battle enemy;
+	protected Battle enemy;
 	protected Item it;
 
 
