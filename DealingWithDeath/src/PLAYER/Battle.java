@@ -1,6 +1,4 @@
 package PLAYER;
-import MAIN.DWD;
-import NPC.NPC;
 import ROOM.Room;
 
 /**Class: Player.java

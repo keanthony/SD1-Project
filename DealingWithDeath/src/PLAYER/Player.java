@@ -19,6 +19,10 @@ import MAIN.User;
  * Purpose: Generate and handle Player interactions
  */
 
+/**
+ * @author Sam
+ *
+ */
 public class Player implements Serializable
 {
 	protected String name;
@@ -29,17 +33,18 @@ public class Player implements Serializable
 	protected ArrayList<Item> inventory;
 	protected DWD dwd;
 	protected int money;
+	Battle enemy;
+	protected Item it;
 
 
 	/**
-	 * 
+	 * no parameter constructor 
 	 */
 	public Player()
 	{
 		name = "";
 		health = 100;
 		damage = 5;
-		//score = new Score();
 		room = new Room();
 		inventory = new ArrayList<Item>();
 		dwd = new DWD();
@@ -62,7 +67,17 @@ public class Player implements Serializable
 		dwd = new DWD();
 		money = 1000;
 	}
-
+	/**Constructor: Player.java
+	 * @author Samuel
+	 * 
+	 * @param name
+	 * @param health
+	 * @param damage
+	 * @param score
+	 * @param room
+	 * @param inventory
+	 * @param money
+	 */
 	public Player(String name, int health, int damage, Score score, Room room,
 			ArrayList<Item> inventory, int money)
 	{
@@ -80,7 +95,8 @@ public class Player implements Serializable
 	/**
 	 * @return the score
 	 */
-	public Score getScore() {
+	public Score getScore() 
+	{
 		return score;
 	}
 
@@ -88,7 +104,8 @@ public class Player implements Serializable
 	/**
 	 * @param score the score to set
 	 */
-	public void setScore(Score score) {
+	public void setScore(Score score) 
+	{
 		this.score = score;
 	}
 
@@ -96,7 +113,8 @@ public class Player implements Serializable
 	/**
 	 * @return the room
 	 */
-	public Room getRoom() {
+	public Room getRoom() 
+	{
 		return room;
 	}
 
@@ -104,7 +122,8 @@ public class Player implements Serializable
 	/**
 	 * @param room the room to set
 	 */
-	public void setRoom(Room room) {
+	public void setRoom(Room room) 
+	{
 		this.room = room;
 	}
 
@@ -112,7 +131,8 @@ public class Player implements Serializable
 	/**
 	 * @return the dwd
 	 */
-	public DWD getDwd() {
+	public DWD getDwd() 
+	{
 		return dwd;
 	}
 
@@ -120,7 +140,8 @@ public class Player implements Serializable
 	/**
 	 * @param dwd the dwd to set
 	 */
-	public void setDwd(DWD dwd) {
+	public void setDwd(DWD dwd) 
+	{
 		this.dwd = dwd;
 	}
 
@@ -128,7 +149,8 @@ public class Player implements Serializable
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 
@@ -136,7 +158,8 @@ public class Player implements Serializable
 	/**
 	 * @param health the health to set
 	 */
-	public void setHealth(int health) {
+	public void setHealth(int health) 
+	{
 		this.health = health;
 	}
 
@@ -144,7 +167,8 @@ public class Player implements Serializable
 	/**
 	 * @param inventory the inventory to set
 	 */
-	public void setInventory(ArrayList<Item> inventory) {
+	public void setInventory(ArrayList<Item> inventory) 
+	{
 		this.inventory = inventory;
 	}
 
@@ -185,7 +209,8 @@ public class Player implements Serializable
 	/**
 	 * @param damage the damage to set
 	 */
-	public void setDamage(int damage) {
+	public void setDamage(int damage)
+	{
 		this.damage = damage;
 	}
 
@@ -227,22 +252,22 @@ public class Player implements Serializable
 	 * @return
 	 * lets you take an item and put in on your inventory
 	 */
-	public String take(Item item)
+	public String take()
 	{
-		if (room.isPresent(item))
+		//if (room.isPresent(it))
 		{
-			inventory.add(item);
+			inventory.add(room.getItem());
 		}
 
 		return "Item is now in your inventory";
 	}
 
 	//gives a description of the item
-	public String inspect(Item item)
+	public String inspect()
 	{
-		if (room.isPresent(item))
+		if (room.isPresent(it))
 		{
-			return item.getDescription();
+			return it.getDescription();
 		}
 		else
 			return "Item not found";
@@ -261,27 +286,16 @@ public class Player implements Serializable
 		//what's going to be passed is an integer
 
 	}
-	/*//trades crack with the NPC
-	 *//**
-	 * @param trade
-	 */
 
 	//Gives options to either fight or trade 
-	public void approach(Battle enemy, Score trade1)
+	public void approach()
 	{
 		int fight = enemy.playerAttack();
-		int trade  = trade1.Sale();
+		int trade  = score.Sale();
 
 		System.out.println("Would you like to " + fight + " or " + trade );
 
 	}
-
-	public static String getName() 
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 
@@ -289,12 +303,13 @@ public class Player implements Serializable
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Player [name=" + name + ", health=" + health + ", damage="
 				+ damage + ", score=" + score + ", room=" + room
 				+ ", inventory=" + inventory + ", dwd=" + dwd
 				+ ", getInventory()=" + getInventory() + "]";
 	}
-	
+
 
 }

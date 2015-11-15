@@ -1,5 +1,14 @@
 package PLAYER;
-
+/**Class: Score.java
+ * @author: Samuel Medina
+ * @collaborator:
+ * @version: 1.0
+ * Course : ITEC 3860 Fall 2015 Dr. Johnson
+ * Date Written: Oct 30, 2015
+ * Class Description: Score class
+ * Purpose: Handles the score, saves money, if a fight is lost it takes the money away and it also handles if the player wants to
+ *  sale crack 
+ */
 
 
 
@@ -58,12 +67,12 @@ public class Score implements Serializable
 	{
 
 		//if(room.getNpcPresent())
-//		{
+		
 		
 			int current = player.getMoney() + room.getCrackHeads().getMoney();
 			System.out.println(player.getMoney());
-	//	}
-		return current;
+			return current;
+		
 	}
 	/**
 	 * @return
@@ -71,10 +80,10 @@ public class Score implements Serializable
 
 	public int loseMoney()
 	{
-	//	if(player.getHealth() < 1)
-		//{
+		if(player.getHealth() < 1)
+		{
 			money = player.getMoney() - player.getMoney();
-		//}
+		}
 
 		return money;
 	}

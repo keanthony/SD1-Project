@@ -19,7 +19,7 @@ public abstract class Item implements Serializable
 	protected String description;
 
 	/**Constructor: Item.java
-	 * Initializes object with following params.
+	 * Initializes object with no params.
 	 */
 	public Item()
 	{
