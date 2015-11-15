@@ -199,15 +199,14 @@ public class DWD implements Serializable
 				"Collects all of the enemy's powers and shoots them back at the enemy.",
 				30));
 		itemAL.add(new Crack(10, "The Heisenberg Crack",
-				"The purest and most expensive crack on the market!", 10000));
+				"The purest and most expensive crack on the market!", 2000));
 		itemAL.add(new Crack(11, "Brick", "A kilogram of crack", 15000));
 		itemAL.add(new Crack(12, "A Dimebag", "$10 worth of crack", 10));
-		itemAL.add(new Crack(13, "8 Ball",
-				"The breastplate is made from one large piece of metal, which ",
-				300));
+		itemAL.add(new Crack(11, "Brick", "A kilogram of crack", 1500));
+		itemAL.add(new Crack(12, "A Dimebag", "$10 worth of crack", 10));
+		itemAL.add(new Crack(13, "8 Ball", "Small bag of crack", 300));
 		itemAL.add(
 				new Crack(14, "Half a Football Field", "50 crack rocks", 1000));
-		//TODO: Generate Item Data
 	}
 
 	/**Method Name: devil
