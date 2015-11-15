@@ -1,7 +1,5 @@
 package NPC;
 
-import PLAYER.Score;
-
 /**Class: NPC.java
 * @author: 
 * @collaborator: Kevin Anthony, Samuel medina 
@@ -43,6 +41,7 @@ public class NPC
 		damage = 20;
 		attack = false;
 	}
+	
 	public NPC()
 	{
 		money = 1000;

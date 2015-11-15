@@ -1,20 +1,8 @@
 package MAIN;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-
-import INVENTORY.*;
-import NPC.NPC;
-import PLAYER.Player;
-import ROOM.*;
-
-
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 import INVENTORY.*;
 import NPC.NPC;
 import PLAYER.Player;
@@ -22,7 +10,7 @@ import ROOM.*;
 
 /**Class: DWD.java
  * @author: Kevin Anthony
- * @collaborator:Soheb Samshuddin
+ * @collaborator:
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -31,15 +19,12 @@ import ROOM.*;
  * Monsters, and Puzzles
  */
 
-//Sam: We need the NPC to have some type of money to make some trades
-
 public class DWD implements Serializable
-
 {
-	protected ArrayList<Room> roomAL = new ArrayList<Room>();
-	protected ArrayList<NPC> npcAL = new ArrayList<NPC>();
-	protected ArrayList<Riddle> riddleAL = new ArrayList<Riddle>();
-	protected ArrayList<Item> itemAL = new ArrayList<Item>();
+	protected static ArrayList<Room> roomAL;
+	protected static ArrayList<NPC> npcAL;
+	protected static ArrayList<Riddle> riddleAL;
+	protected static ArrayList<Item> itemAL;
 	protected int roomID;
 	private Player myPlayer;
 	protected static DWD status;
@@ -47,34 +32,9 @@ public class DWD implements Serializable
 	protected Random r;
 
 	/**Constructor: DWD.java
-	 * Initializes object with following params.
-	 * @param roomAL
-	 * @param npcAL
-	 * @param riddleAL
-	 */
-	public DWD(ArrayList<Room> roomAL, ArrayList<NPC> npcAL,
-			ArrayList<Riddle> riddleAL, ArrayList<Item> itemAL)
-	{
-		this.roomAL = roomAL;
-		this.npcAL = npcAL;
-		this.riddleAL = riddleAL;
-		this.itemAL = itemAL;
-		status = this;
-		roomID = -1;
-		fight = false;
-		r = new Random();
-	}
-
-	/**Constructor: DWD.java
-	 * Initializes object with following params.
 	 */
 	public DWD()
 	{
-		//myPlayer = new Player();
-		roomAL = null;
-		npcAL = null;
-		riddleAL = null;
-		itemAL = null;
 		status = this;
 		roomID = -1;
 		fight = false;
@@ -131,7 +91,7 @@ public class DWD implements Serializable
 	{
 		if (status == null)
 		{
-			status = new DWD(roomAL, npcAL, riddleAL, itemAL);
+			status = new DWD();
 		}
 		return status;
 	}
@@ -143,6 +103,7 @@ public class DWD implements Serializable
 	 */
 	public void makeNPC()
 	{
+		npcAL = new ArrayList<NPC>();
 		System.out.println("Populating the rooms with crackheads...");
 		NPC npc0 = new NPC(0, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
@@ -152,28 +113,27 @@ public class DWD implements Serializable
 				60, 10, r.nextBoolean(), 0);
 		NPC npc2 = new NPC(2, "Suzie Q",
 				"Smooth talkin', smooth walkin' witch who uses her mysterious spells as power and strength.",
-				50, 10, r.nextBoolean(),0);
+				50, 10, r.nextBoolean(), 0);
 		NPC npc3 = new NPC(3, "Freaky Freddie",
 				"Freak on a leash. You must not let him off this leash!", 80,
-				10, r.nextBoolean(),0);
+				10, r.nextBoolean(), 0);
 		NPC npc4 = new NPC(4, "Furious Fiona",
 				"Tall beast who is trying to make you eat her poisonous apples.",
-				60, 10, r.nextBoolean(),0);
+				60, 10, r.nextBoolean(), 0);
 		NPC npc5 = new NPC(5, "Jake The Jester",
 				"Running around, making jokes and distracting you from your mission!",
 				100, 10, r.nextBoolean(), 0);
 		NPC npc6 = new NPC(6, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
-				10, r.nextBoolean(),0);
+				10, r.nextBoolean(), 0);
 		NPC npc7 = new NPC(7, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
-				10, r.nextBoolean(),0);
+				10, r.nextBoolean(), 0);
 		//TODO: Generate NPC descriptions/stats
 		NPC[] npcArray =
 		{ npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
 		npcAL.add(npc0);
 
-		//note a single Random object is reused here
 		for (int i = 1; i < 30; i++)
 		{
 			if (r.nextInt(10) < 8)
@@ -190,6 +150,7 @@ public class DWD implements Serializable
 	 */
 	public void makeRiddle()
 	{
+		riddleAL = new ArrayList<Riddle>();
 		System.out.println("Populating the rooms with riddles...");
 		riddleAL.add(new Riddle(0,
 				"What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n3. A Snail\n4. A Human",
@@ -223,6 +184,8 @@ public class DWD implements Serializable
 	 */
 	public void makeItem()
 	{
+		itemAL = new ArrayList<Item>();
+		System.out.println("Populating the rooms with items...");
 		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
 				"The breastplate is made from one large piece of metal, which "
 						+ "sits perfectly just under the shoulderplates. It covers "
@@ -296,6 +259,8 @@ public class DWD implements Serializable
 	 */
 	public void makeRoom()
 	{
+		roomAL = new ArrayList<Room>();
+		System.out.println("Populating the rooms...");
 		roomAL.add(new Room(0,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
@@ -415,47 +380,6 @@ public class DWD implements Serializable
 		//TODO: Generate rooms
 	}
 
-	//Adrianna
-	public void enterUserName()
-	{
-		Scanner user_input = new Scanner(System.in);
-		System.out.print("Who am i?.. ");
-		String userName = user_input.next();
-		System.out.println("You are " + userName);
-		user_input.close();
-	}
-
-	public void initPlayer(Player player)
-	{
-
-	}
-
-	//Adrianna
-	public void help()
-	{
-		Scanner user_input = new Scanner(System.in);
-		String keyword = "help";
-		if (!(user_input.next() == keyword))
-		{
-			System.out.println("List of Commands\n");
-			System.out.println("Say -attack- to harm NPC");
-			System.out.println("Say -move- to move foward to the next room");
-			System.out.println(
-					"Say -inventory- to see a list items you are holding");
-			System.out.println("Say -equip- to put a wearable item on");
-			System.out.println("Say -drop- to release an item from yourself");
-			System.out.println("Say -take- to add an item to your inventory");
-			System.out.println("Say -deal- to begin a transaction with an NPC");
-			System.out
-					.println("Say -sell- to trade money for drugs with an NPC");
-		}
-		else
-		{
-			System.out.println("Invalid");
-		}
-		user_input.close();
-	}
-
 	/**Method Name: getUserInput
 	 * Description: To give the user a status update when they enter a room
 	 * @author: Kevin Anthony
@@ -467,7 +391,7 @@ public class DWD implements Serializable
 		System.out.println("The room is " + roomAL.get(room).getrDescription());
 		if (roomAL.get(room).getNpcPresent())
 		{
-			NPC npc = roomAL.get(room).getCrackHeads();
+			//NPC npc = roomAL.get(room).getCrackHeads();
 			System.out.println(roomAL.get(room).getCrackHeads());
 		}
 	}
