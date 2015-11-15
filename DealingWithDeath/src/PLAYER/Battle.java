@@ -53,7 +53,7 @@ public Battle()
 	{
 		if(player.getHealth() < 0)
 		{
-			player.goTo();
+			player.goTo(null);
 		}
 
 		//TODO: Once room is created change the hell to the room number since 

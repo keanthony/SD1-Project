@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import INVENTORY.*;
 import MAIN.DWD;
-import MAIN.User;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -25,6 +24,10 @@ import MAIN.User;
  */
 public class Player implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name;
 	protected int health;
 	protected int damage;
@@ -238,10 +241,11 @@ public class Player implements Serializable
 	}
 
 	/**goTo
+	 * @param lastRoom 
 	 * @param room
 	 * lets you enter a new room
 	 */
-	public void goTo()
+	public void goTo(Room lastRoom)
 	{
 		room.enter();
 	}

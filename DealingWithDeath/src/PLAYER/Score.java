@@ -80,12 +80,12 @@ public class Score implements Serializable
 
 	public int loseMoney()
 	{
+		int current = 0;
 		if(player.getHealth() < 1)
 		{
-			money = player.getMoney() - player.getMoney();
+			current = player.getMoney() - player.getMoney();
 		}
-
-		return money;
+		return current;
 	}
 
 	/**
