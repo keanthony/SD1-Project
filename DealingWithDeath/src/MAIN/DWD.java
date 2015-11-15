@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import INVENTORY.*;
 import NPC.NPC;
-import PLAYER.Player;
 import ROOM.*;
 
 /**Class: DWD.java
@@ -26,15 +25,24 @@ public class DWD implements Serializable
 	protected static ArrayList<Riddle> riddleAL;
 	protected static ArrayList<Item> itemAL;
 	protected static DWD status;
-	protected int roomID;
+	private int roomID;
 	protected Random r;
 
 	/**Constructor: DWD.java
 	 */
 	public DWD()
 	{
-		status = this;
-		roomID = -1;
+		roomID = 0;
+		r = new Random();
+	}
+
+	/**Constructor: DWD.java
+	 * Initializes object with following params.
+	 * @param roomID
+	 */
+	public DWD(int roomID)
+	{
+		setRoomID(roomID);
 		r = new Random();
 	}
 
@@ -46,12 +54,80 @@ public class DWD implements Serializable
 		return roomAL;
 	}
 
+	/**Method Name: getNpcAL
+	 * @return the npcAL
+	 */
+	public static ArrayList<NPC> getNpcAL()
+	{
+		return npcAL;
+	}
+
+	/**Method Name: getRiddleAL
+	 * @return the riddleAL
+	 */
+	public static ArrayList<Riddle> getRiddleAL()
+	{
+		return riddleAL;
+	}
+
+	/**Method Name: getItemAL
+	 * @return the itemAL
+	 */
+	public static ArrayList<Item> getItemAL()
+	{
+		return itemAL;
+	}
+
 	/**Method Name: getRoomID
 	 * @return the roomID
 	 */
 	public int getRoomID()
 	{
 		return roomID;
+	}
+
+	/**Method Name: setRoomID
+	 * @param roomID the roomID to set
+	 */
+	public void setRoomID(int roomID)
+	{
+		if (roomID > 29 || roomID < 0)
+		{
+			System.out.println("RoomID out of bounds.  Resetting to 0");
+			this.roomID = 0;
+		}
+		else
+			this.roomID = roomID;
+	}
+
+	/**Method Name: getCurrentItem
+	 * Description: Get the Item from the current room 
+	 * @param roomID
+	 * @return Item
+	 */
+	public Item getCurrentItem(int roomID)
+	{
+		return roomAL.get(roomID).getItem();
+	}
+
+	/**Method Name: getCurrentNPC
+	 * Description: Get the NPC from the current room 
+	 * @param roomID
+	 * @return NPC
+	 */
+	public NPC getCurrentNPC(int roomID)
+	{
+		return roomAL.get(roomID).getCrackHeads();
+	}
+
+	/**Method Name: getCurrentRiddle
+	 * Description: Get the Riddle from the current room 
+	 * @param roomID
+	 * @return Riddle
+	 */
+	public Riddle getCurrentRiddle(int roomID)
+	{
+		return roomAL.get(roomID).getrRiddle();
 	}
 
 	/**Method Name: makeNPC
@@ -312,12 +388,6 @@ public class DWD implements Serializable
 						+ "rock dust. The room beyond is filled with rubble.",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(24,
-				"A furious rumble resounds in the area as stones come "
-						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
-				riddleAL.get(r.nextInt(7)), devil(),
-				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(25,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
@@ -355,15 +425,28 @@ public class DWD implements Serializable
 	 * Description: To give the user a status update when they enter a room
 	 * @author: Kevin Anthony
 	 */
-	public void getUserInput()
+	public void displayUserStatus()
 	{
 		System.out.println("You are in room " + roomID);
 		System.out.println(roomAL.get(roomID).getrDescription());
-		if (roomAL.get(roomID).getNpcPresent())
+		if (getCurrentNPC(roomID) != null)
 		{
-			//NPC npc = roomAL.get(room).getCrackHeads();
-			System.out.println(roomAL.get(roomID).getCrackHeads());
+			System.out.println("There is a monster in the room");
+			System.out.println(getCurrentNPC(roomID).getName() + " "
+					+ getCurrentNPC(roomID).getDescription());
 		}
+		else
+			System.out.println("There is no monster in the room");
+		System.out.println(
+				"The item in this room is " + getCurrentItem(roomID).getName()
+						+ " " + getCurrentItem(roomID).getDescription());
+		if (getCurrentRiddle(roomID) != null)
+		{
+			System.out.println("There is a Riddle in the room");
+			System.out.println(getCurrentRiddle(roomID).getQuestion());
+		}
+		else
+			System.out.println("There is no Riddle in the room");
 	}
 
 	/** Method Name: toString

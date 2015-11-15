@@ -55,6 +55,22 @@ public class NPC
 		money = 1000;
 	}
 
+	/**Method Name: getName
+	 * @return the name
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/**Method Name: getDescription
+	 * @return the description
+	 */
+	public String getDescription()
+	{
+		return description;
+	}
+
 	/**
 	 * @param health the health to set
 	 */

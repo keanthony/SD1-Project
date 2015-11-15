@@ -129,13 +129,17 @@ public class Room implements Serializable
 
 	}
 
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
-		return "Room [Room Number: " + roomID + ", Room Description: "
-				+ rDescription + ", Crackhead Count: " + crackHeads
-				+ ", Other NPC Present: " + npcPresent + ", Items Present "
-				+ itemPresent + "]";
+		return "Room [roomID=" + roomID + ", rDescription=" + rDescription
+				+ ", rRiddle=" + rRiddle + ", crackHeads=" + crackHeads
+				+ ", item=" + item + "]";
 	}
 
 	// implement Inpect method? to return 

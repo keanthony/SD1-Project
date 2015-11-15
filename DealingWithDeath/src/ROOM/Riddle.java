@@ -46,6 +46,14 @@ public class Riddle
 		backToRoom = null;
 	}
 
+	/**Method Name: getQuestion
+	 * @return the question
+	 */
+	public String getQuestion()
+	{
+		return question;
+	}
+
 	public int getSolution()
 	{
 		return solution;
@@ -101,10 +109,15 @@ public class Riddle
 		}
 	}
 
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
-		return "Riddle [Riddle ID: " + riddleId + ", Riddle: " + question + "]";
+		return "Riddle [riddleId=" + riddleId + ", question=" + question
+				+ ", solution=" + solution + "]";
 	}
-
 }

@@ -6,13 +6,13 @@
  * Class Description: jUnit test for DWD
  * Purpose: To make sure DWD is working as intended
  */
-package MAIN;
+package tests;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import INVENTORY.Item;
+import MAIN.DWD;
 import NPC.NPC;
 import ROOM.Riddle;
 import ROOM.Room;
@@ -20,6 +20,7 @@ import ROOM.Room;
 public class DWDTest
 {
 	protected DWD d = new DWD();
+
 	/**Method Name: setUp
 	 * Description: TODO 
 	 * @throws java.lang.Exception
@@ -32,7 +33,9 @@ public class DWDTest
 		d.makeRiddle();
 		d.makeItem();
 		d.makeRoom();
-		d.roomID = 1;
+		d.setRoomID(5);
+		//d.setRoomID(29);
+		//d.setRoomID(40);
 	}
 
 	/**
@@ -41,7 +44,37 @@ public class DWDTest
 	@Test
 	public final void testGetRoomID()
 	{
-		System.out.println("Room ID:" + d.roomID);
+		System.out.println("Room ID:" + d.getRoomID());
+	}
+
+	/**
+	 * Test method for {@link MAIN.DWD#getCurrentNPC()}.
+	 */
+	@Test
+	public final void testgetCurrentNPC()
+	{
+		System.out.println(
+				"The Current NPC is " + d.getCurrentNPC(d.getRoomID()));
+	}
+
+	/**
+	 * Test method for {@link MAIN.DWD#getCurrentItem()}.
+	 */
+	@Test
+	public final void testgetCurrentItem()
+	{
+		System.out.println(
+				"The Current Item is " + d.getCurrentItem(d.getRoomID()));
+	}
+
+	/**
+	 * Test method for {@link MAIN.DWD#getCurrentRiddle()}.
+	 */
+	@Test
+	public final void testgetCurrentRiddle()
+	{
+		System.out.println(
+				"The Current Riddle is " + d.getCurrentNPC(d.getRoomID()));
 	}
 
 	/**
@@ -50,7 +83,7 @@ public class DWDTest
 	@Test
 	public final void testMakeNPC()
 	{
-		for (NPC n : DWD.npcAL)
+		for (NPC n : DWD.getNpcAL())
 		{
 			System.out.println(n);
 		}
@@ -62,7 +95,7 @@ public class DWDTest
 	@Test
 	public final void testMakeRiddle()
 	{
-		for (Riddle r : DWD.riddleAL)
+		for (Riddle r : DWD.getRiddleAL())
 		{
 			System.out.println(r);
 		}
@@ -74,7 +107,7 @@ public class DWDTest
 	@Test
 	public final void testMakeItem()
 	{
-		for (Item it : DWD.itemAL)
+		for (Item it : DWD.getItemAL())
 		{
 			System.out.println(it);
 		}
@@ -87,6 +120,7 @@ public class DWDTest
 	public final void testDevil()
 	{
 		System.out.println("The devil:" + d.devil());
+		System.out.println("The devil:" + d.devil());
 	}
 
 	/**
@@ -95,19 +129,19 @@ public class DWDTest
 	@Test
 	public final void testMakeRoom()
 	{
-		for (Room r : DWD.roomAL)
+		for (Room r : DWD.getRoomAL())
 		{
 			System.out.println(r);
 		}
 	}
 
 	/**
-	 * Test method for {@link MAIN.DWD#getUserInput()}.
+	 * Test method for {@link MAIN.DWD#displayUserStatus()}.
 	 */
 	@Test
-	public final void testGetUserInput()
+	public final void testDisplayUserStatus()
 	{
-		d.getUserInput();
+		d.displayUserStatus();
 	}
 
 }
