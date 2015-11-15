@@ -118,7 +118,7 @@ public class Room implements Serializable
 	public boolean isPresent(Item item)
 	{
 		DWD d = new DWD();
-		if (d.getRoomAL().get(d.getStatus().getRoomID()).getItem() == item)
+		if (DWD.getRoomAL().get(d.getRoomID()).getItem() == item)
 		{
 			return true;
 		}
