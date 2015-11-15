@@ -30,11 +30,11 @@ public class Room implements Serializable
 	{
 		roomID = 0;
 		rDescription = "";
-		npcPresent = false;
+		npcPresent = true;
 		rRiddle = null;
-		crackHeads = null;
+		crackHeads = new NPC();
 		item = null;
-		npcPresent = false;
+		npcPresent = true;
 		itemPresent = false;
 	}
 
@@ -118,7 +118,7 @@ public class Room implements Serializable
 	public boolean isPresent(Item item)
 	{
 		DWD d = new DWD();
-		if (d.getRoomAL().get(d.getStatus().getRoomID()).getItem() == item)
+		if (DWD.getRoomAL().get(d.getRoomID()).getItem() == item)
 		{
 			return true;
 		}

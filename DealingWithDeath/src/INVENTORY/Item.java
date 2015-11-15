@@ -3,7 +3,7 @@ package INVENTORY;
 import java.io.Serializable;
 
 /**Class: Item.java
- * @author: Kevin Anthony 100%
+ * @author: Kevin Anthony 
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: Oct 30, 2015
@@ -19,7 +19,7 @@ public abstract class Item implements Serializable
 	protected String description;
 
 	/**Constructor: Item.java
-	 * Initializes object with following params.
+	 * Initializes object with no params.
 	 */
 	public Item()
 	{
@@ -30,15 +30,15 @@ public abstract class Item implements Serializable
 
 	/**Constructor: Item.java
 	 * Initializes object with following params.
+	 * @param itemIndex
 	 * @param name
 	 * @param description
-	 * @param itemIndex
 	 */
 	public Item(int itemIndex, String name, String description)
 	{
-		itemIndex = 0;
-		name = "";
-		description = "";
+		this.itemIndex = itemIndex;
+		this.name = name;
+		this.description = description;
 	}
 
 	/**Method Name: getItemIndex
@@ -60,4 +60,16 @@ public abstract class Item implements Serializable
 	}
 
 	public abstract String equipItem();
+
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "Item [itemIndex=" + itemIndex + ", name=" + name
+				+ ", description=" + description + "]";
+	}
 }

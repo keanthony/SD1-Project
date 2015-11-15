@@ -25,7 +25,7 @@ import java.util.Scanner;
 
 import PLAYER.Player;
 
-public class User 
+public class User
 {
 	protected final String PLAYERLIST = "PlayerList.txt";
 	protected boolean passMainMenu = false;
@@ -33,7 +33,7 @@ public class User
 	protected Player play = new Player();
 	protected Scanner input = new Scanner(System.in);
 	protected ArrayList<String> userList;
-	
+
 	public void mainMenu()
 	{
 		System.out.println("Welcome");
@@ -52,13 +52,15 @@ public class User
 			{
 				System.out.println("\nPlease Enter Your Name:");
 				this.userName = input.nextLine().toUpperCase();
-				if (userName.length()> 0 && userName != null && !userName.contains(" "))
+				if (userName.length() > 0 && userName != null
+						&& !userName.contains(" "))
 				{
 					this.newGame(userName);
 				}
-				else 
+				else
 				{
-					System.out.println("\nUSER NAME MUST CONTAIN CHARACTERS AND NO SPACES");
+					System.out.println(
+							"\nUSER NAME MUST CONTAIN CHARACTERS AND NO SPACES");
 					System.out.println("RETURNING TO MAIN MENU");
 				}
 			}
@@ -68,18 +70,19 @@ public class User
 			}
 			else if (selection.equals("3"))
 			{
-				System.out.println("\n\t\t\t THANK YOU FOR PLAYING DEALING WITH DEATH!!");
+				System.out.println(
+						"\n\t\t\t THANK YOU FOR PLAYING DEALING WITH DEATH!!");
 				System.exit(0);
 			}
-			else 
+			else
 			{
 				System.out.println("\nThat Was Not Valid.");
 				System.out.println("Returning To Main Menu.");
 
 			}
-			
+
 		}
-	
+
 	}
 
 	public void newGame(String userName)
@@ -95,13 +98,13 @@ public class User
 		// Create PlayerList.txt if it doesn't exist
 
 		File playerListFile = new File(PLAYERLIST);
-		if(!playerListFile.exists())
+		if (!playerListFile.exists())
 		{
 			try
 			{
-				playerListFile.createNewFile(); 
+				playerListFile.createNewFile();
 			}
-			catch(IOException e)
+			catch (IOException e)
 			{
 				System.out.println("\nERROR: Unable to create PlayerList.txt");
 			}
@@ -119,7 +122,8 @@ public class User
 				// Check for existing user names
 				if (nextName.equals(userName))
 				{
-					System.out.println("\nA player with this name already exists.");
+					System.out.println(
+							"\nA player with this name already exists.");
 					System.out.println("Returning to main menu.");
 					fr.close();
 					fileIn.close();
@@ -177,15 +181,17 @@ public class User
 			output.writeObject(play);
 			System.out.print("\tComplete!\n");
 		}
-		catch(FileNotFoundException e)
+		catch (FileNotFoundException e)
 		{
 			System.out.println("ERROR: Unable to access user save file.");
-			System.out.println("ERROR: Please ensure " + userFile + " file is is the correct location.");
+			System.out.println("ERROR: Please ensure " + userFile
+					+ " file is is the correct location.");
 		}
-		catch(IOException e)
+		catch (IOException e)
 		{
 			System.out.println("ERROR: Unable to write user save file.");
-			System.out.println("ERROR: Please ensure " + userFile + " file is not being used by another program.");
+			System.out.println("ERROR: Please ensure " + userFile
+					+ " file is not being used by another program.");
 			e.printStackTrace();
 		}
 
@@ -194,9 +200,10 @@ public class User
 		{
 			output.close();
 		}
-		catch(IOException e)
+		catch (IOException e)
 		{
-			System.out.println("ERROR: ObjectOutputStream was never initialized.");
+			System.out.println(
+					"ERROR: ObjectOutputStream was never initialized.");
 		}
 	}
 
@@ -218,16 +225,17 @@ public class User
 			inputScan = new Scanner(fr);
 			userInput = new Scanner(System.in);
 		}
-		catch(FileNotFoundException e)
+		catch (FileNotFoundException e)
 		{
 			System.out.println("ERROR: Unable to find player list.");
-			System.out.println("ERROR: Please ensure " + PLAYERLIST + " is in the correct location.");
+			System.out.println("ERROR: Please ensure " + PLAYERLIST
+					+ " is in the correct location.");
 		}
 
 		// Output all users available to load and temp store them in userList AL
 		userList = new ArrayList<String>();
 		int userCount = 1;
-		while(inputScan.hasNext())
+		while (inputScan.hasNext())
 		{
 			String user = inputScan.nextLine();
 			System.out.println(userCount + ". " + user);
@@ -239,9 +247,9 @@ public class User
 		int selection;
 		try
 		{
-			selection = userInput.nextInt();			
+			selection = userInput.nextInt();
 		}
-		catch(InputMismatchException e)
+		catch (InputMismatchException e)
 		{
 			System.out.println("\nThat was not a valid selection.");
 			System.out.println("Returning to main menu.");
@@ -249,24 +257,27 @@ public class User
 		}
 
 		// Load selection from player list or return to main menu
-		if(selection <= userList.size() && selection > 0)
+		if (selection <= userList.size() && selection > 0)
 		{
 			String userFile = userList.get(selection - 1) + ".dat";
 			try
 			{
 				System.out.println("\n\tLoading . . . ");
-				inputStream = new ObjectInputStream(new FileInputStream(userFile));
-				this.play = (Player)inputStream.readObject();
+				inputStream = new ObjectInputStream(
+						new FileInputStream(userFile));
+				this.play = (Player) inputStream.readObject();
 				System.out.print("\tComplete!\n");
 				this.passMainMenu = true;
 			}
-			catch(IOException e)
+			catch (IOException e)
 			{
-				System.out.println("ERROR: There was a problem reading " + userFile + ".");
+				System.out.println(
+						"ERROR: There was a problem reading " + userFile + ".");
 			}
 			catch (ClassNotFoundException e)
 			{
-				System.out.println("ERROR: Cannot read file. Player object is missing or corrupt.");
+				System.out.println(
+						"ERROR: Cannot read file. Player object is missing or corrupt.");
 			}
 		}
 		else
@@ -284,20 +295,47 @@ public class User
 			userInput.close();
 			inputStream.close();
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
-			System.out.println("ERROR: Something went wrong while closing input objects.");
+			System.out.println(
+					"ERROR: Something went wrong while closing input objects.");
 		}
 
 	}
 
+	//Adrianna
+	public void help()
+	{
+		Scanner user_input = new Scanner(System.in);
+		String keyword = "help";
+		if (!(user_input.next() == keyword))
+		{
+			System.out.println("List of Commands\n");
+			System.out.println("Say -attack- to harm NPC");
+			System.out.println("Say -move- to move foward to the next room");
+			System.out.println(
+					"Say -inventory- to see a list items you are holding");
+			System.out.println("Say -equip- to put a wearable item on");
+			System.out.println("Say -drop- to release an item from yourself");
+			System.out.println("Say -take- to add an item to your inventory");
+			System.out.println("Say -deal- to begin a transaction with an NPC");
+			System.out
+					.println("Say -sell- to trade money for drugs with an NPC");
+		}
+		else
+		{
+			System.out.println("Invalid");
+		}
+		user_input.close();
+	}
+
 	public static void main(String[] args)
 	{
-		
-		
+
 		User game = new User();
-		
+
 		game.mainMenu();
+
 		System.out.println("\nPerhaps we should start from the begining...\n");
 	}
 }
