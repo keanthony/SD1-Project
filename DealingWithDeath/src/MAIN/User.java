@@ -336,6 +336,6 @@ public class User
 
 		game.mainMenu();
 
-		System.out.println("\nPerhaps we should start from the begining...\n");
+		System.out.println("\nLets Start from the Beginning...\n");
 	}
 }
