@@ -179,8 +179,7 @@ public class DWD implements Serializable
 		itemAL.add(new Armor(2, "Earplugs",
 				"Protects you from Leon's freightening laughter. ", 10));
 		itemAL.add(new Armor(3, "Poison Elixer",
-				"Counteracts Furious Fiona's poisonous apples. ",
-				10));
+				"Counteracts Furious Fiona's poisonous apples. ", 10));
 		itemAL.add(new Armor(4, "Breastplate of Lost Dreams",
 				"The breastplate is made from one large piece of metal, which ",
 				10));
@@ -200,20 +199,14 @@ public class DWD implements Serializable
 				"Collects all of the enemy's powers and shoots them back at the enemy.",
 				30));
 		itemAL.add(new Crack(10, "The Heisenberg Crack",
-				"The purest and most expensive crack on the market!",
-				10000));
-		itemAL.add(new Crack(11, "Brick",
-				"A kilogram of crack",
-				15000));
-		itemAL.add(new Crack(12, "A Dimebag",
-				"$10 worth of crack",
-				10));
+				"The purest and most expensive crack on the market!", 10000));
+		itemAL.add(new Crack(11, "Brick", "A kilogram of crack", 15000));
+		itemAL.add(new Crack(12, "A Dimebag", "$10 worth of crack", 10));
 		itemAL.add(new Crack(13, "8 Ball",
 				"The breastplate is made from one large piece of metal, which ",
 				300));
-		itemAL.add(new Crack(14, "Half a Football Field",
-				"50 crack rocks",
-				1000));
+		itemAL.add(
+				new Crack(14, "Half a Football Field", "50 crack rocks", 1000));
 		//TODO: Generate Item Data
 	}
 
@@ -365,13 +358,12 @@ public class DWD implements Serializable
 	 */
 	public void getUserInput()
 	{
-		int room = roomID;
-		System.out.println("You are in room " + room);
-		System.out.println("The room is " + roomAL.get(room).getrDescription());
-		if (roomAL.get(room).getNpcPresent())
+		System.out.println("You are in room " + roomID);
+		System.out.println(roomAL.get(roomID).getrDescription());
+		if (roomAL.get(roomID).getNpcPresent())
 		{
 			//NPC npc = roomAL.get(room).getCrackHeads();
-			System.out.println(roomAL.get(room).getCrackHeads());
+			System.out.println(roomAL.get(roomID).getCrackHeads());
 		}
 	}
 
