@@ -67,10 +67,12 @@ public class DWD implements Serializable
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
 				30, true, 10000);
 		NPC npc1 = new NPC(1, "Leon in the Sky with Diamonds",
-				"Silly clown with rainbows coming out of his mouth. His laughter is freightening!",
+				"Silly clown with rainbows coming out of his mouth. His "
+						+ "laughter is freightening!",
 				60, 10, r.nextBoolean(), 1000);
 		NPC npc2 = new NPC(2, "Suzie Q",
-				"Smooth talkin', smooth walkin' witch who uses her mysterious spells as power and strength.",
+				"Smooth talkin', smooth walkin' witch who uses her mysterious "
+						+ "spells as power and strength.",
 				50, 10, r.nextBoolean(), 2500);
 		NPC npc3 = new NPC(3, "Freaky Freddie",
 				"Freak on a leash. You must not let him off this leash!", 80,
@@ -82,12 +84,14 @@ public class DWD implements Serializable
 				"Running around, making jokes and distracting you from your mission!",
 				100, 10, r.nextBoolean(), 6000);
 		NPC npc6 = new NPC(6, "Buster Bunny",
-				"The giant deranged bunny wearing a smiley face tshirt and bunny slippers is trying to turn you into a carrot and eat you!", 90,
-				10, r.nextBoolean(), 8000);
+				"The giant deranged bunny wearing a smiley face tshirt and "
+						+ "bunny slippers is trying to turn you into a carrot and eat you!",
+				90, 10, r.nextBoolean(), 8000);
 		NPC npc7 = new NPC(7, "Cammie the Chemeleon",
-				"Lizard girl who is blending in to her surroundings. Be careful....where did she go?", 60,
-				10, r.nextBoolean(), 5000);
-		//TODO: Generate NPC descriptions/stats
+				"Lizard girl who is blending in to her surroundings. Be "
+						+ "careful....where did she go?",
+				60, 10, r.nextBoolean(), 5000);
+
 		NPC[] npcArray =
 		{ npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
 		npcAL.add(npc0);
@@ -111,29 +115,46 @@ public class DWD implements Serializable
 		riddleAL = new ArrayList<Riddle>();
 		System.out.println("Populating the rooms with riddles...");
 		riddleAL.add(new Riddle(0,
-				"What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n3. A Snail\n4. A Human",
+				"What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n"
+						+ "3. A Snail\n4. A Human",
 				3));
-		riddleAL.add(new Riddle(1,
-				"What do you call a deer with no eyes?\n 1. A raindeer\n2. A deerblind \n3. A blind deer\n4. No idear!",
-				4));
+		riddleAL.add(
+				new Riddle(1,
+						"What do you call a deer with no eyes?\n1. A raindeer\n"
+								+ "2. A deerblind \n3. A blind deer\n4. No idear!",
+						4));
 		riddleAL.add(new Riddle(2,
-				"Why do programmers confuse Halloween and Christmas?\n 1. Oct 31 = Dec 25\n2. Oct 31 == Dec 25\n3. Oct 31 === Dec 25\n4. All of the above",
+				"Why do programmers confuse Halloween and Christmas?\n"
+						+ "1. Oct 31 = Dec 25\n2. Oct 31 == Dec 25\n"
+						+ "3. Oct 31 === Dec 25\n4. All of the above",
 				4));
 		riddleAL.add(new Riddle(3,
-				"A programmer's wife asks him to run to the store and pick up a loaf of bread. And if they have eggs, get a dozen."
-				+ "The store does have eggs. What does he return with?\n 1. 12 loaves of bread\n2. A loaf of bread and a dozen eggs\n3. A dozen eggs\n4. Nothing",
+				"A programmer's wife asks him to run to the store and pick up a"
+						+ " loaf of bread. And if they have eggs, get a dozen."
+						+ "The store does have eggs. What does he return with?\n"
+						+ "1. 12 loaves of bread\n2. A loaf of bread and a dozen eggs\n"
+						+ "3. A dozen eggs\n4. Nothing",
 				1));
 		riddleAL.add(new Riddle(4,
-				"What the object-oriented way to become wealthy?\n 1. Become a serializable bank robber \n2. Inheritance\n3. Make your bank account protected\n4. Try to cast all your data to Money type",
+				"What the object-oriented way to become wealthy?\n"
+						+ "1. Become a serializable bank robber \n2. Inheritance\n"
+						+ "3. Make your bank account protected\n"
+						+ "4. Try to cast all your data to Money type",
 				2));
 		riddleAL.add(new Riddle(5,
-				"How do programmers express joy when they succesfully write a program?\n 1. Jump up out of their chair and shout horray!\n2. Smile slightly\n3. [hip, hip]\n4. They brag to all their friends on the internet.",
+				"How do programmers express joy when they succesfully write a "
+						+ "program?\n1. Jump up out of their chair and shout horray!\n"
+						+ "2. Smile slightly\n3. [hip, hip]\n4. They brag to all their "
+						+ "friends on the internet.",
 				3));
 		riddleAL.add(new Riddle(6,
-				"Imagine you're in a dark room that is perfectly empty with nothing in it. There are no windows or doors. What is the easiest way to escape?"
-				+ "\n 1. Stop imagining you are in that room\n2. Die\n3. A Wait\n4. Dig a hole through the floor with your bare hands",
+				"Imagine you're in a dark room that is perfectly empty with "
+						+ "nothing in it. There are no windows or doors. What is the "
+						+ "easiest way to escape?"
+						+ "\n1. Stop imagining you are in that room\n2. Die\n"
+						+ "3. A Wait\n4. Dig a hole through the floor with your "
+						+ "bare hands",
 				1));
-		//TODO: Generate Riddle Data
 	}
 
 	/**Method Name: makeItem
@@ -154,14 +175,11 @@ public class DWD implements Serializable
 						+ "movement space.",
 				10));
 		itemAL.add(new Armor(1, "Anti Spell Cloak",
-				"Protects you from Suzie Q's mysterious spells. ",
-				10));
+				"Protects you from Suzie Q's mysterious spells. ", 10));
 		itemAL.add(new Armor(2, "Earplugs",
-				"Protects you from Leon's freightening laughter. ",
-				10));
+				"Protects you from Leon's freightening laughter. ", 10));
 		itemAL.add(new Armor(3, "Poison Elixer",
-				"Counteracts Furious Fiona's poisonous apples. ",
-				10));
+				"Counteracts Furious Fiona's poisonous apples. ", 10));
 		itemAL.add(new Armor(4, "Breastplate of Lost Dreams",
 				"The breastplate is made from one large piece of metal, which ",
 				10));
@@ -366,5 +384,5 @@ public class DWD implements Serializable
 	{
 		return "DWD [roomID=" + roomID + ", r=" + r;
 	}
-	
+
 }
