@@ -204,39 +204,39 @@ public class DWD implements Serializable
 		itemAL.add(new Armor(3, "Poison Elixer",
 				"Counteracts Furious Fiona's poisonous apples. ",
 				10));
-		itemAL.add(new Armor(4, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Armor(4, "UV Goggles",
+				"Makes Cammie the Chemeleon visible when she is in camo.",
 				10));
-		itemAL.add(new Weapon(5, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Weapon(5, "A Satchel of Carrots",
+				"To feed Buster the Bunny when he gets hungry so he won't turn you into a carrot and eat you!",
 				10));
-		itemAL.add(new Weapon(6, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Weapon(6, "A Book of Sad Jokes",
+				"To use against Jake the Jester to make him sad and stop telling jokes and distracting you from you mission.",
 				10));
-		itemAL.add(new Weapon(7, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Weapon(7, "Shock Collar",
+				"To put on Freaky Freddie so he has to stay at least 10 feet away from you.",
 				10));
-		itemAL.add(new Weapon(8, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Weapon(8, "Glow in the Dark Paint",
+				"To throw in Cammie the Chameleon so he camo doesn't work in the light or dark. ",
 				10));
-		itemAL.add(new Weapon(9, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Weapon(9, "Collector Gun",
+				"Collects all of the enemy's powers and shoots them back at the enemy.",
+				30));
+		itemAL.add(new Crack(10, "The Heisenberg Crack",
+				"The purest and most expensive crack on the market!",
+				10000));
+		itemAL.add(new Crack(11, "Brick",
+				"A kilogram of crack",
+				15000));
+		itemAL.add(new Crack(12, "A Dimebag",
+				"$10 worth of crack",
 				10));
-		itemAL.add(new Crack(10, "Breastplate of Lost Dreams",
+		itemAL.add(new Crack(13, "8 Ball",
 				"The breastplate is made from one large piece of metal, which ",
-				10));
-		itemAL.add(new Crack(11, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
-				10));
-		itemAL.add(new Crack(12, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
-				10));
-		itemAL.add(new Crack(13, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
-				10));
-		itemAL.add(new Crack(14, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
-				10));
+				300));
+		itemAL.add(new Crack(14, "Half a Football Field",
+				"50 crack rocks",
+				1000));
 		//TODO: Generate Item Data
 	}
 
