@@ -278,7 +278,7 @@ public class Player implements Serializable
 	{
 		enemy.playerAttack();
 	}
-
+//need hell room to be ready to create this method
 	public void goToHell(Room hell)
 	{
 
