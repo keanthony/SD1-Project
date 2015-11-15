@@ -49,6 +49,18 @@ public Battle()
 
 	}
 
+	public void goToHell()
+	{
+		if(player.getHealth() < 0)
+		{
+			player.goTo();
+		}
+
+		//TODO: Once room is created change the hell to the room number since 
+		//what's going to be passed is an integer
+
+	}
+
 
 
 }

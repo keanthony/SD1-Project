@@ -218,11 +218,11 @@ public class Player implements Serializable
 	 * @return the weap
 	 * Checks to see if the weapon is in the room and adds it to the ArrayList
 	 */
-	public String getWeap(Item item)
+	public String getWeap( )
 	{
-		if (room.isPresent(item))
+		if (room.isPresent(it))
 		{
-			inventory.add(item);
+			inventory.add(it);
 			return "Item is now in your inventory";
 		}
 		else
@@ -241,7 +241,7 @@ public class Player implements Serializable
 	 * @param room
 	 * lets you enter a new room
 	 */
-	public void goTo(Room room)
+	public void goTo()
 	{
 		room.enter();
 	}
@@ -277,14 +277,6 @@ public class Player implements Serializable
 	public void fight(Battle enemy)
 	{
 		enemy.playerAttack();
-	}
-//need hell room to be ready to create this method
-	public void goToHell(Room hell)
-	{
-
-		//TODO: Once room is created change the hell to the room number since 
-		//what's going to be passed is an integer
-
 	}
 
 	//Gives options to either fight or trade 
