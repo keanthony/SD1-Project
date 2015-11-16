@@ -127,7 +127,14 @@ public class DWD implements Serializable
 	 */
 	public Riddle getCurrentRiddle(int roomID)
 	{
-		return roomAL.get(roomID).getrRiddle();
+		if (roomID > 23 && roomID < 30)
+			return roomAL.get(roomID).getrRiddle();
+		else
+		{
+			System.out.println("Riddles do not exist for this RoomID.  "
+					+ "Defaulting to Room 24.");
+			return roomAL.get(24).getrRiddle();
+		}
 	}
 
 	/**Method Name: makeNPC

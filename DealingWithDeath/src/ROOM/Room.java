@@ -25,6 +25,7 @@ public class Room implements Serializable
 	protected Item item;
 	protected boolean npcPresent;
 	protected boolean itemPresent;
+	protected DWD d = new DWD();
 
 	public Room()
 	{
@@ -96,28 +97,19 @@ public class Room implements Serializable
 		return itemPresent;
 	}
 
-	public void enter()
+	/**Method Name: enter
+	 @author Kevin Anthony
+	 * Description: Moves the user to a different room by updating roomID
+	 */
+	public void enter(int roomID)
 	{
-		Scanner user_input = new Scanner(System.in);
-		String move = "move";
-		if (!(user_input.next() == move))
-		{
-			System.out.println("Room Information");
-			System.out.println(getrDescription());
-			// what else should i return?
-		}
-		else
-		{
-			System.out.println("Invalid");
-		}
-		user_input.close();
+		d.setRoomID(roomID);
 	}
 
 	//Sam: This method checks if the item you are attempting to put in 
 	//your inventory is present in the current room
 	public boolean isPresent(Item item)
 	{
-		DWD d = new DWD();
 		if (DWD.getRoomAL().get(d.getRoomID()).getItem() == item)
 		{
 			return true;
