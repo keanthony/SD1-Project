@@ -10,8 +10,11 @@ ROOM Package
 MAIN Package
 - LoginMain.java
 - LoginMainGUI.java
+- User.java --> HELP() Method
+- DWD.java --> makeNPC() Method
 
 TEST Package
 - RiddleTest.java
 - RoomTest.java
 - NPCTest.java
+
