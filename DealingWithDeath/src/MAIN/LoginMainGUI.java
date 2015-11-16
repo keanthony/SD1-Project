@@ -39,8 +39,8 @@ public  class LoginMainGUI extends Application {
 				Button newGame = new Button("New Game");
 				Button loadGame = new Button("Load Game");
 				Button cancel = new Button("Cancel");
-				gp.add(newGame, 1, 10);
-				gp.add(loadGame, 0, 10);
+				gp.add(newGame, 2, 10);
+				gp.add(loadGame, 1, 10);
 				gp.add(cancel, 0, 10);
 				GridPane.setHalignment(newGame, HPos.RIGHT);
 				newGame.setOnAction(e-> newGame());

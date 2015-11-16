@@ -12,6 +12,9 @@ public class UserTest2 {
 	@Test
 	public void test() {
 		User user=new User();
+		user.load();
+		
+	
 		
 	}
 

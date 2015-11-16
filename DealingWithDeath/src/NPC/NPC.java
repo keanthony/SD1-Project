@@ -78,6 +78,8 @@ public class NPC
 	{
 		this.health = health;
 	}
+	
+	
 
 	/**
 	 * @param damage the damage to set

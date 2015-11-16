@@ -11,6 +11,8 @@ public class UserTest3 {
 	@Test
 	public void test() {
 		User user = new User();
+		user.save();
+		
 		
 	}
 

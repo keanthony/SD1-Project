@@ -1,5 +1,5 @@
 package MAIN;
-/**Class: Interface.java
+/**Class: User.java
  * @author: Soheb Samshuddin
  * @collaborator:Jackob from AEC
  * @version: 1.0
@@ -36,21 +36,21 @@ public class User
 
 	public void mainMenu()
 	{
-		System.out.println("Welcome");
+		System.out.println("Welcome to the Game !!!!");
 		System.out.println("Dealing With Death!!!!!");
 
 		while (!passMainMenu)
 		{
 			System.out.println("\n\t\t\t     MAIN MENU");
-			System.out.println("\t\t\t\t1. Start NEW GAME ");
-			System.out.println("\t\t\t\t2. LOAD AN EXISTING GAME");
+			System.out.println("\t\t\t\t1. Start GAME ");
+			System.out.println("\t\t\t\t2. LOAD A GAME");
 			System.out.println("\t\t\t\t3. EXIT GAME");
 			System.out.println("\n");
 			String selection = input.nextLine();
 
 			if (selection.equals("1"))
 			{
-				System.out.println("\nPlease Enter Your Name:");
+				System.out.println("\nPlEASE ENTER USERNAME:");
 				this.userName = input.nextLine().toUpperCase();
 				if (userName.length() > 0 && userName != null
 						&& !userName.contains(" "))
@@ -60,8 +60,8 @@ public class User
 				else
 				{
 					System.out.println(
-							"\nUSER NAME MUST CONTAIN CHARACTERS AND NO SPACES");
-					System.out.println("RETURNING TO MAIN MENU");
+							"\nUSER NAME NEED CHARACTERS WITHOUT SPACES");
+					System.out.println("GOING BACK TO MAIN MENU");
 				}
 			}
 			else if (selection.equals("2"))
@@ -71,13 +71,13 @@ public class User
 			else if (selection.equals("3"))
 			{
 				System.out.println(
-						"\n\t\t\t THANK YOU FOR PLAYING DEALING WITH DEATH!!");
+						"\n\t\t\t THANK YOU FOR PLAYING THE GAME DEALING WITH DEATH!!");
 				System.exit(0);
 			}
 			else
 			{
-				System.out.println("\nThat Was Not Valid.");
-				System.out.println("Returning To Main Menu.");
+				System.out.println("\nThat was Incorrect.");
+				System.out.println("Return To Main Menu.");
 
 			}
 
@@ -106,7 +106,7 @@ public class User
 			}
 			catch (IOException e)
 			{
-				System.out.println("\nERROR: Unable to create PlayerList.txt");
+				System.out.println("\nSystemError: Player cannot be created in playerlist.txt");
 			}
 		}
 		try
@@ -123,8 +123,8 @@ public class User
 				if (nextName.equals(userName))
 				{
 					System.out.println(
-							"\nA player with this name already exists.");
-					System.out.println("Returning to main menu.");
+							"\nThis player already exits");
+					System.out.println("Back to Main Menu.");
 					fr.close();
 					fileIn.close();
 					return;
