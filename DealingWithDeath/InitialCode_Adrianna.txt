@@ -1,5 +1,17 @@
-List of Classes
+List of Classes Coded by Adrianna
 
-- Room, Riddle, NPC coded by Kevin and Adrianna
-- LoginMain, LoginMainGUI coded by Adrianna
-- Methods in User class coded by Adrianna: HELP method
+NPC PACKAGE (Kevin's Help)
+- NPC.java
+
+ROOM Package
+- Riddle.java (Kevin's Help)
+- Room.java
+
+MAIN Package
+- LoginMain.java
+- LoginMainGUI.java
+
+TEST Package
+- RiddleTest.java
+- RoomTest.java
+- NPCTest.java
