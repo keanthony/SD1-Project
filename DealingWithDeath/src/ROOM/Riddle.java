@@ -1,6 +1,5 @@
 package ROOM;
-
-import PLAYER.Player;
+import MAIN.DWD;
 
 /**Class: Riddle.java
 * @author: 
@@ -17,8 +16,9 @@ public class Riddle
 	protected String question;
 	protected int solution;
 	protected boolean isCorrect;
-	protected Room backToRoom;
-
+	private int backToRoom;
+	protected DWD d;
+	
 	/**Constructor: Riddle.java
 	 * Initializes object with following params.
 	 */
@@ -28,7 +28,8 @@ public class Riddle
 		question = "";
 		solution = 0;
 		isCorrect = false;
-		backToRoom = null;
+		setBackToRoom(0);
+		d = new DWD();
 	}
 
 	/**Constructor: Riddle.java
@@ -43,13 +44,38 @@ public class Riddle
 		this.question = question;
 		this.solution = solution;
 		isCorrect = false;
-		backToRoom = null;
+		setBackToRoom(0);
+		d = new DWD();
+	}
+
+	/**Method Name: getQuestion
+	 * @return the question
+	 */
+	public String getQuestion()
+	{
+		return question;
 	}
 
 	public int getSolution()
 	{
 		return solution;
 		// if user selects option [1,2,3,4,5] ... isCorrect or fights the devil
+	}
+
+	/**Method Name: getBackToRoom
+	 * @return the backToRoom
+	 */
+	public int getBackToRoom()
+	{
+		return backToRoom;
+	}
+
+	/**Method Name: setBackToRoom
+	 * @param backToRoom the backToRoom to set
+	 */
+	public void setBackToRoom(int backToRoom)
+	{
+		this.backToRoom = backToRoom;
 	}
 
 	public boolean isCorrect()
@@ -59,27 +85,25 @@ public class Riddle
 
 	public void setCorrect(boolean isCorrect)
 	{
-		isCorrect = true;
+		this.isCorrect = isCorrect;
 	}
 
-	/**Method Name: question
+	/**Method Name: checkAnswer
 	 * Description: Checks to see if the Riddle was solved correctly
 	 * @author Kevin Anthony
 	 * @param answer
-	 * @return
+	 * @return result
 	 */
-	public String question(int answer)
+	public String checkAnswer(int answer, int roomID)
 	{
+		
 		String result = "";
-		if (!isCorrect)
-		{
-			if (answer == getSolution())
+		if (answer == d.getCurrentRiddle(roomID).getSolution())
 			{
 				setCorrect(isCorrect = true);
 				result = "You answered the Riddle correctly and will be returned to your Room";
-				reward(backToRoom);
+				reward(getBackToRoom());
 			}
-		}
 		else
 		{
 			result = "Sorry, your answer was incorrect";
@@ -92,19 +116,25 @@ public class Riddle
 	 * @author Kevin Anthony
 	 * @param lastRoom
 	 */
-	public void reward(Room lastRoom)
+	public void reward(int lastRoom)
 	{
-		Player p = new Player();
+		Room r = new Room();
 		if (isCorrect)
 		{
-			p.goTo(lastRoom);
+			r.enter(getBackToRoom());
 		}
+		System.out.println("You have been returned to Room " + getBackToRoom());
 	}
 
+	/** Method Name: toString
+	 * Description: Override 
+	 * @return String representation of object
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
-		return "Riddle [Riddle ID: " + riddleId + ", Riddle: " + question + "]";
+		return "Riddle [riddleId=" + riddleId + ", question=" + question
+				+ ", solution=" + solution + "]";
 	}
-
 }
