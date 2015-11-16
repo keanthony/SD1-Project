@@ -1,8 +1,10 @@
-package ROOM;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import ROOM.Room;
 
 public class RoomTest {
 
