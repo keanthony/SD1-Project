@@ -1,9 +1,12 @@
-package PLAYER;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
 import INVENTORY.Item;
+import PLAYER.Battle;
+import PLAYER.Player;
 import ROOM.Room;
 
 public class PlayerTest {
