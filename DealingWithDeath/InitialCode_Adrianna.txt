@@ -1,10 +1,10 @@
 List of Classes Coded by Adrianna
 
-NPC PACKAGE (Kevin's Help)
+NPC PACKAGE (Kevins Help)
 - NPC.java
 
 ROOM Package
-- Riddle.java (Kevin's Help)
+- Riddle.java (Kevins Help)
 - Room.java
 
 MAIN Package
