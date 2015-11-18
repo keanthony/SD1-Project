@@ -8,7 +8,6 @@ import NPC.NPC;
 import PLAYER.Player;
 import ROOM.*;
 
-
 /**Class: DWD.java
  * @author: Kevin Anthony
  * @collaborator:
@@ -49,14 +48,13 @@ public class DWD implements Serializable
 		setRoomID(roomID);
 		r = new Random();
 	}
-	
-	public DWD(Player currentPlayer) {
+
+	public DWD(Player currentPlayer)
+	{
 		roomID = 0;
 		r = new Random();
 		this.player = currentPlayer;
 	}
-
-
 
 	/**Method Name: getPlayer
 	 * @return the player
@@ -65,9 +63,6 @@ public class DWD implements Serializable
 	{
 		return player;
 	}
-	
-	
-	
 
 	/**Method Name: getRoomAL
 	 * @return the roomAL
@@ -76,7 +71,6 @@ public class DWD implements Serializable
 	{
 		return roomAL;
 	}
-
 
 	/**Method Name: getNpcAL
 	 * @return the npcAL
@@ -119,9 +113,10 @@ public class DWD implements Serializable
 		{
 			System.out.println("RoomID out of bounds.  Resetting to 0");
 			this.roomID = 0;
-			
+
 		}
-		else{
+		else
+		{
 			this.roomID = roomID;
 		}
 		roomHistoryAl.add(getRoomAL().get(this.roomID));
@@ -204,20 +199,16 @@ public class DWD implements Serializable
 
 		NPC[] npcArray =
 		{ npc0, npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
-		
-		
+
 		npcAL.add(npcArray[0]);
 
 		for (int i = 1; i < 30; i++)
 		{
 			if (r.nextInt(10) < 8)
 				npcAL.add(npcArray[r.nextInt(7)]);
-			
+
 		}
 	}
-	
-	
-	
 
 	/**Method Name: makeRiddle
 	 *  @author: Kevin Anthony
@@ -476,8 +467,8 @@ public class DWD implements Serializable
 		else
 			System.out.println("There is no monster in the room");
 		System.out.println(
-				"The item in this room is " + getCurrentItem().getName()
-						+ " " + getCurrentItem().getDescription());
+				"The item in this room is " + getCurrentItem().getName() + " "
+						+ getCurrentItem().getDescription());
 		if (getCurrentRiddle() != null)
 		{
 			System.out.println("There is a Riddle in the room");
@@ -498,8 +489,9 @@ public class DWD implements Serializable
 		return "DWD [roomID=" + roomID + ", r=" + r;
 	}
 
-	public void Initialize() {
-        makeNPC();
+	public void Initialize()
+	{
+		makeNPC();
 		makeItem();
 		makeRiddle();
 		makeRoom();

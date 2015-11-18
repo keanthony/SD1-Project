@@ -40,8 +40,8 @@ public class RiddleTestKevin
 	@Test
 	public final void testCheckAnswer()
 	{
-		System.out.println(d.getCurrentRiddle(24).getQuestion());
-		System.out.println("The solution is " + d.getCurrentRiddle(24).getSolution());
+		System.out.println(d.getCurrentRiddle().getQuestion());
+		System.out.println("The solution is " + d.getCurrentRiddle().getSolution());
 		System.out.println(r.checkAnswer(1,24));
 		System.out.println(r.checkAnswer(2,24));
 		System.out.println(r.checkAnswer(5,40));
