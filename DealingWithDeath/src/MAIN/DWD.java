@@ -142,9 +142,9 @@ public class DWD implements Serializable
 	 * @param roomID
 	 * @return NPC
 	 */
-	public NPC getCurrentNPC(int roomID)
+	public NPC getCurrentNPC()
 	{
-		return roomAL.get(roomID).getCrackHeads();
+		return roomAL.get(this.roomID).getCrackHeads();
 	}
 
 	/**Method Name: getCurrentRiddle
@@ -152,10 +152,10 @@ public class DWD implements Serializable
 	 * @param roomID
 	 * @return Riddle
 	 */
-	public Riddle getCurrentRiddle(int roomID)
+	public Riddle getCurrentRiddle()
 	{
-		if (roomID > 23 && roomID < 30)
-			return roomAL.get(roomID).getrRiddle();
+		if (this.roomID > 23 && this.roomID < 30)
+			return roomAL.get(this.roomID).getrRiddle();
 		else
 		{
 			System.out.println("Riddles do not exist for this RoomID.  "
@@ -465,23 +465,23 @@ public class DWD implements Serializable
 	 */
 	public void displayUserStatus()
 	{
-		System.out.println("You are in room " + roomID);
-		System.out.println(roomAL.get(roomID).getrDescription());
-		if (getCurrentNPC(roomID) != null)
+		System.out.println("You are in room " + this.roomID);
+		System.out.println(roomAL.get(this.roomID).getrDescription());
+		if (getCurrentNPC() != null)
 		{
 			System.out.println("There is a monster in the room");
-			System.out.println(getCurrentNPC(roomID).getName() + " "
-					+ getCurrentNPC(roomID).getDescription());
+			System.out.println(getCurrentNPC().getName() + " "
+					+ getCurrentNPC().getDescription());
 		}
 		else
 			System.out.println("There is no monster in the room");
 		System.out.println(
 				"The item in this room is " + getCurrentItem().getName()
 						+ " " + getCurrentItem().getDescription());
-		if (getCurrentRiddle(roomID) != null)
+		if (getCurrentRiddle() != null)
 		{
 			System.out.println("There is a Riddle in the room");
-			System.out.println(getCurrentRiddle(roomID).getQuestion());
+			System.out.println(getCurrentRiddle().getQuestion());
 		}
 		else
 			System.out.println("There is no Riddle in the room");

@@ -35,6 +35,7 @@ public class DWDTest
 		d.makeRiddle();
 		d.makeItem();
 		d.makeRoom();
+		d.setRoomID(0);
 		
 	}
 
@@ -44,7 +45,9 @@ public class DWDTest
 	@Test
 	public final void testGetRoomID()
 	{
-		System.out.println("Room ID:" + d.getRoomID());
+		int currentRoomId = d.getRoomID();
+		System.out.println("Room ID:" + currentRoomId);
+		Assert.assertTrue(0 == currentRoomId);
 	}
 
 	/**
@@ -54,7 +57,8 @@ public class DWDTest
 	public final void testgetCurrentNPC()
 	{
 		System.out.println(
-				"The Current NPC is " + d.getCurrentNPC(d.getRoomID()));
+				"The Current NPC is " + d.getCurrentNPC());
+
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class DWDTest
 	public final void testgetCurrentRiddle()
 	{
 		System.out.println(
-				"The Current Riddle is " + d.getCurrentNPC(d.getRoomID()));
+				"The Current Riddle is " + d.getCurrentNPC());
 	}
 
 	/**

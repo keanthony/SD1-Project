@@ -62,4 +62,11 @@ public class GameLogicServiceTest {
 		Assert.assertTrue(true == isSuccesseful);
 	}
 	
+	@Test
+	public void getPlayerAction_InvalidParameter_ReturnsFalse(){
+		String actionType = "InvalidParamater";
+		Boolean isSuccesseful = gls.getPlayerAction(actionType);
+		Assert.assertTrue(false == isSuccesseful);
+	}
+	
 }
