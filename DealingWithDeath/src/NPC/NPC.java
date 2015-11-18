@@ -58,6 +58,14 @@ public class NPC
 	/**Method Name: getName
 	 * @return the name
 	 */
+	public boolean isFriendly()
+	{
+		return this.attack;
+	}
+	
+	/**Method Name: getName
+	 * @return the name
+	 */
 	public String getName()
 	{
 		return name;

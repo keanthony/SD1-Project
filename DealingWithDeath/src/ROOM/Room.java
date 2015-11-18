@@ -80,6 +80,11 @@ public class Room implements Serializable
 	{
 		return crackHeads;
 	}
+	
+	public int getRoomId()
+	{
+		return this.roomID;
+	}
 
 	/**Method Name: getItem
 	 * @return the item

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import INVENTORY.*;
 import NPC.NPC;
+import PLAYER.Player;
 import ROOM.*;
+
 
 /**Class: DWD.java
  * @author: Kevin Anthony
@@ -20,13 +22,15 @@ import ROOM.*;
 
 public class DWD implements Serializable
 {
-	protected static ArrayList<Room> roomAL;
+	protected static ArrayList<Room> roomAL = new ArrayList<Room>();
+	protected static ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
 	protected static ArrayList<NPC> npcAL;
 	protected static ArrayList<Riddle> riddleAL;
 	protected static ArrayList<Item> itemAL;
 	protected static DWD status;
 	private int roomID;
 	protected Random r;
+	protected Player player;
 
 	/**Constructor: DWD.java
 	 */
@@ -45,6 +49,25 @@ public class DWD implements Serializable
 		setRoomID(roomID);
 		r = new Random();
 	}
+	
+	public DWD(Player currentPlayer) {
+		roomID = 0;
+		r = new Random();
+		this.player = currentPlayer;
+	}
+
+
+
+	/**Method Name: getPlayer
+	 * @return the player
+	 */
+	public Player getPlayer()
+	{
+		return player;
+	}
+	
+	
+	
 
 	/**Method Name: getRoomAL
 	 * @return the roomAL
@@ -53,6 +76,7 @@ public class DWD implements Serializable
 	{
 		return roomAL;
 	}
+
 
 	/**Method Name: getNpcAL
 	 * @return the npcAL
@@ -95,9 +119,12 @@ public class DWD implements Serializable
 		{
 			System.out.println("RoomID out of bounds.  Resetting to 0");
 			this.roomID = 0;
+			
 		}
-		else
+		else{
 			this.roomID = roomID;
+		}
+		roomHistoryAl.add(getRoomAL().get(this.roomID));
 	}
 
 	/**Method Name: getCurrentItem
@@ -105,9 +132,9 @@ public class DWD implements Serializable
 	 * @param roomID
 	 * @return Item
 	 */
-	public Item getCurrentItem(int roomID)
+	public Item getCurrentItem()
 	{
-		return roomAL.get(roomID).getItem();
+		return roomAL.get(this.roomID).getItem();
 	}
 
 	/**Method Name: getCurrentNPC
@@ -176,17 +203,21 @@ public class DWD implements Serializable
 				60, 10, r.nextBoolean(), 5000);
 
 		NPC[] npcArray =
-		{ npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
-		npcAL.add(npc0);
+		{ npc0, npc1, npc2, npc3, npc4, npc5, npc6, npc7 };
+		
+		
+		npcAL.add(npcArray[0]);
 
 		for (int i = 1; i < 30; i++)
 		{
 			if (r.nextInt(10) < 8)
 				npcAL.add(npcArray[r.nextInt(7)]);
-			else
-				npcAL.add(null);
+			
 		}
 	}
+	
+	
+	
 
 	/**Method Name: makeRiddle
 	 *  @author: Kevin Anthony
@@ -445,8 +476,8 @@ public class DWD implements Serializable
 		else
 			System.out.println("There is no monster in the room");
 		System.out.println(
-				"The item in this room is " + getCurrentItem(roomID).getName()
-						+ " " + getCurrentItem(roomID).getDescription());
+				"The item in this room is " + getCurrentItem().getName()
+						+ " " + getCurrentItem().getDescription());
 		if (getCurrentRiddle(roomID) != null)
 		{
 			System.out.println("There is a Riddle in the room");
@@ -465,6 +496,14 @@ public class DWD implements Serializable
 	public String toString()
 	{
 		return "DWD [roomID=" + roomID + ", r=" + r;
+	}
+
+	public void Initialize() {
+        makeNPC();
+		makeItem();
+		makeRiddle();
+		makeRoom();
+		setRoomID(0);
 	}
 
 }

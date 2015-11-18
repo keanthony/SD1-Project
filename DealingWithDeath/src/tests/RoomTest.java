@@ -2,8 +2,10 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
+import NPC.NPC;
 import ROOM.Room;
 
 public class RoomTest {

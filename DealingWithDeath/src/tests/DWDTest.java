@@ -8,11 +8,13 @@
  */
 package tests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import INVENTORY.Item;
 import MAIN.DWD;
+import MAIN.GameLogicService;
 import NPC.NPC;
 import ROOM.Riddle;
 import ROOM.Room;
@@ -33,9 +35,7 @@ public class DWDTest
 		d.makeRiddle();
 		d.makeItem();
 		d.makeRoom();
-		d.setRoomID(5);
-		//d.setRoomID(29);
-		//d.setRoomID(40);
+		
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class DWDTest
 	public final void testgetCurrentItem()
 	{
 		System.out.println(
-				"The Current Item is " + d.getCurrentItem(d.getRoomID()));
+				"The Current Item is " + d.getCurrentItem());
 	}
 
 	/**
@@ -143,5 +143,7 @@ public class DWDTest
 	{
 		d.displayUserStatus();
 	}
+	
+	
 
 }
