@@ -15,7 +15,7 @@ import ROOM.Room;
  */
 public class GameLogicService {
 	
-	private DWD _content;
+	private final DWD _content;
 	
 	public GameLogicService(DWD content){
 		this._content = content;
@@ -38,7 +38,7 @@ public class GameLogicService {
 		case "SELL":
 			int itemIndex = Integer.valueOf(params[0]);
 			Crack itemForSale = (Crack) this._content.getPlayer().getInventory().get(itemIndex);
-			int total = Integer.valueOf(this._content.getPlayer().getMoney()) + itemForSale.getValue();
+			int total = this._content.getPlayer().getMoney() + itemForSale.getValue();
 			this._content.getPlayer().setMoney(total);
 			return true;
 		case "ATTACK":
@@ -46,7 +46,7 @@ public class GameLogicService {
 		    return true;
 		case "MOVE":
 			int currentRoomID = this._content.getRoomID();
-			int nextRoomID = Integer.valueOf(currentRoomID) + 1;
+			int nextRoomID = currentRoomID + 1;
 			this._content.setRoomID(nextRoomID);
 			return true;
 		default:
@@ -55,7 +55,6 @@ public class GameLogicService {
 	}
 	
 	public Boolean getPlayerAction(String actionType) {
-		String[] params = null;
-		return getPlayerAction(actionType, params);
+		return getPlayerAction(actionType, null);
 	}
 }
