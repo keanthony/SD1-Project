@@ -1,31 +1,29 @@
 /**
- * 
+ *
  */
 package MAIN;
 
 import INVENTORY.Crack;
 import INVENTORY.Item;
-import PLAYER.Player;
-import ROOM.Room;
 
 /**
- * 
+ *
  * @author jortiz
  *
  */
 public class GameLogicService {
-	
-	private final DWD _content;
-	
-	public GameLogicService(DWD content){
+
+    private final DWD _content;
+
+    public GameLogicService(DWD content){
 		this._content = content;
 	}
-	
-	public DWD getContent(){
+
+    public DWD getContent(){
 		return _content;
 	}
-	
-	public void intit() {
+
+    public void intit() {
 		this._content.Initialize();
 	}
 
@@ -53,8 +51,8 @@ public class GameLogicService {
 			return false;
 		}
 	}
-	
-	public Boolean getPlayerAction(String actionType) {
+
+    public Boolean getPlayerAction(String actionType) {
 		return getPlayerAction(actionType, null);
 	}
 }

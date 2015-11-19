@@ -1,15 +1,12 @@
 package tests;
 
 import INVENTORY.Crack;
-import INVENTORY.Item;
 import MAIN.DWD;
 import MAIN.GameLogicService;
 import PLAYER.Player;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 
 public class GameLogicServiceTest {
@@ -39,7 +36,6 @@ public class GameLogicServiceTest {
 		Boolean isSuccessful = gls.getPlayerAction(actionType);
 		Assert.assertTrue(isSuccessful);
 		int inventorySize = gls.getContent().getPlayer().getInventory().size();
-        List<Item> inventory = gls.getContent().getPlayer().getInventory();
 		Assert.assertTrue(inventorySize == 2);
 	}
 
@@ -50,6 +46,13 @@ public class GameLogicServiceTest {
 		Assert.assertTrue(1 == gls.getContent().getRoomID());
 		Assert.assertTrue(isSuccessful);
 	}
+
+    @Test
+    public void getPlayerAction_Attack_ShouldReturnTrue() {
+        String actionType = "ATTACK";
+        Boolean isSuccessful = gls.getPlayerAction(actionType);
+        Assert.assertTrue(isSuccessful);
+    }
 
 
 	@Test
