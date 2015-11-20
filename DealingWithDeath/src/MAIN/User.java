@@ -21,6 +21,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import PLAYER.Player;
@@ -31,7 +32,7 @@ public class User
 	protected boolean passMainMenu = false;
 	protected String userName = "";
 	protected Player play = new Player();
-	protected Scanner input = new Scanner(System.in);
+	protected Scanner input;
 	protected ArrayList<String> userList;
 
 	public void mainMenu()
@@ -41,48 +42,51 @@ public class User
 
 		while (!passMainMenu)
 		{
+			input = new Scanner(System.in);
+			System.out.println("Press (Enter) for Main Menu");
+			//input.nextLine();
 			System.out.println("\n\t\t\t     MAIN MENU");
 			System.out.println("\t\t\t\t1. Start GAME ");
 			System.out.println("\t\t\t\t2. LOAD A GAME");
 			System.out.println("\t\t\t\t3. EXIT GAME");
-			System.out.println("\n");
-			String selection = input.nextLine();
-
-			if (selection.equals("1"))
+			//System.out.println("\n");
+			try
 			{
-				System.out.println("\nPlEASE ENTER USERNAME:");
-				this.userName = input.nextLine().toUpperCase();
-				if (userName.length() > 0 && userName != null
-						&& !userName.contains(" "))
+				String selection = input.nextLine();
+
+				if (selection.equals("1"))
 				{
-					this.newGame(userName);
+					System.out.println("\nPlease Enter Your UserName:");
+					this.userName = input.nextLine().toUpperCase();
+					if (userName.length() > 0 && userName != null
+							&& !userName.contains(" "))
+					{
+						this.newGame(userName);
+					}
+					else
+					{
+						System.out.println(
+								"\nThe UserName Must Not Contain Spaces.");
+						System.out.println("GOING BACK TO MAIN MENU");
+					}
 				}
-				else
+				else if (selection.equals("2"))
+				{
+					this.load();
+				}
+				else if (selection.equals("3"))
 				{
 					System.out.println(
-							"\nUSER NAME NEED CHARACTERS WITHOUT SPACES");
-					System.out.println("GOING BACK TO MAIN MENU");
+							"\n\t\t\t THANK YOU FOR PLAYING THE GAME DEALING WITH DEATH!!");
+					System.exit(0);
 				}
 			}
-			else if (selection.equals("2"))
-			{
-				this.load();
-			}
-			else if (selection.equals("3"))
-			{
-				System.out.println(
-						"\n\t\t\t THANK YOU FOR PLAYING THE GAME DEALING WITH DEATH!!");
-				System.exit(0);
-			}
-			else
+			catch (NoSuchElementException nsee)
 			{
 				System.out.println("\nThat was Incorrect.");
 				System.out.println("Return To Main Menu.");
-
 			}
-
 		}
-
 	}
 
 	public void newGame(String userName)
@@ -106,7 +110,8 @@ public class User
 			}
 			catch (IOException e)
 			{
-				System.out.println("\nSystemError: Player cannot be created in playerlist.txt");
+				System.out.println(
+						"\nSystemError: Player cannot be created in playerlist.txt");
 			}
 		}
 		try
@@ -122,8 +127,7 @@ public class User
 				// Check for existing user names
 				if (nextName.equals(userName))
 				{
-					System.out.println(
-							"\nThis player already exits");
+					System.out.println("\nThis player already exits");
 					System.out.println("Back to Main Menu.");
 					fr.close();
 					fileIn.close();
@@ -223,7 +227,7 @@ public class User
 		{
 			fr = new FileReader(PLAYERLIST);
 			inputScan = new Scanner(fr);
-			userInput = new Scanner(System.in);
+			//userInput = new Scanner(System.in);
 		}
 		catch (FileNotFoundException e)
 		{
@@ -247,7 +251,7 @@ public class User
 		int selection;
 		try
 		{
-			selection = userInput.nextInt();
+			selection = input.nextInt();
 		}
 		catch (InputMismatchException e)
 		{
@@ -259,9 +263,10 @@ public class User
 		// Load selection from player list or return to main menu
 		if (selection <= userList.size() && selection > 0)
 		{
-			String userFile = userList.get(selection - 1) + ".dat";
+			
 			try
 			{
+				String userFile = userList.get(selection - 1) + ".dat";
 				System.out.println("\n\tLoading . . . ");
 				inputStream = new ObjectInputStream(
 						new FileInputStream(userFile));
@@ -269,10 +274,15 @@ public class User
 				System.out.print("\tComplete!\n");
 				this.passMainMenu = true;
 			}
+			/*catch (NullPointerException npe)
+			{
+				System.out.println(
+						"ERROR: There was a problem reading the file for that User.");
+			}*/
 			catch (IOException e)
 			{
 				System.out.println(
-						"ERROR: There was a problem reading " + userFile + ".");
+						"ERROR: There was a problem reading the file for that User.");
 			}
 			catch (ClassNotFoundException e)
 			{
@@ -292,8 +302,14 @@ public class User
 		{
 			fr.close();
 			inputScan.close();
-			userInput.close();
+			//input.close();
 			inputStream.close();
+		}
+		catch (NullPointerException npe)
+		{
+			npe.printStackTrace();
+			System.out.println(
+					"ERROR: Something went wrong while closing input objects.");
 		}
 		catch (Exception e)
 		{
