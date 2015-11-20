@@ -216,7 +216,7 @@ public class User
 		// Declare file reading objects
 		FileReader fr = null;
 		Scanner inputScan = null;
-		Scanner userInput = null;
+		//Scanner userInput = null;
 		ObjectInputStream inputStream = null;
 
 		// Initiate load dialog
@@ -263,10 +263,9 @@ public class User
 		// Load selection from player list or return to main menu
 		if (selection <= userList.size() && selection > 0)
 		{
-			
+			String userFile = userList.get(selection - 1) + ".dat";
 			try
 			{
-				String userFile = userList.get(selection - 1) + ".dat";
 				System.out.println("\n\tLoading . . . ");
 				inputStream = new ObjectInputStream(
 						new FileInputStream(userFile));
@@ -352,11 +351,8 @@ public class User
 
 	public static void main(String[] args)
 	{
-
 		User game = new User();
-
 		game.mainMenu();
-
 		System.out.println("\nLets Start from the Beginning...\n");
 	}
 }
