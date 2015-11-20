@@ -1,8 +1,5 @@
-KEVIN
 ADRIANNA
-userName
-Sam
-JENNY
-MONKEU
-MONKEY
-MONKEYBUTT
+KEVIN
+maria
+jacob
+jennifer
