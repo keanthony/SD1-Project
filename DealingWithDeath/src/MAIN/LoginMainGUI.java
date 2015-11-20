@@ -62,10 +62,10 @@ public  class LoginMainGUI extends Application {
     public void newGame()
     {
 
-		/*String userName = tfUserName.getText();
+		String userName = tfUserName.getText();
         LoginMain p = new LoginMain(userName);
         credentials.add(p);   
-        System.out.println("User Name Stored. . . \n" + p);*/
+        System.out.println("User Name Stored. . . \n" + p);
         
         User userInput = new User();
         

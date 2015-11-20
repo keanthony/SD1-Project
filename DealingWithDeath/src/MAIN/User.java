@@ -36,6 +36,18 @@ public class User
 
 	public void mainMenu()
 	{
+		File playerListFile = new File(PLAYERLIST);
+		if (!playerListFile.exists())
+		{
+			try
+			{
+				playerListFile.createNewFile();
+			}
+			catch (IOException e)
+			{
+				System.out.println("\nSystemError: Player cannot be created in playerlist.txt");
+			}
+		}
 		System.out.println("Welcome to the Game !!!!");
 		System.out.println("Dealing With Death!!!!!");
 
@@ -97,18 +109,6 @@ public class User
 		String userString = "";
 		// Create PlayerList.txt if it doesn't exist
 
-		File playerListFile = new File(PLAYERLIST);
-		if (!playerListFile.exists())
-		{
-			try
-			{
-				playerListFile.createNewFile();
-			}
-			catch (IOException e)
-			{
-				System.out.println("\nSystemError: Player cannot be created in playerlist.txt");
-			}
-		}
 		try
 		{
 			// Instantiate file reading objects
@@ -328,6 +328,11 @@ public class User
 		}
 		user_input.close();
 	}
+	
+	public ArrayList<String> getPlayers()
+    {
+    	return userList;
+    }
 
 	public static void main(String[] args)
 	{
