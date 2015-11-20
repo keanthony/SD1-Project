@@ -344,6 +344,11 @@ public class User
 		}
 		user_input.close();
 	}
+	
+	public ArrayList<String> getPlayers()
+    {
+    	return userList;
+    }
 
 	public static void main(String[] args)
 	{
