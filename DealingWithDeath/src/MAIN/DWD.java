@@ -159,6 +159,11 @@ public class DWD implements Serializable
 		}
 	}
 
+	public void makePlayer()
+	{
+		player = new Player();
+	}
+	
 	/**Method Name: makeNPC
 	 *  @author: Kevin Anthony
 	 * Description: Generates all of the NPC objects.  The Devil is a special 
