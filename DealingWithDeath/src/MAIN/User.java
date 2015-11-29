@@ -1,7 +1,7 @@
 package MAIN;
 /**Class: User.java
  * @author: Soheb Samshuddin
- * @collaborator:Jackob from AEC
+ * @collaborator:Jacob from AEC
  * @version: 1.0
  * Course : ITEC 3860 Fall 2015 Dr. Johnson
  * Date Written: November 11, 2015
@@ -21,6 +21,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import PLAYER.Player;
@@ -31,8 +32,8 @@ public class User
 	protected boolean passMainMenu = false;
 	protected String userName = "";
 	protected Player play = new Player();
-	protected Scanner input = new Scanner(System.in);
-	protected ArrayList<String> userList;
+	//protected Scanner input;
+	ArrayList<String> userList;
 
 	public void mainMenu()
 	{
@@ -41,26 +42,43 @@ public class User
 
 		while (!passMainMenu)
 		{
+
+			File playerListFile = new File(PLAYERLIST);
+			if (!playerListFile.exists())
+			{
+				try
+				{
+					playerListFile.createNewFile();
+				}
+				catch (IOException e)
+				{
+					System.out.println(
+							"\nSystemError: Player cannot be created in playerlist.txt");
+				}
+			}
+
+			Scanner input = new Scanner(System.in);
+			System.out.println("Press (Enter) for Main Menu");
+			//input.nextLine();
 			System.out.println("\n\t\t\t     MAIN MENU");
 			System.out.println("\t\t\t\t1. Start GAME ");
 			System.out.println("\t\t\t\t2. LOAD A GAME");
 			System.out.println("\t\t\t\t3. EXIT GAME");
-			System.out.println("\n");
+			//System.out.println("\n");
+
 			String selection = input.nextLine();
 
 			if (selection.equals("1"))
 			{
-				System.out.println("\nPlEASE ENTER USERNAME:");
+				System.out.println("\nPlease Enter Your UserName:");
 				this.userName = input.nextLine().toUpperCase();
-				if (userName.length() > 0 && userName != null
-						&& !userName.contains(" "))
+				if (userName.length() > 0 && userName != null && !userName.contains(" "))
 				{
 					this.newGame(userName);
 				}
 				else
 				{
-					System.out.println(
-							"\nUSER NAME NEED CHARACTERS WITHOUT SPACES");
+					System.out.println("\nThe UserName Must Not Contain Spaces.");
 					System.out.println("GOING BACK TO MAIN MENU");
 				}
 			}
@@ -70,19 +88,15 @@ public class User
 			}
 			else if (selection.equals("3"))
 			{
-				System.out.println(
-						"\n\t\t\t THANK YOU FOR PLAYING THE GAME DEALING WITH DEATH!!");
+				System.out.println("\n\t\t\t THANK YOU FOR PLAYING THE GAME DEALING WITH DEATH!!");
 				System.exit(0);
 			}
-			else
+			else 
 			{
-				System.out.println("\nThat was Incorrect.");
-				System.out.println("Return To Main Menu.");
-
+				System.out.println("Not a valid selection\n returning to main menu");
 			}
 
 		}
-
 	}
 
 	public void newGame(String userName)
@@ -97,18 +111,7 @@ public class User
 		String userString = "";
 		// Create PlayerList.txt if it doesn't exist
 
-		File playerListFile = new File(PLAYERLIST);
-		if (!playerListFile.exists())
-		{
-			try
-			{
-				playerListFile.createNewFile();
-			}
-			catch (IOException e)
-			{
-				System.out.println("\nSystemError: Player cannot be created in playerlist.txt");
-			}
-		}
+
 		try
 		{
 			// Instantiate file reading objects
@@ -122,8 +125,7 @@ public class User
 				// Check for existing user names
 				if (nextName.equals(userName))
 				{
-					System.out.println(
-							"\nThis player already exits");
+					System.out.println("\nThis player already exits");
 					System.out.println("Back to Main Menu.");
 					fr.close();
 					fileIn.close();
@@ -269,13 +271,21 @@ public class User
 				System.out.print("\tComplete!\n");
 				this.passMainMenu = true;
 			}
+			catch (NullPointerException npe)
+			{
+				npe.printStackTrace();
+				System.out.println(
+						"ERROR: There was a problem reading the file for that User.");
+			}
 			catch (IOException e)
 			{
+				e.printStackTrace();
 				System.out.println(
-						"ERROR: There was a problem reading " + userFile + ".");
+						"ERROR: There was a problem reading the file for that User.");
 			}
 			catch (ClassNotFoundException e)
 			{
+				e.printStackTrace();
 				System.out.println(
 						"ERROR: Cannot read file. Player object is missing or corrupt.");
 			}
@@ -294,6 +304,13 @@ public class User
 			inputScan.close();
 			userInput.close();
 			inputStream.close();
+
+		}
+		catch (NullPointerException npe)
+		{
+			npe.printStackTrace();
+			System.out.println(
+					"ERROR: Something went wrong while closing input objects.");
 		}
 		catch (Exception e)
 		{
@@ -320,7 +337,7 @@ public class User
 			System.out.println("Say -take- to add an item to your inventory");
 			System.out.println("Say -deal- to begin a transaction with an NPC");
 			System.out
-					.println("Say -sell- to trade money for drugs with an NPC");
+			.println("Say -sell- to trade money for drugs with an NPC");
 		}
 		else
 		{
@@ -329,13 +346,15 @@ public class User
 		user_input.close();
 	}
 
+	public ArrayList<String> getPlayers()
+	{
+		return userList;
+	}
+
 	public static void main(String[] args)
 	{
-
 		User game = new User();
-
 		game.mainMenu();
-
 		System.out.println("\nLets Start from the Beginning...\n");
 	}
 }

@@ -1,4 +1,5 @@
 package ROOM;
+
 import MAIN.DWD;
 
 /**Class: Riddle.java
@@ -18,7 +19,7 @@ public class Riddle
 	protected boolean isCorrect;
 	private int backToRoom;
 	protected DWD d;
-	
+
 	/**Constructor: Riddle.java
 	 * Initializes object with following params.
 	 */
@@ -96,14 +97,14 @@ public class Riddle
 	 */
 	public String checkAnswer(int answer, int roomID)
 	{
-		
+
 		String result = "";
-		if (answer == d.getCurrentRiddle(roomID).getSolution())
-			{
-				setCorrect(isCorrect = true);
-				result = "You answered the Riddle correctly and will be returned to your Room";
-				reward(getBackToRoom());
-			}
+		if (answer == d.getCurrentRiddle().getSolution())
+		{
+			setCorrect(isCorrect = true);
+			result = "You answered the Riddle correctly and will be returned to your Room";
+			reward(getBackToRoom());
+		}
 		else
 		{
 			result = "Sorry, your answer was incorrect";

@@ -8,11 +8,13 @@
  */
 package tests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import INVENTORY.Item;
 import MAIN.DWD;
+import MAIN.GameLogicService;
 import NPC.NPC;
 import ROOM.Riddle;
 import ROOM.Room;
@@ -33,9 +35,8 @@ public class DWDTest
 		d.makeRiddle();
 		d.makeItem();
 		d.makeRoom();
-		d.setRoomID(5);
-		//d.setRoomID(29);
-		//d.setRoomID(40);
+		d.setRoomID(0);
+		
 	}
 
 	/**
@@ -44,7 +45,9 @@ public class DWDTest
 	@Test
 	public final void testGetRoomID()
 	{
-		System.out.println("Room ID:" + d.getRoomID());
+		int currentRoomId = d.getRoomID();
+		System.out.println("Room ID:" + currentRoomId);
+		Assert.assertTrue(0 == currentRoomId);
 	}
 
 	/**
@@ -54,7 +57,8 @@ public class DWDTest
 	public final void testgetCurrentNPC()
 	{
 		System.out.println(
-				"The Current NPC is " + d.getCurrentNPC(d.getRoomID()));
+				"The Current NPC is " + d.getCurrentNPC());
+
 	}
 
 	/**
@@ -64,7 +68,7 @@ public class DWDTest
 	public final void testgetCurrentItem()
 	{
 		System.out.println(
-				"The Current Item is " + d.getCurrentItem(d.getRoomID()));
+				"The Current Item is " + d.getCurrentItem());
 	}
 
 	/**
@@ -74,7 +78,7 @@ public class DWDTest
 	public final void testgetCurrentRiddle()
 	{
 		System.out.println(
-				"The Current Riddle is " + d.getCurrentNPC(d.getRoomID()));
+				"The Current Riddle is " + d.getCurrentNPC());
 	}
 
 	/**
@@ -143,5 +147,7 @@ public class DWDTest
 	{
 		d.displayUserStatus();
 	}
+	
+	
 
 }

@@ -1,7 +1,9 @@
 package NPC;
 
+import java.io.Serializable;
+
 /**Class: NPC.java
-* @author: 
+* @author: Adrianna Valdivia
 * @collaborator: Kevin Anthony, Samuel medina 
 * @version: 1.0
 * Course : ITEC 3860 Fall 2015 Dr. Johnson
@@ -11,7 +13,7 @@ package NPC;
 */
 //Sam: I am going to create a variable for trade. if a player 
 //wants to trade or "deal" with an NPC. We still don't have this.
-public class NPC
+public class NPC implements Serializable
 {
 	protected int npcID;
 	protected String name;
@@ -58,6 +60,14 @@ public class NPC
 	/**Method Name: getName
 	 * @return the name
 	 */
+	public boolean isFriendly()
+	{
+		return this.attack;
+	}
+	
+	/**Method Name: getName
+	 * @return the name
+	 */
 	public String getName()
 	{
 		return name;
@@ -78,6 +88,8 @@ public class NPC
 	{
 		this.health = health;
 	}
+	
+	
 
 	/**
 	 * @param damage the damage to set

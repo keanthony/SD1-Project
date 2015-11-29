@@ -1,5 +1,7 @@
 package PLAYER;
-import ROOM.Room;
+
+import java.util.Random;
+import MAIN.DWD;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -11,28 +13,31 @@ import ROOM.Room;
  * Purpose: Handles attacks from player, NPC and devil 
  */
 
-public class Battle 
+public class Battle
 {
-	protected  Player player;
-	protected Room currentNPC;
-	
-public Battle()
-{
-	player = new Player();
-	currentNPC = new Room();
-}
+	protected Player player;
+	protected DWD currentNPC;
+	protected Random r;
+
+	public Battle()
+	{
+		player = new Player();
+		currentNPC = new DWD();
+		r = new Random();
+	}
 
 	/**
 	 * 
 	 * this methods handles the way the NPC attacks
 	 * 
 	 */
-	
+
 	public int npcAttack()
-	{	
-		int currentHealth = player.getHealth();
-		int newhealth = currentHealth - currentNPC.getCrackHeads().getDamage();
-		return newhealth;
+	{
+		return (int) (player.getHealth()
+				- Math.ceil(currentNPC.getCurrentNPC().getDamage()
+						* (currentNPC.getRoomID() / 100) * (r.nextInt(4) + 1)
+						+ 1));
 	}
 
 	/**
@@ -42,25 +47,21 @@ public Battle()
 	 */
 	public int playerAttack()
 	{
-		int currentHealth = currentNPC.getCrackHeads().getHealth();
-		currentHealth = currentHealth - player.getDamage();
-
-		return currentHealth;
+		return (int) (currentNPC.getCurrentNPC().getHealth() - Math
+				.ceil(player.getDamage() * (.33) * (r.nextInt(4) + 1) + 1));
 
 	}
 
 	public void goToHell()
 	{
-		if(player.getHealth() < 0)
+		if (player.getHealth() < 0)
 		{
-			currentNPC.enter(24);
+			currentNPC.setRoomID(24);
 		}
 
 		//TODO: Once room is created change the hell to the room number since 
 		//what's going to be passed is an integer
 
 	}
-
-
 
 }
