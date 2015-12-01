@@ -72,4 +72,13 @@ public class GameLogicServiceTest {
 		Assert.assertFalse(isSuccessful);
 	}
 
+	@Test
+	public void getPlayerAction_DIE_setsPlayerHealthToZero() {
+		String actionType = "DIE";
+		Boolean isSuccessful = gls.getPlayerAction(actionType);
+		Assert.assertTrue(isSuccessful);
+		Assert.assertTrue(gls.getContent().getPlayer().getHealth() == 0);
+
+	}
+
 }

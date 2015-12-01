@@ -3,11 +3,11 @@
  */
 package MAIN;
 
-import java.util.Random;
-
 import INVENTORY.Crack;
 import INVENTORY.Item;
 import PLAYER.Player;
+
+import java.util.Random;
 
 /**
  *
@@ -60,6 +60,10 @@ public class GameLogicService
 			int nextRoomID = currentRoomID + 1;
 			this._content.setRoomID(nextRoomID);
 			return true;
+			case "DIE":
+				this._content.getPlayer().setHealth(0);
+				this._content.setRoomID(23);
+				return true;
 		default:
 			return false;
 		}
@@ -71,7 +75,7 @@ public class GameLogicService
 				.ceil(player.getDamage() * (.33) * (r.nextInt(4) + 1) + 1));
 
 	}
-	
+
 	public Boolean getPlayerAction(String actionType)
 	{
 		return getPlayerAction(actionType, null);
