@@ -106,7 +106,7 @@ public class LoginMainGUI extends Application {
 		gls.init(userName);
 		Boolean isValidAction = false;
 		//TODO: this should loop until game is over.
-			System.out.println("This is a friendly room");
+			//System.out.println("This is a friendly room");
 			while (!isValidAction) {
 				gls.getContent().displayEntryRoomInfo();
 				String input = GetUserInput();
