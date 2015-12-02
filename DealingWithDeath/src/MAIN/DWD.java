@@ -41,6 +41,8 @@ public class DWD implements Serializable
 	{
 		roomID = 0;
 		r = new Random();
+
+
 	}
 
 	public DWD(Player currentPlayer)
@@ -103,18 +105,25 @@ public class DWD implements Serializable
 	 */
 	public void setRoomID(int roomID)
 	{
-		int oldRoomID = this.roomID;
+		if (getRoomAL().size() > 0) {
+			int oldRoomID = this.roomID;
+			Room oldRoom = getRoomAL().get(oldRoomID);
+			roomHistoryAl.add(oldRoom);
+		}
+
+
+
 		if (roomID > 29 || roomID < 0)
 		{
 			System.out.println("RoomID out of bounds.  Resetting to 0");
 			this.roomID = 0;
-
 		}
 		else
 		{
 			this.roomID = roomID;
 		}
-		roomHistoryAl.add(getRoomAL().get(oldRoomID));
+
+
 	}
 
 	/**Method Name: getCurrentItem
@@ -143,7 +152,7 @@ public class DWD implements Serializable
 	public Riddle getCurrentRiddle()
 	{
 		if (this.roomID > 23 && this.roomID < 30)
-			return roomAL.get(this.roomID).getrRiddle();
+			return getRoomAL().get(this.roomID).getrRiddle();
 		else
 		{
 			System.out.println("Riddles do not exist for this RoomID.  "
@@ -506,5 +515,7 @@ public class DWD implements Serializable
 		makePlayer(name);
 	}
 
-
+	public boolean isCurrentRoomADevilRoom() {
+		return this.roomID >= 24 && this.roomID <= 29;
+	}
 }
