@@ -292,7 +292,6 @@ public class User
 		{
 			fr.close();
 			inputScan.close();
-			input.close();
 			inputStream.close();
 
 		}
