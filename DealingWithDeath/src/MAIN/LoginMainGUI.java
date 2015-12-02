@@ -36,7 +36,6 @@ public class LoginMainGUI extends Application {
 	}
 
     //Handle method records information from text fields and adds to ObservableList
-
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -48,16 +47,19 @@ public class LoginMainGUI extends Application {
 		gp.setPadding(new Insets(15, 15, 15, 15));
 
 		gp.add(new Label("User Name:"), 0, 4);
-		//THIS WILL NOT WORK?!?!?!? WHY!!!!
+		
 		gp.add(tfUserName = new TextField(), 1, 4);
 
+		Button saveGame = new Button("Save Game");
 		Button newGame = new Button("New Game");
 		Button loadGame = new Button("Load Game");
 		Button cancel = new Button("Cancel");
+		gp.add(saveGame, 3, 10);
 		gp.add(newGame, 2, 10);
 		gp.add(loadGame, 1, 10);
 		gp.add(cancel, 0, 10);
-		GridPane.setHalignment(newGame, HPos.RIGHT);
+		
+		saveGame.setOnAction(e-> saveGame());
 		newGame.setOnAction(e-> newGame());
 		loadGame.setOnAction(e-> loadGame());
 		cancel.setOnAction(e-> cancel());
@@ -92,6 +94,11 @@ public class LoginMainGUI extends Application {
 		}
 
     }
+	
+	public void saveGame() {
+		User userInput = new User();
+		userInput.save();
+	}
 
 	private void startGame(String userName) {
 		scanner = new Scanner(in);
@@ -147,12 +154,6 @@ public class LoginMainGUI extends Application {
 		}
 	}
 
-	public void saveGame() {
-		User userInput = new User();
-
-		userInput.save();
-
-	}
 
 	public void cancel() {
 
