@@ -3,3 +3,6 @@ ADRIANNA
 userName
 Sam
 joe
+SAM
+sam
+samuel

@@ -346,8 +346,10 @@ public class DWD implements Serializable
 		System.out.println("Populating the rooms...");
 		roomAL.add(new Room(0,
 				"A furious rumble resounds in the area as stones come "
-						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+				+ "clattering through the doorway, "
+				+ "along with a thick cloud of "
+				+ "rock dust. The room beyond "
+				+ "is filled with rubble.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(1,
 				"A furious rumble resounds in the area as stones come ", null,
