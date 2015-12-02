@@ -89,15 +89,18 @@ public class LoginMainGUI extends Application {
 		User userInput = new User();
 
 		userInput.load();
-		if (userInput.passMainMenu) {
+		//if (userInput.passMainMenu) {
 			this.startGame(userInput.userName);
-		}
+		//}
 
     }
 	
 	public void saveGame() {
 		User userInput = new User();
 		userInput.save();
+		
+		
+
 	}
 
 	private void startGame(String userName) {
@@ -119,6 +122,7 @@ public class LoginMainGUI extends Application {
 
 	private String GetUserInput() {
 		boolean shouldShowRiddles = this.gls.getContent().isCurrentRoomADevilRoom();
+		
 		System.out.println("Please enter a number corresponding with your action type");
 		System.out.println("1. Get an Item");
 		System.out.println("2. Sell an Item");
@@ -127,17 +131,19 @@ public class LoginMainGUI extends Application {
 		if (shouldShowRiddles) {
 			System.out.println("5. Solve Riddle");
 		}
+		System.out.println("6. Save Game");
 		System.out.println("\n");
 
 		// create a scanner so we can read the command-line input
 		String inputString = scanner.next();
 
-		while (!isValidInput(inputString)) {
+		while (!isValidInput(inputString)) 
+		{
 			System.out.println("Sorry, please input a valid number");
 			inputString = scanner.next();
 		}
-
-		return inputString;
+		return inputString;		
+		
 	}
 
 	private boolean isValidInput(String inputString) {
@@ -148,6 +154,7 @@ public class LoginMainGUI extends Application {
 			case "3":
 			case "4":
 			case "5":
+			case "6":
 				return true;
 			default:
 				return false;
