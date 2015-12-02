@@ -1,12 +1,11 @@
 package PLAYER;
 
-import ROOM.*;
+import INVENTORY.Item;
+import MAIN.DWD;
+import ROOM.Room;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import INVENTORY.*;
-import MAIN.DWD;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -32,7 +31,7 @@ public class Player implements Serializable
 	protected Item it;
 
 	/**
-	 * no parameter constructor 
+	 * no parameter constructor
 	 */
 	public Player()
 	{
@@ -63,7 +62,7 @@ public class Player implements Serializable
 
 	/**Constructor: Player.java
 	 * @author Samuel
-	 * 
+	 *
 	 * @param name
 	 * @param health
 	 * @param damage
@@ -221,9 +220,7 @@ public class Player implements Serializable
 	}
 
 	/**goTo
-	 * @param lastRoom 
-	 * @param room
-	 * lets you enter a new room
+	 * @param lastRoom
 	 */
 	public void goTo(int lastRoom)
 	{
@@ -232,7 +229,6 @@ public class Player implements Serializable
 
 	/**
 	 * take
-	 * @param numItem
 	 * @return
 	 * lets you take an item and put in on your inventory
 	 */
@@ -260,16 +256,16 @@ public class Player implements Serializable
 	//Calls the actions to fight the NPC
 	public void fight(Battle enemy)
 	{
-		enemy.playerAttack();
+		//enemy.;
 	}
 
-	//Gives options to either fight or trade 
+	//Gives options to either fight or trade
 	public void approach()
 	{
-		int fight = enemy.playerAttack();
-		int trade = score.Sale();
+		//int fight = enemy.playerAttack();
+		//int trade = score.Sale();
 
-		System.out.println("Would you like to " + fight + " or " + trade);
+		//System.out.println("Would you like to " + fight + " or " + trade);
 
 	}
 
@@ -285,4 +281,8 @@ public class Player implements Serializable
 				+ ", getInventory()=" + getInventory() + "]";
 	}
 
+	public String getName() {
+		return this.name;
+
+	}
 }

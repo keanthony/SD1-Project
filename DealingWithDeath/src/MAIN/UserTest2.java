@@ -1,19 +1,12 @@
 package MAIN;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-
 public class UserTest2 {
 
-	@Test
-	public void test() {
+
+	public void testUser() {
 		User user=new User();
-		user.load();
-		
-	
-		
+		System.out.println("User Input");
+		String result = user.GetInput();
 	}
 
 }

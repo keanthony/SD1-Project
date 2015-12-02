@@ -27,7 +27,7 @@ public class GameLogicServiceTest {
 		currentPlayer.getInventory().add(new Crack(0,"itemName", "description", 100));
 		DWD content = new DWD(currentPlayer);
 		gls = new GameLogicService(content);
-		gls.intit();
+		gls.init(currentPlayer.getName());
 	}
 
 	@Test
@@ -80,5 +80,6 @@ public class GameLogicServiceTest {
 		Assert.assertTrue(gls.getContent().getPlayer().getHealth() == 0);
 
 	}
+
 
 }

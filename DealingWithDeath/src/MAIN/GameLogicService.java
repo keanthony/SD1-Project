@@ -20,6 +20,8 @@ public class GameLogicService
 	private final DWD _content;
 	protected Player player;
 	protected Random r;
+	public boolean isGameOver = false;
+
 
 	public GameLogicService(DWD content)
 	{
@@ -31,9 +33,9 @@ public class GameLogicService
 		return _content;
 	}
 
-	public void intit()
+	public void init(String name)
 	{
-		this._content.Initialize();
+		this._content.Initialize(name);
 	}
 
 	public Boolean getPlayerAction(String actionType, String[] params)
@@ -54,6 +56,9 @@ public class GameLogicService
 			return true;
 		case "ATTACK":
 			// TODO: create attack sequence here
+			//TODO: Battle class
+			//TODO: get result from Battle Class
+
 			return true;
 		case "MOVE":
 			int currentRoomID = this._content.getRoomID();
@@ -62,7 +67,7 @@ public class GameLogicService
 			return true;
 			case "DIE":
 				this._content.getPlayer().setHealth(0);
-				this._content.setRoomID(23);
+				this._content.setRoomID(24); // devil room is 24.
 				return true;
 		default:
 			return false;
@@ -72,7 +77,7 @@ public class GameLogicService
 	public int playerAttack()
 	{
 		return (int) (_content.getCurrentNPC().getHealth() - Math
-				.ceil(player.getDamage() * (.33) * (r.nextInt(4) + 1) + 1));
+				.ceil(_content.getPlayer().getDamage() * (.33) * (r.nextInt(4) + 1) + 1));
 
 	}
 
