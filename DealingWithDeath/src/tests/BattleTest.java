@@ -1,6 +1,5 @@
 package tests;
 
-import PLAYER.Battle;
 import org.junit.Test;
 
 public class BattleTest
@@ -9,7 +8,7 @@ public class BattleTest
 	@Test
 	public void testNpcAttack()
 	{
-			Battle  junit = new Battle();
+		//Battle  junit = new Battle();
 		//int result = junit.npcAttack();
 		//assertEquals(80, result);
 	}
@@ -17,7 +16,7 @@ public class BattleTest
 	@Test
 	public void testPlayerAttack()
 	{
-		Battle  junit = new Battle();
+		//Battle  junit = new Battle();
 		//int result = junit.playerAttack();
 		//assertEquals(145, result);
 

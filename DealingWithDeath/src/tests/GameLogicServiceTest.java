@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Scanner;
+
 
 public class GameLogicServiceTest {
 
@@ -26,7 +28,8 @@ public class GameLogicServiceTest {
 		Player currentPlayer = new Player("joe");
 		currentPlayer.getInventory().add(new Crack(0,"itemName", "description", 100));
 		DWD content = new DWD(currentPlayer);
-		gls = new GameLogicService(content);
+		Scanner scanner = new Scanner(System.in);
+		gls = new GameLogicService(content, scanner);
 		gls.init(currentPlayer.getName());
 	}
 

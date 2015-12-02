@@ -15,10 +15,17 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static java.lang.System.in;
+
 public class LoginMainGUI extends Application {
 
 	private TextField tfUserName;
 	ArrayList<User> userList;
+	private final Scanner scanner;
+
+	public LoginMainGUI() {
+		scanner = new Scanner(in);
+	}
 
 	//ObseravableList comes from an arrayList that we can add in another class
 	public void start(ArrayList<User> userList2) throws Exception
@@ -84,14 +91,13 @@ public class LoginMainGUI extends Application {
 
 	private void startGame(String userName) {
 		DWD content = new DWD();
-		GameLogicService gls = new GameLogicService(content);
+		GameLogicService gls = new GameLogicService(content, scanner);
 		gls.init(userName);
 		Boolean isValidAction = false;
-		//while (!gls.isGameOver) {
-		gls.getContent().displayEntryRoomInfo();
-		if (gls.getContent().getCurrentNPC().isFriendly()) {
+		//while (!gls.isGameOver) { //TODO: this should loop until game is over.
 			System.out.println("This is a friendly room");
 			while (!isValidAction) {
+				gls.getContent().displayEntryRoomInfo();
 				String input = GetUserInput();
 				String playerAction = PlayerActionEnum.values()[Integer.parseInt(input) - 1].name();
 				if (!gls.setPlayerAction(playerAction)) {
@@ -100,11 +106,6 @@ public class LoginMainGUI extends Application {
 
 				//TODO: print out description
 			}
-		} else {
-			System.out.println("This is a monster room");
-			//TODO: fight monster
-			//TODO: press any key to start fighting the monster
-		}
 
 		//}
 	}
@@ -114,15 +115,17 @@ public class LoginMainGUI extends Application {
 		System.out.println("1. Get an Item");
 		System.out.println("2. Sell an Item");
 		System.out.println("3. Fight");
-		System.out.println("4. Interact with character");
+		System.out.println("4. Move to the next Room\n");
+
 
 		// create a scanner so we can read the command-line input
-		Scanner scanner = new Scanner(System.in);
 		String inputString = scanner.next();
+
 		while (!isValidInput(inputString)) {
 			System.out.println("Sorry, please input a valid number");
 			inputString = scanner.next();
 		}
+
 		return inputString;
 	}
 
@@ -133,6 +136,7 @@ public class LoginMainGUI extends Application {
 			case "2":
 			case "3":
 			case "4":
+			case "5":
 				return true;
 			default:
 				return false;

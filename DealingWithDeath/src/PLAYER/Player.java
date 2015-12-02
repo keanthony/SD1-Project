@@ -24,7 +24,7 @@ public class Player implements Serializable
 	private int damage;
 	private Score score;
 	private Room room;
-	private final ArrayList<Item> inventory;
+	private ArrayList<Item> inventory;
 	private DWD dwd;
 	private int money;
 	protected Battle enemy;
@@ -261,5 +261,9 @@ public class Player implements Serializable
 	public String getName() {
 		return this.name;
 
+	}
+
+	public void setInventory(ArrayList<Item> inventoryList) {
+		this.inventory = inventoryList;
 	}
 }

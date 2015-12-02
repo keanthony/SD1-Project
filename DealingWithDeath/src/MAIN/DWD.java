@@ -103,6 +103,7 @@ public class DWD implements Serializable
 	 */
 	public void setRoomID(int roomID)
 	{
+		int oldRoomID = this.roomID;
 		if (roomID > 29 || roomID < 0)
 		{
 			System.out.println("RoomID out of bounds.  Resetting to 0");
@@ -113,7 +114,7 @@ public class DWD implements Serializable
 		{
 			this.roomID = roomID;
 		}
-		roomHistoryAl.add(getRoomAL().get(this.roomID));
+		roomHistoryAl.add(getRoomAL().get(oldRoomID));
 	}
 
 	/**Method Name: getCurrentItem
@@ -479,8 +480,9 @@ public class DWD implements Serializable
 	 * @author: Kevin Anthony
 	 */
 	public void displayEntryRoomInfo() {
+		System.out.println("\nRoom info");
 		System.out.println("You are in room " + this.roomID);
-		System.out.println(roomAL.get(this.roomID).getrDescription());
+		System.out.println(roomAL.get(this.roomID).getrDescription() + "\n");
 	}
 
 	/** Method Name: toString
