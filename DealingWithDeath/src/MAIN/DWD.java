@@ -26,31 +26,20 @@ import java.util.Random;
 
 public class DWD implements Serializable
 {
-	protected static ArrayList<Room> roomAL = new ArrayList<Room>();
-	protected static ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
-	protected static ArrayList<NPC> npcAL;
-	protected static ArrayList<Riddle> riddleAL;
-	protected static ArrayList<Item> itemAL;
-	protected static DWD status;
+	private static ArrayList<Room> roomAL = new ArrayList<Room>();
+	private static final ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
+	private static ArrayList<NPC> npcAL;
+	private static ArrayList<Riddle> riddleAL;
+	private static ArrayList<Item> itemAL;
 	private int roomID;
-	protected Random r;
-	protected Player player;
+	private final Random r;
+	private Player player;
 
 	/**Constructor: DWD.java
 	 */
 	public DWD()
 	{
 		roomID = 0;
-		r = new Random();
-	}
-
-	/**Constructor: DWD.java
-	 * Initializes object with following params.
-	 * @param roomID
-	 */
-	public DWD(int roomID)
-	{
-		setRoomID(roomID);
 		r = new Random();
 	}
 
@@ -129,17 +118,16 @@ public class DWD implements Serializable
 
 	/**Method Name: getCurrentItem
 	 * Description: Get the Item from the current room
-	 * @param roomID
 	 * @return Item
 	 */
 	public Item getCurrentItem()
 	{
-		return roomAL.get(this.roomID).getItem();
+		Room room = roomAL.get(this.roomID);
+		return room.getItem();
 	}
 
 	/**Method Name: getCurrentNPC
 	 * Description: Get the NPC from the current room
-	 * @param roomID
 	 * @return NPC
 	 */
 	public NPC getCurrentNPC()
@@ -149,7 +137,6 @@ public class DWD implements Serializable
 
 	/**Method Name: getCurrentRiddle
 	 * Description: Get the Riddle from the current room
-	 * @param roomID
 	 * @return Riddle
 	 */
 	public Riddle getCurrentRiddle()
@@ -164,7 +151,7 @@ public class DWD implements Serializable
 		}
 	}
 
-	public void makePlayer(String name)
+	private void makePlayer(String name)
 	{
 		player = new Player(name);
 	}
@@ -468,14 +455,9 @@ public class DWD implements Serializable
 	{
 		System.out.println("You are in room " + this.roomID);
 		System.out.println(roomAL.get(this.roomID).getrDescription());
-		if (getCurrentNPC() != null)
-		{
-			System.out.println("There is a monster in the room");
-			System.out.println(getCurrentNPC().getName() + " "
-					+ getCurrentNPC().getDescription());
+		if (getCurrentNPC() == null) {
+			System.out.println("\nThere is no monster in the room");
 		}
-		else
-			System.out.println("There is no monster in the room");
 
 		System.out.println(
 				"The item in this room is " + getCurrentItem().getName() + " "
@@ -487,6 +469,18 @@ public class DWD implements Serializable
 		}
 		else
 			System.out.println("There is no Riddle in the room");
+	}
+
+
+	/**
+	 * Method Name: displayEntryRoomInfo
+	 * Description: To give the user a status update when they enter a room
+	 *
+	 * @author: Kevin Anthony
+	 */
+	public void displayEntryRoomInfo() {
+		System.out.println("You are in room " + this.roomID);
+		System.out.println(roomAL.get(this.roomID).getrDescription());
 	}
 
 	/** Method Name: toString
@@ -509,5 +503,6 @@ public class DWD implements Serializable
 		setRoomID(0);
 		makePlayer(name);
 	}
+
 
 }
