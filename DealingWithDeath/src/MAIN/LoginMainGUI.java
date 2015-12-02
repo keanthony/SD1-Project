@@ -89,9 +89,9 @@ public class LoginMainGUI extends Application {
 		User userInput = new User();
 
 		userInput.load();
-		if (userInput.passMainMenu) {
+		//if (userInput.passMainMenu) {
 			this.startGame(userInput.userName);
-		}
+		//}
 
     }
 	
@@ -148,6 +148,7 @@ public class LoginMainGUI extends Application {
 			case "3":
 			case "4":
 			case "5":
+			case "6":
 				return true;
 			default:
 				return false;
