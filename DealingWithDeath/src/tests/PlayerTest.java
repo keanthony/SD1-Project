@@ -1,18 +1,13 @@
 package tests;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-import INVENTORY.Item;
-import PLAYER.Battle;
 import PLAYER.Player;
-import ROOM.Room;
+import org.junit.Test;
 
 public class PlayerTest {
 
 
 	@Test
-	public void testTake() 
+	public void testTake()
 	{
 		Player player = new Player();
 		player.take();
@@ -21,7 +16,7 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testInspect() 
+	public void testInspect()
 	{
 		Player player = new Player();
 		player.inspect();
@@ -29,24 +24,7 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testFight() 
-	{
-		Battle enemy = new Battle(); 
-		Player player = new Player();
-		player.fight(enemy);
-
-	}
-
-
-	@Test
-	public void testApproach() 
-	{
-		Player player = new Player();
-		player.approach();
-	}
-
-	@Test
-	public void testToString() 
+	public void testToString()
 	{
 		Player player = new Player();
 		System.out.println(player.toString());

@@ -7,29 +7,20 @@ package MAIN;
  * Date Written: November 11, 2015
  * Class Description: Main Class
  * Purpose: Creates the game, handles saving and loading.
- * 
+ *
  */
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
+import PLAYER.Player;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
-
-import PLAYER.Player;
 
 public class User
 {
 	protected final String PLAYERLIST = "PlayerList.txt";
-	protected boolean passMainMenu = false;
+	public boolean passMainMenu = false;
 	protected String userName = "";
 	protected Player play = new Player();
 	//protected Scanner input;
@@ -90,8 +81,7 @@ public class User
 			{
 				System.out.println("\n\t\t\t THANK YOU FOR PLAYING THE GAME DEALING WITH DEATH!!");
 				System.exit(0);
-			}
-			else 
+			} else
 			{
 				System.out.println("Not a valid selection\n returning to main menu");
 			}
@@ -357,4 +347,13 @@ public class User
 		game.mainMenu();
 		System.out.println("\nLets Start from the Beginning...\n");
 	}
+
+	public String GetInput() {
+		Scanner user_input = new Scanner(System.in);
+		String result = user_input.next();
+		user_input.close();
+		return result;
+	}
+
+
 }

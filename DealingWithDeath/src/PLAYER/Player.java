@@ -1,12 +1,11 @@
 package PLAYER;
 
-import ROOM.*;
+import INVENTORY.Item;
+import MAIN.DWD;
+import ROOM.Room;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import INVENTORY.*;
-import MAIN.DWD;
 
 /**Class: Player.java
  * @author: Samuel Medina
@@ -20,19 +19,19 @@ import MAIN.DWD;
 
 public class Player implements Serializable
 {
-	protected String name;
-	protected int health;
-	protected int damage;
-	protected Score score;
-	protected Room room;
-	protected ArrayList<Item> inventory;
-	protected DWD dwd;
-	protected int money;
+	private String name;
+	private int health;
+	private int damage;
+	private Score score;
+	private Room room;
+	private ArrayList<Item> inventory;
+	private DWD dwd;
+	private int money;
 	protected Battle enemy;
-	protected Item it;
+	private Item it;
 
 	/**
-	 * no parameter constructor 
+	 * no parameter constructor
 	 */
 	public Player()
 	{
@@ -63,7 +62,7 @@ public class Player implements Serializable
 
 	/**Constructor: Player.java
 	 * @author Samuel
-	 * 
+	 *
 	 * @param name
 	 * @param health
 	 * @param damage
@@ -150,14 +149,6 @@ public class Player implements Serializable
 	}
 
 	/**
-	 * @param inventory the inventory to set
-	 */
-	public void setInventory(ArrayList<Item> inventory)
-	{
-		this.inventory = inventory;
-	}
-
-	/**
 	 * @return the money
 	 */
 	public int getMoney()
@@ -221,9 +212,7 @@ public class Player implements Serializable
 	}
 
 	/**goTo
-	 * @param lastRoom 
-	 * @param room
-	 * lets you enter a new room
+	 * @param lastRoom
 	 */
 	public void goTo(int lastRoom)
 	{
@@ -232,7 +221,6 @@ public class Player implements Serializable
 
 	/**
 	 * take
-	 * @param numItem
 	 * @return
 	 * lets you take an item and put in on your inventory
 	 */
@@ -257,21 +245,6 @@ public class Player implements Serializable
 			return "Item not found";
 	}
 
-	//Calls the actions to fight the NPC
-	public void fight(Battle enemy)
-	{
-		enemy.playerAttack();
-	}
-
-	//Gives options to either fight or trade 
-	public void approach()
-	{
-		int fight = enemy.playerAttack();
-		int trade = score.Sale();
-
-		System.out.println("Would you like to " + fight + " or " + trade);
-
-	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -285,4 +258,12 @@ public class Player implements Serializable
 				+ ", getInventory()=" + getInventory() + "]";
 	}
 
+	public String getName() {
+		return this.name;
+
+	}
+
+	public void setInventory(ArrayList<Item> inventoryList) {
+		this.inventory = inventoryList;
+	}
 }

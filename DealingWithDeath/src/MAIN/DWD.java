@@ -1,12 +1,17 @@
 package MAIN;
 
+import INVENTORY.Armor;
+import INVENTORY.Crack;
+import INVENTORY.Item;
+import INVENTORY.Weapon;
+import NPC.NPC;
+import PLAYER.Player;
+import ROOM.Riddle;
+import ROOM.Room;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-import INVENTORY.*;
-import NPC.NPC;
-import PLAYER.Player;
-import ROOM.*;
 
 /**Class: DWD.java
  * @author: Kevin Anthony
@@ -21,15 +26,14 @@ import ROOM.*;
 
 public class DWD implements Serializable
 {
-	protected static ArrayList<Room> roomAL = new ArrayList<Room>();
-	protected static ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
-	protected static ArrayList<NPC> npcAL;
-	protected static ArrayList<Riddle> riddleAL;
-	protected static ArrayList<Item> itemAL;
-	protected static DWD status;
+	private static ArrayList<Room> roomAL = new ArrayList<Room>();
+	public static final ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
+	private static ArrayList<NPC> npcAL;
+	private static ArrayList<Riddle> riddleAL;
+	private static ArrayList<Item> itemAL;
 	private int roomID;
-	protected Random r;
-	protected Player player;
+	private final Random r;
+	private Player player;
 
 	/**Constructor: DWD.java
 	 */
@@ -37,16 +41,8 @@ public class DWD implements Serializable
 	{
 		roomID = 0;
 		r = new Random();
-	}
 
-	/**Constructor: DWD.java
-	 * Initializes object with following params.
-	 * @param roomID
-	 */
-	public DWD(int roomID)
-	{
-		setRoomID(roomID);
-		r = new Random();
+
 	}
 
 	public DWD(Player currentPlayer)
@@ -109,32 +105,39 @@ public class DWD implements Serializable
 	 */
 	public void setRoomID(int roomID)
 	{
+		if (getRoomAL().size() > 0) {
+			int oldRoomID = this.roomID;
+			Room oldRoom = getRoomAL().get(oldRoomID);
+			roomHistoryAl.add(oldRoom);
+		}
+
+
+
 		if (roomID > 29 || roomID < 0)
 		{
 			System.out.println("RoomID out of bounds.  Resetting to 0");
 			this.roomID = 0;
-
 		}
 		else
 		{
 			this.roomID = roomID;
 		}
-		roomHistoryAl.add(getRoomAL().get(this.roomID));
+
+
 	}
 
 	/**Method Name: getCurrentItem
-	 * Description: Get the Item from the current room 
-	 * @param roomID
+	 * Description: Get the Item from the current room
 	 * @return Item
 	 */
 	public Item getCurrentItem()
 	{
-		return roomAL.get(this.roomID).getItem();
+		Room room = roomAL.get(this.roomID);
+		return room.getItem();
 	}
 
 	/**Method Name: getCurrentNPC
-	 * Description: Get the NPC from the current room 
-	 * @param roomID
+	 * Description: Get the NPC from the current room
 	 * @return NPC
 	 */
 	public NPC getCurrentNPC()
@@ -143,14 +146,13 @@ public class DWD implements Serializable
 	}
 
 	/**Method Name: getCurrentRiddle
-	 * Description: Get the Riddle from the current room 
-	 * @param roomID
+	 * Description: Get the Riddle from the current room
 	 * @return Riddle
 	 */
 	public Riddle getCurrentRiddle()
 	{
 		if (this.roomID > 23 && this.roomID < 30)
-			return roomAL.get(this.roomID).getrRiddle();
+			return getRoomAL().get(this.roomID).getrRiddle();
 		else
 		{
 			System.out.println("Riddles do not exist for this RoomID.  "
@@ -159,14 +161,14 @@ public class DWD implements Serializable
 		}
 	}
 
-	public void makePlayer()
+	private void makePlayer(String name)
 	{
-		player = new Player();
+		player = new Player(name);
 	}
-	
+
 	/**Method Name: makeNPC
 	 *  @author: Kevin Anthony
-	 * Description: Generates all of the NPC objects.  The Devil is a special 
+	 * Description: Generates all of the NPC objects.  The Devil is a special
 	 * NPC that only appears in rooms 24-29
 	 */
 	public void makeNPC()
@@ -217,7 +219,7 @@ public class DWD implements Serializable
 
 	/**Method Name: makeRiddle
 	 *  @author: Kevin Anthony
-	 * Description: Generates all of the Riddle objects.  The Riddles only 
+	 * Description: Generates all of the Riddle objects.  The Riddles only
 	 * appear in rooms 24-29
 	 */
 	public void makeRiddle()
@@ -269,7 +271,7 @@ public class DWD implements Serializable
 
 	/**Method Name: makeItem
 	 *  @author: Kevin Anthony
-	 * Description: Generates all of the Item objects.  There are 3 types of 
+	 * Description: Generates all of the Item objects.  There are 3 types of
 	 * Items: Armor, Weapon, and Crack.  They all extend Item.  Armor boosts
 	 * Health, Weapons boost Damage, Crack has a value and can be sold to NPC's
 	 */
@@ -463,14 +465,10 @@ public class DWD implements Serializable
 	{
 		System.out.println("You are in room " + this.roomID);
 		System.out.println(roomAL.get(this.roomID).getrDescription());
-		if (getCurrentNPC() != null)
-		{
-			System.out.println("There is a monster in the room");
-			System.out.println(getCurrentNPC().getName() + " "
-					+ getCurrentNPC().getDescription());
+		if (getCurrentNPC() == null) {
+			System.out.println("\nThere is no monster in the room");
 		}
-		else
-			System.out.println("There is no monster in the room");
+
 		System.out.println(
 				"The item in this room is " + getCurrentItem().getName() + " "
 						+ getCurrentItem().getDescription());
@@ -483,8 +481,21 @@ public class DWD implements Serializable
 			System.out.println("There is no Riddle in the room");
 	}
 
+
+	/**
+	 * Method Name: displayEntryRoomInfo
+	 * Description: To give the user a status update when they enter a room
+	 *
+	 * @author: Kevin Anthony
+	 */
+	public void displayEntryRoomInfo() {
+		System.out.println("\nRoom info");
+		System.out.println("You are in room " + this.roomID);
+		System.out.println(roomAL.get(this.roomID).getrDescription() + "\n");
+	}
+
 	/** Method Name: toString
-	 * Description: Override 
+	 * Description: Override
 	 * @return String representation of object
 	 * @see java.lang.Object#toString()
 	 */
@@ -494,13 +505,17 @@ public class DWD implements Serializable
 		return "DWD [roomID=" + roomID + ", r=" + r;
 	}
 
-	public void Initialize()
+	public void Initialize(String name)
 	{
 		makeNPC();
 		makeItem();
 		makeRiddle();
 		makeRoom();
 		setRoomID(0);
+		makePlayer(name);
 	}
 
+	public boolean isCurrentRoomADevilRoom() {
+		return this.roomID >= 24 && this.roomID <= 29;
+	}
 }

@@ -7,18 +7,18 @@
  * Purpose: To make sure Riddle is working as intended
  */
 package tests;
-import org.junit.Before;
-import org.junit.Test;
 
 import MAIN.DWD;
 import ROOM.Riddle;
+import org.junit.Before;
+import org.junit.Test;
 
 public class RiddleTestKevin
 {
 	protected DWD d = new DWD();
 	protected Riddle r = new Riddle();
 	/**Method Name: setUp
-	 * Description: TODO 
+	 * Description: TODO
 	 * @throws java.lang.Exception
 	 */
 
@@ -46,14 +46,4 @@ public class RiddleTestKevin
 		System.out.println(r.checkAnswer(2,24));
 		System.out.println(r.checkAnswer(5,40));
 	}
-
-	/**
-	 * Test method for {@link ROOM.Riddle#reward(int)}.
-	 */
-	@Test
-	public final void testReward()
-	{
-		r.reward(5);
-	}
-
 }
