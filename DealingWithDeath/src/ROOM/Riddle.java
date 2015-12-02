@@ -1,10 +1,8 @@
 package ROOM;
 
-import MAIN.DWD;
-
 /**Class: Riddle.java
-* @author: 
-* @collaborator: Kevin Anthony 
+ * @author:
+ * @collaborator: Kevin Anthony
 * @version: 1.0
 * Course : ITEC 3860 Fall 2015 Dr. Johnson
 * Date Written: Oct 30, 2015
@@ -18,7 +16,6 @@ public class Riddle
 	protected int solution;
 	protected boolean isCorrect;
 	private int backToRoom;
-	protected DWD d;
 
 	/**Constructor: Riddle.java
 	 * Initializes object with following params.
@@ -30,7 +27,7 @@ public class Riddle
 		solution = 0;
 		isCorrect = false;
 		setBackToRoom(0);
-		d = new DWD();
+
 	}
 
 	/**Constructor: Riddle.java
@@ -46,7 +43,7 @@ public class Riddle
 		this.solution = solution;
 		isCorrect = false;
 		setBackToRoom(0);
-		d = new DWD();
+
 	}
 
 	/**Method Name: getQuestion
@@ -99,11 +96,10 @@ public class Riddle
 	{
 
 		String result = "";
-		if (answer == d.getCurrentRiddle().getSolution())
+		if (answer == this.getSolution())
 		{
 			setCorrect(isCorrect = true);
 			result = "You answered the Riddle correctly and will be returned to your Room";
-			reward(getBackToRoom());
 		}
 		else
 		{
@@ -112,23 +108,8 @@ public class Riddle
 		return result;
 	}
 
-	/**Method Name: reward
-	 * Description: Return Player to their last Room if they solve the Riddle
-	 * @author Kevin Anthony
-	 * @param lastRoom
-	 */
-	public void reward(int lastRoom)
-	{
-		Room r = new Room();
-		if (isCorrect)
-		{
-			r.enter(getBackToRoom());
-		}
-		System.out.println("You have been returned to Room " + getBackToRoom());
-	}
-
 	/** Method Name: toString
-	 * Description: Override 
+	 * Description: Override
 	 * @return String representation of object
 	 * @see java.lang.Object#toString()
 	 */

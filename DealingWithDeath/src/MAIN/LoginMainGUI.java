@@ -21,10 +21,12 @@ public class LoginMainGUI extends Application {
 
 	private TextField tfUserName;
 	ArrayList<User> userList;
-	private final Scanner scanner;
+	private Scanner scanner;
+	private DWD content = new DWD();
+	private GameLogicService gls;
 
 	public LoginMainGUI() {
-		scanner = new Scanner(in);
+
 	}
 
 	//ObseravableList comes from an arrayList that we can add in another class
@@ -37,6 +39,7 @@ public class LoginMainGUI extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
 		//Stage primaryStage = new Stage();
 
 		GridPane gp = new GridPane();
@@ -71,6 +74,7 @@ public class LoginMainGUI extends Application {
 	public void newGame() {
     	User u = new User();
 		u.userName = tfUserName.getText();
+
 		u.newGame(u.userName);
 		System.out.println("User Name Stored. . . \n");
 		if (u.passMainMenu) {
@@ -90,11 +94,11 @@ public class LoginMainGUI extends Application {
     }
 
 	private void startGame(String userName) {
-		DWD content = new DWD();
-		GameLogicService gls = new GameLogicService(content, scanner);
+		scanner = new Scanner(in);
+		gls = new GameLogicService(content, scanner);
 		gls.init(userName);
 		Boolean isValidAction = false;
-		//while (!gls.isGameOver) { //TODO: this should loop until game is over.
+		//TODO: this should loop until game is over.
 			System.out.println("This is a friendly room");
 			while (!isValidAction) {
 				gls.getContent().displayEntryRoomInfo();
@@ -103,20 +107,20 @@ public class LoginMainGUI extends Application {
 				if (!gls.setPlayerAction(playerAction)) {
 					System.out.println("Invalid action passed in. " + input + " is not a valid input");
 				}
-
-				//TODO: print out description
 			}
-
-		//}
 	}
 
 	private String GetUserInput() {
+		boolean shouldShowRiddles = this.gls.getContent().isCurrentRoomADevilRoom();
 		System.out.println("Please enter a number corresponding with your action type");
 		System.out.println("1. Get an Item");
 		System.out.println("2. Sell an Item");
 		System.out.println("3. Fight");
-		System.out.println("4. Move to the next Room\n");
-
+		System.out.println("4. Move to the next Room");
+		if (shouldShowRiddles) {
+			System.out.println("5. Solve Riddle");
+		}
+		System.out.println("\n");
 
 		// create a scanner so we can read the command-line input
 		String inputString = scanner.next();

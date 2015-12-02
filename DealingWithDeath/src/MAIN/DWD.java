@@ -27,7 +27,7 @@ import java.util.Random;
 public class DWD implements Serializable
 {
 	private static ArrayList<Room> roomAL = new ArrayList<Room>();
-	private static final ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
+	public static final ArrayList<Room> roomHistoryAl = new ArrayList<Room>();
 	private static ArrayList<NPC> npcAL;
 	private static ArrayList<Riddle> riddleAL;
 	private static ArrayList<Item> itemAL;

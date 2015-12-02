@@ -80,22 +80,26 @@ public class GameLogicService
 					System.out.println(item.getItemIndex() + " " + item.getName() + " - " + item.getDescription());
 				}
 				System.out.println("\n What do you want to sell?");
-				// create a scanner so we can read the command-line input
-				Scanner scanner = new Scanner(System.in);
-				String inputString = scanner.next();
 				System.out.println("Please enter an item index value");
-				int inputIndex = Integer.parseInt(inputString);
-				Crack itemToSell = (Crack) inventory.stream().filter(x -> x.getItemIndex() == inputIndex).findFirst().get();
-				int sellValue = itemToSell.getValue();
-				System.out.println("Selling your crack for $ " + sellValue + " .");
-				int total = this._content.getPlayer().getMoney() + sellValue;
-				ArrayList<Item> filteredList = new ArrayList<Item>(this._content.getPlayer().getInventory().stream().filter(x -> x.getItemIndex() != itemToSell.getItemIndex()).collect(Collectors.toList()));
-				this._content.getPlayer().setInventory(filteredList);
-				this._content.getPlayer().setMoney(total);
-				System.out.println("You have a total of $" + total);
+				String inputString = _scanner.next();
+				Boolean isValidItemIndex = true;
+				while (isValidItemIndex) {
+					int inputIndex = Integer.parseInt(inputString);
+					ArrayList<Item> filteredItems = new ArrayList<Item>(this._content.getPlayer().getInventory().stream().filter(x -> x.getItemIndex() == inputIndex).collect(Collectors.toList()));
+					if (filteredItems.size() == 1) {
+						Crack itemToSell = (Crack) inventory.stream().filter(x -> x.getItemIndex() == inputIndex).findFirst().get();
+						int sellValue = itemToSell.getValue();
+						System.out.println("Selling your crack for $ " + sellValue + " .");
+						int total = this._content.getPlayer().getMoney() + sellValue;
+						ArrayList<Item> filteredList = new ArrayList<Item>(this._content.getPlayer().getInventory().stream().filter(x -> x.getItemIndex() != itemToSell.getItemIndex()).collect(Collectors.toList()));
+						this._content.getPlayer().setInventory(filteredList);
+						this._content.getPlayer().setMoney(total);
+						System.out.println("You have a total of $" + total);
+						return true;
+					}
+				}
 			} else {
 				System.out.println("You have no items to sell");
-
 			}
 			return true;
 		case "ATTACK":
@@ -114,6 +118,31 @@ public class GameLogicService
 				this._content.getPlayer().setHealth(0);
 				this._content.setRoomID(24); // devil room is 24.
 				System.out.println("Welcome to Hell.");
+				return true;
+			case "RIDDLE":
+				System.out.println("Riddle");
+				System.out.println(this._content.getCurrentRiddle().getQuestion());
+				System.out.println("Please enter an item index value");
+				String inputString = _scanner.next();
+				//TODO: validate input
+				int inputIndex = Integer.parseInt(inputString);
+				String result = this._content.getCurrentRiddle().checkAnswer(inputIndex, this._content.getRoomID());
+				System.out.println(result);
+				Boolean isCorrect = _content.getCurrentRiddle().isCorrect();
+				while (!isCorrect) {
+					System.out.println("Please enter an item index value");
+					inputString = _scanner.next();
+					inputIndex = Integer.parseInt(inputString);
+					result = this._content.getCurrentRiddle().checkAnswer(inputIndex, this._content.getRoomID());
+					System.out.println(result);
+					isCorrect = _content.getCurrentRiddle().isCorrect();
+					//TODO: validate input
+				}
+				System.out.println("Your life has been reset to 100");
+				this._content.getPlayer().setHealth(100);
+				int previousAliveRoomID = this._content.roomHistoryAl.get(this._content.roomHistoryAl.size() - 1).getRoomId();
+				System.out.println("Welcome back to the room you died in room " + previousAliveRoomID);
+				this._content.setRoomID(previousAliveRoomID);
 				return true;
 
 		default:

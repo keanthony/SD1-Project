@@ -1,16 +1,15 @@
 package tests;
 
-import static org.junit.Assert.*;
-
+import ROOM.Riddle;
 import org.junit.Test;
 
-import ROOM.Riddle;
+import static org.junit.Assert.assertEquals;
 
 public class RiddleTest {
 
 	@Test
 	public void testRiddle() {
-		
+
 		Riddle jUnit = new Riddle();
 
 	}
@@ -32,7 +31,7 @@ public class RiddleTest {
 				3);
 		String question = jUnit.getQuestion();
 		assertEquals("What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n", question);
-		
+
 	}
 
 	@Test
@@ -79,7 +78,7 @@ public class RiddleTest {
 						+ "3. A Snail\n4. A Human",
 				3);
 		jUnit.setCorrect(false);
-	
+
 	}
 
 	@Test
@@ -90,16 +89,6 @@ public class RiddleTest {
 						+ "3. A Snail\n4. A Human",
 				3);
 		jUnit.checkAnswer(0, 3);
-	}
-
-	@Test
-	public void testReward() {
-		
-		Riddle jUnit = new Riddle(0,
-				"What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n"
-						+ "3. A Snail\n4. A Human",
-				3);
-		jUnit.reward(0);
 	}
 
 

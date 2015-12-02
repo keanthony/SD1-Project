@@ -31,6 +31,7 @@ public class GameLogicServiceTest {
 		Scanner scanner = new Scanner(System.in);
 		gls = new GameLogicService(content, scanner);
 		gls.init(currentPlayer.getName());
+
 	}
 
 	@Test
@@ -84,4 +85,12 @@ public class GameLogicServiceTest {
 
 	}
 
+	@Test
+	public void getPlayerAction_Riddle_ShouldFailForNormalRoom() throws Exception {
+		String actionType = "RIDDLE";
+		gls.getContent().setRoomID(24);
+		Boolean isSucceseful = gls.setPlayerAction("RIDDLE");
+		Assert.assertTrue(isSucceseful);
+		Assert.assertFalse(gls.getContent().getCurrentRiddle().isCorrect());
+	}
 }
