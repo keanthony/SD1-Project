@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LoginMainGUI extends Application {
 
@@ -61,16 +62,14 @@ public class LoginMainGUI extends Application {
 	}
 
 	public void newGame() {
-
     	User u = new User();
 		u.userName = tfUserName.getText();
-		//u.userList.add(userName);
 		u.newGame(u.userName);
 		System.out.println("User Name Stored. . . \n");
 		if (u.passMainMenu) {
+			System.out.println("Game Starting...");
 			this.startGame(u.userName);
 		}
-
     }
 
 	public void loadGame() {
@@ -87,19 +86,57 @@ public class LoginMainGUI extends Application {
 		DWD content = new DWD();
 		GameLogicService gls = new GameLogicService(content);
 		gls.init(userName);
-		//TODO: print out description
-		//TODO: get user input.
-// String result=  user.GetUserInput();
-		while (!gls.isGameOver) if (gls.getContent().getCurrentNPC().isFriendly()) {
-			//TODO: set the player action
-			//gls.getPlayerAction(result);
-			//TODO: print out description
+		Boolean isValidAction = false;
+		//while (!gls.isGameOver) {
+		gls.getContent().displayEntryRoomInfo();
+		if (gls.getContent().getCurrentNPC().isFriendly()) {
+			System.out.println("This is a friendly room");
+			while (!isValidAction) {
+				String input = GetUserInput();
+				String playerAction = PlayerActionEnum.values()[Integer.parseInt(input) - 1].name();
+				if (!gls.setPlayerAction(playerAction)) {
+					System.out.println("Invalid action passed in. " + input + " is not a valid input");
+				}
+
+				//TODO: print out description
+			}
 		} else {
+			System.out.println("This is a monster room");
 			//TODO: fight monster
 			//TODO: press any key to start fighting the monster
-
 		}
 
+		//}
+	}
+
+	private String GetUserInput() {
+		System.out.println("Please enter a number corresponding with your action type");
+		System.out.println("1. Get an Item");
+		System.out.println("2. Sell an Item");
+		System.out.println("3. Fight");
+		System.out.println("4. Interact with character");
+
+		// create a scanner so we can read the command-line input
+		Scanner scanner = new Scanner(System.in);
+		String inputString = scanner.next();
+		while (!isValidInput(inputString)) {
+			System.out.println("Sorry, please input a valid number");
+			inputString = scanner.next();
+		}
+		return inputString;
+	}
+
+	private boolean isValidInput(String inputString) {
+		Boolean isValid = false;
+		switch (inputString) {
+			case "1":
+			case "2":
+			case "3":
+			case "4":
+				return true;
+			default:
+				return false;
+		}
 	}
 
 	public void saveGame() {

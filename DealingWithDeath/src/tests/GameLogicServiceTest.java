@@ -33,7 +33,7 @@ public class GameLogicServiceTest {
 	@Test
 	public void getPlayerAction_WithItem_ShouldAddItemToPlayersInventory(){
 		String actionType = "ITEM";
-		Boolean isSuccessful = gls.getPlayerAction(actionType);
+		Boolean isSuccessful = gls.setPlayerAction(actionType);
 		Assert.assertTrue(isSuccessful);
 		int inventorySize = gls.getContent().getPlayer().getInventory().size();
 		Assert.assertTrue(inventorySize == 2);
@@ -42,7 +42,7 @@ public class GameLogicServiceTest {
 	@Test
 	public void getPlayerAction_Move_ChangeToTheNextRoom(){
 		String actionType = "MOVE";
-		Boolean isSuccessful = gls.getPlayerAction(actionType);
+		Boolean isSuccessful = gls.setPlayerAction(actionType);
 		Assert.assertTrue(1 == gls.getContent().getRoomID());
 		Assert.assertTrue(isSuccessful);
 	}
@@ -50,8 +50,8 @@ public class GameLogicServiceTest {
     @Test
     public void getPlayerAction_Attack_ShouldReturnTrue() {
         String actionType = "ATTACK";
-        Boolean isSuccessful = gls.getPlayerAction(actionType);
-        Assert.assertTrue(isSuccessful);
+		Boolean isSuccessful = gls.setPlayerAction(actionType);
+		Assert.assertTrue(isSuccessful);
     }
 
 
@@ -59,7 +59,7 @@ public class GameLogicServiceTest {
 	public void getPlayerAction_SELL_RemovesItemFromList(){
 		String actionType = "SELL";
 		String[] params = new String[]{"0"};
-		Boolean isSuccessful = gls.getPlayerAction(actionType, params);
+		Boolean isSuccessful = gls.setPlayerAction(actionType, params);
 		int playerMoney = gls.getContent().getPlayer().getMoney();
 		Assert.assertTrue(1100 == playerMoney);
 		Assert.assertTrue(isSuccessful);
@@ -68,18 +68,17 @@ public class GameLogicServiceTest {
 	@Test
 	public void getPlayerAction_InvalidParameter_ReturnsFalse(){
 		String actionType = "InvalidParamater";
-		Boolean isSuccessful = gls.getPlayerAction(actionType);
+		Boolean isSuccessful = gls.setPlayerAction(actionType);
 		Assert.assertFalse(isSuccessful);
 	}
 
 	@Test
 	public void getPlayerAction_DIE_setsPlayerHealthToZero() {
 		String actionType = "DIE";
-		Boolean isSuccessful = gls.getPlayerAction(actionType);
+		Boolean isSuccessful = gls.setPlayerAction(actionType);
 		Assert.assertTrue(isSuccessful);
 		Assert.assertTrue(gls.getContent().getPlayer().getHealth() == 0);
 
 	}
-
 
 }

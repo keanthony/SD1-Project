@@ -19,16 +19,16 @@ import java.util.ArrayList;
 
 public class Player implements Serializable
 {
-	protected String name;
-	protected int health;
-	protected int damage;
-	protected Score score;
-	protected Room room;
-	protected ArrayList<Item> inventory;
-	protected DWD dwd;
-	protected int money;
+	private String name;
+	private int health;
+	private int damage;
+	private Score score;
+	private Room room;
+	private final ArrayList<Item> inventory;
+	private DWD dwd;
+	private int money;
 	protected Battle enemy;
-	protected Item it;
+	private Item it;
 
 	/**
 	 * no parameter constructor
@@ -149,14 +149,6 @@ public class Player implements Serializable
 	}
 
 	/**
-	 * @param inventory the inventory to set
-	 */
-	public void setInventory(ArrayList<Item> inventory)
-	{
-		this.inventory = inventory;
-	}
-
-	/**
 	 * @return the money
 	 */
 	public int getMoney()
@@ -253,21 +245,6 @@ public class Player implements Serializable
 			return "Item not found";
 	}
 
-	//Calls the actions to fight the NPC
-	public void fight(Battle enemy)
-	{
-		//enemy.;
-	}
-
-	//Gives options to either fight or trade
-	public void approach()
-	{
-		//int fight = enemy.playerAttack();
-		//int trade = score.Sale();
-
-		//System.out.println("Would you like to " + fight + " or " + trade);
-
-	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
