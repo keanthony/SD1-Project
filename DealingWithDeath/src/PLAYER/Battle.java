@@ -16,14 +16,16 @@ import java.util.Random;
 
 public class Battle
 {
-	protected Player _player;
+	protected Player player;
 	protected DWD _content;
 	protected Random r;
 
 	public Battle(DWD content)
 	{
+		player = new Player();
 		_content = content;
 		r = new Random();
+
 	}
 
 	/**
@@ -34,10 +36,12 @@ public class Battle
 
 	private void npcAttack()
 	{
-		double damage = Math.ceil(_content.getCurrentNPC().getDamage() * (_content.getRoomID() / 100) * (r.nextInt(4) + 1) + 1);
+		double damage = Math.ceil(_content.getCurrentNPC().getDamage()
+				* (_content.getRoomID() / 100) * (r.nextInt(4) + 1) + 1);
 		int playeHealth = (int) (_content.getPlayer().getHealth() - damage);
 		_content.getPlayer().setHealth(playeHealth);
-		System.out.println("The enemy attacked with " + damage + " HP of damage");
+		System.out
+				.println("The enemy attacked with " + damage + " HP of damage");
 	}
 
 	/**
@@ -49,42 +53,56 @@ public class Battle
 	{
 		NPC.NPC enemy = _content.getCurrentNPC();
 		Player player = _content.getPlayer();
-		double damage = Math
-				.ceil(_content.getPlayer().getDamage() * (.33) * (r.nextInt(4) + 1) + 1);
-		System.out.println("Player attacked " + enemy.getDescription() + " with " + damage + " ammounts of damage");
+		double damage = Math.ceil(
+				_content.getPlayer().getDamage() * (.33) * (r.nextInt(4) + 1)
+						+ 1);
+		System.out.println("Player attacked " + enemy.getDescription()
+				+ " with " + damage + " ammounts of damage");
 		int enemyHealth = (int) (enemy.getHealth() - damage);
 		_content.getCurrentNPC().setHealth(enemyHealth);
 	}
 
-	public boolean StartBattle() {
+	public boolean StartBattle()
+	{
 
 		//TODO: while the player health  > 0  && monster health > 0then
 		// keep fighting
 		// npc attack
 		// player attack
-		if (_content.getCurrentNPC().getHealth() == 0) {
-			System.out.println("The enemy is dead. There is nothing left to do here");
+		if (_content.getCurrentNPC().getHealth() == 0)
+		{
+			System.out.println(
+					"The enemy is dead. There is nothing left to do here");
 			return true;
 		}
-		if (_content.getPlayer().getHealth() == 0) {
+		if (_content.getPlayer().getHealth() == 0)
+		{
 			System.out.println("You can't fight because you are dead");
 			return true;
 		}
 		Boolean stillFighting = true;
-		while (stillFighting) {
-			if (_content.getPlayer().getHealth() <= 0) {
+		while (stillFighting)
+		{
+			if (_content.getPlayer().getHealth() <= 0)
+			{
 				System.out.println("You have died and gone to hell");
 				stillFighting = false;
 				return false;
-			} else if (_content.getCurrentNPC().getHealth() <= 0) {
+			}
+			else if (_content.getCurrentNPC().getHealth() <= 0)
+			{
 				System.out.println("You have defeated the enemy.");
 				stillFighting = false;
 				return true;
-			} else {
+			}
+			else
+			{
 				playerAttack();
 				npcAttack();
-				System.out.println("Player HP: " + _content.getPlayer().getHealth());
-				System.out.println("Enemy HP: " + _content.getCurrentNPC().getHealth());
+				System.out.println(
+						"Player HP: " + _content.getPlayer().getHealth());
+				System.out.println(
+						"Enemy HP: " + _content.getCurrentNPC().getHealth());
 			}
 		}
 		System.out.println("The fight is now over");
