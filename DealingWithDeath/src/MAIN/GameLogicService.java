@@ -26,7 +26,7 @@ public class GameLogicService
 	private final DWD _content;
 	private final Scanner _scanner;
 	protected Player player;
-	protected Random r;
+	private Random r;
 	public boolean isGameOver = false;
 
 
@@ -48,13 +48,14 @@ public class GameLogicService
 
 	public Boolean setPlayerAction(String actionType, String[] params)
 	{
+		Player player = this._content.getPlayer();
 		switch (actionType)
 		{
 		case "ITEM":
 			NPC currentNPC = _content.getCurrentNPC();
 			if (currentNPC.isFriendly() || currentNPC.getHealth() <= 0) {
 				Item currentItem = _content.getCurrentItem();
-				ArrayList<Item> inventory = this._content.getPlayer().getInventory();
+				ArrayList<Item> inventory = player.getInventory();
 				inventory.add(currentItem);
 				System.out.println("\nYou found " + currentItem.getName() + ".");
 				System.out.println("Item Description: " + currentItem.getDescription() + ".");
@@ -69,32 +70,31 @@ public class GameLogicService
 			return true;
 
 		case "SELL":
-			ArrayList<Item> inventory = this._content.getPlayer().getInventory();
+
+			ArrayList<Item> inventory = player.getInventory();
 			List<Item> crackItems = inventory.stream().filter(x -> x instanceof Crack).collect(Collectors.toList());
 			if (crackItems.size() > 0) {
 				System.out.println("\nYou have the following items");
 				for (Item item : crackItems) {
-					item = (Crack) item;
-					String index = item.getItemIndex() + "";
-					String name = item.getName();
 					System.out.println(item.getItemIndex() + " " + item.getName() + " - " + item.getDescription());
 				}
 				System.out.println("\n What do you want to sell?");
 				System.out.println("Please enter an item index value");
 				String inputString = _scanner.next();
-				Boolean isValidItemIndex = true;
-				while (isValidItemIndex) {
+				Boolean isValidItemIndex = false;
+				while (!isValidItemIndex) {
 					int inputIndex = Integer.parseInt(inputString);
-					ArrayList<Item> filteredItems = new ArrayList<Item>(this._content.getPlayer().getInventory().stream().filter(x -> x.getItemIndex() == inputIndex).collect(Collectors.toList()));
+					ArrayList<Item> filteredItems = new ArrayList<>(player.getInventory().stream().filter(x -> x.getItemIndex() == inputIndex).collect(Collectors.toList()));
 					if (filteredItems.size() == 1) {
 						Crack itemToSell = (Crack) inventory.stream().filter(x -> x.getItemIndex() == inputIndex).findFirst().get();
 						int sellValue = itemToSell.getValue();
 						System.out.println("Selling your crack for $ " + sellValue + " .");
-						int total = this._content.getPlayer().getMoney() + sellValue;
-						ArrayList<Item> filteredList = new ArrayList<Item>(this._content.getPlayer().getInventory().stream().filter(x -> x.getItemIndex() != itemToSell.getItemIndex()).collect(Collectors.toList()));
-						this._content.getPlayer().setInventory(filteredList);
-						this._content.getPlayer().setMoney(total);
+						int total = player.getMoney() + sellValue;
+						ArrayList<Item> filteredList = new ArrayList<>(player.getInventory().stream().filter(x -> x.getItemIndex() != itemToSell.getItemIndex()).collect(Collectors.toList()));
+						player.setInventory(filteredList);
+						player.setMoney(total);
 						System.out.println("You have a total of $" + total);
+						isValidItemIndex = true;
 						return true;
 					}
 				}
@@ -107,7 +107,6 @@ public class GameLogicService
 			if (!b.StartBattle()) {
 				this.setPlayerAction("DIE");
 			}
-			;
 			return true;
 		case "MOVE":
 			int currentRoomID = this._content.getRoomID();
@@ -115,7 +114,7 @@ public class GameLogicService
 			this._content.setRoomID(nextRoomID);
 			return true;
 			case "DIE":
-				this._content.getPlayer().setHealth(0);
+				player.setHealth(0);
 				this._content.setRoomID(24); // devil room is 24.
 				System.out.println("Welcome to Hell.");
 				return true;
@@ -139,8 +138,8 @@ public class GameLogicService
 					//TODO: validate input
 				}
 				System.out.println("Your life has been reset to 100");
-				this._content.getPlayer().setHealth(100);
-				int previousAliveRoomID = this._content.roomHistoryAl.get(this._content.roomHistoryAl.size() - 1).getRoomId();
+				player.setHealth(100);
+				int previousAliveRoomID = DWD.roomHistoryAl.get(DWD.roomHistoryAl.size() - 1).getRoomId();
 				System.out.println("Welcome back to the room you died in room " + previousAliveRoomID);
 				this._content.setRoomID(previousAliveRoomID);
 				return true;

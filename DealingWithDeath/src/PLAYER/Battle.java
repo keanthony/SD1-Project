@@ -2,6 +2,7 @@ package PLAYER;
 
 import MAIN.DWD;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**Class: Player.java
@@ -14,7 +15,7 @@ import java.util.Random;
  * Purpose: Handles attacks from player, NPC and devil
  */
 
-public class Battle
+public class Battle implements Serializable
 {
 	protected Player player;
 	protected DWD _content;
