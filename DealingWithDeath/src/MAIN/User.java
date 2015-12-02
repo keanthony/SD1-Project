@@ -25,7 +25,8 @@ public class User
 	protected Player play = new Player();
 	//protected Scanner input;
 	ArrayList<String> userList;
-
+	Scanner input = new Scanner(System.in);
+	
 	public void mainMenu()
 	{
 		System.out.println("Welcome to the Game !!!!");
@@ -48,7 +49,7 @@ public class User
 				}
 			}
 
-			Scanner input = new Scanner(System.in);
+			
 			System.out.println("Press (Enter) for Main Menu");
 			//input.nextLine();
 			System.out.println("\n\t\t\t     MAIN MENU");
@@ -204,7 +205,6 @@ public class User
 		// Declare file reading objects
 		FileReader fr = null;
 		Scanner inputScan = null;
-		Scanner userInput = null;
 		ObjectInputStream inputStream = null;
 
 		// Initiate load dialog
@@ -215,7 +215,7 @@ public class User
 		{
 			fr = new FileReader(PLAYERLIST);
 			inputScan = new Scanner(fr);
-			userInput = new Scanner(System.in);
+			input = new Scanner(System.in);
 		}
 		catch (FileNotFoundException e)
 		{
@@ -239,7 +239,7 @@ public class User
 		int selection;
 		try
 		{
-			selection = userInput.nextInt();
+			selection = input.nextInt();
 		}
 		catch (InputMismatchException e)
 		{
@@ -292,7 +292,6 @@ public class User
 		{
 			fr.close();
 			inputScan.close();
-			userInput.close();
 			inputStream.close();
 
 		}
@@ -313,9 +312,9 @@ public class User
 	//Adrianna
 	public void help()
 	{
-		Scanner user_input = new Scanner(System.in);
+		
 		String keyword = "help";
-		if (!(user_input.next() == keyword))
+		if (!(input.next() == keyword))
 		{
 			System.out.println("List of Commands\n");
 			System.out.println("Say -attack- to harm NPC");
@@ -333,7 +332,7 @@ public class User
 		{
 			System.out.println("Invalid");
 		}
-		user_input.close();
+		input.close();
 	}
 
 	public ArrayList<String> getPlayers()

@@ -113,36 +113,41 @@ public class GameLogicService
 			int nextRoomID = currentRoomID + 1;
 			this._content.setRoomID(nextRoomID);
 			return true;
-			case "DIE":
-				player.setHealth(0);
-				this._content.setRoomID(24); // devil room is 24.
-				System.out.println("Welcome to Hell.");
-				return true;
-			case "RIDDLE":
-				System.out.println("Riddle");
-				System.out.println(this._content.getCurrentRiddle().getQuestion());
+		case "SAVE":
+			LoginMainGUI save = new LoginMainGUI();
+			save.saveGame();
+			return true;		
+		case "DIE":
+			player.setHealth(0);
+			this._content.setRoomID(24); // devil room is 24.
+			System.out.println("Welcome to Hell.");
+			return true;
+		case "RIDDLE":
+			System.out.println("Riddle");
+			System.out.println(this._content.getCurrentRiddle().getQuestion());
+			System.out.println("Please enter an item index value");
+			String inputString = _scanner.next();
+			//TODO: validate input
+			int inputIndex = Integer.parseInt(inputString);
+			String result = this._content.getCurrentRiddle().checkAnswer(inputIndex, this._content.getRoomID());
+			System.out.println(result);
+			Boolean isCorrect = _content.getCurrentRiddle().isCorrect();
+			while (!isCorrect) {
 				System.out.println("Please enter an item index value");
-				String inputString = _scanner.next();
-				//TODO: validate input
-				int inputIndex = Integer.parseInt(inputString);
-				String result = this._content.getCurrentRiddle().checkAnswer(inputIndex, this._content.getRoomID());
+				inputString = _scanner.next();
+				inputIndex = Integer.parseInt(inputString);
+				result = this._content.getCurrentRiddle().checkAnswer(inputIndex, this._content.getRoomID());
 				System.out.println(result);
-				Boolean isCorrect = _content.getCurrentRiddle().isCorrect();
-				while (!isCorrect) {
-					System.out.println("Please enter an item index value");
-					inputString = _scanner.next();
-					inputIndex = Integer.parseInt(inputString);
-					result = this._content.getCurrentRiddle().checkAnswer(inputIndex, this._content.getRoomID());
-					System.out.println(result);
-					isCorrect = _content.getCurrentRiddle().isCorrect();
-					//TODO: validate input
-				}
-				System.out.println("Your life has been reset to 100");
-				player.setHealth(100);
-				int previousAliveRoomID = DWD.roomHistoryAl.get(DWD.roomHistoryAl.size() - 1).getRoomId();
-				System.out.println("Welcome back to the room you died in room " + previousAliveRoomID);
-				this._content.setRoomID(previousAliveRoomID);
-				return true;
+				isCorrect = _content.getCurrentRiddle().isCorrect();
+				//TODO: validate input
+		
+			}
+			System.out.println("Your life has been reset to 100");
+			player.setHealth(100);
+			int previousAliveRoomID = DWD.roomHistoryAl.get(DWD.roomHistoryAl.size() - 1).getRoomId();
+			System.out.println("Welcome back to the room you died in room " + previousAliveRoomID);
+			this._content.setRoomID(previousAliveRoomID);
+			return true;
 
 		default:
 			return false;

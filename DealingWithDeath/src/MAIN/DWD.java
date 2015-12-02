@@ -42,7 +42,6 @@ public class DWD implements Serializable
 		roomID = 0;
 		r = new Random();
 
-
 	}
 
 	public DWD(Player currentPlayer)
@@ -105,13 +104,12 @@ public class DWD implements Serializable
 	 */
 	public void setRoomID(int roomID)
 	{
-		if (getRoomAL().size() > 0) {
+		if (getRoomAL().size() > 0)
+		{
 			int oldRoomID = this.roomID;
 			Room oldRoom = getRoomAL().get(oldRoomID);
 			roomHistoryAl.add(oldRoom);
 		}
-
-
 
 		if (roomID > 29 || roomID < 0)
 		{
@@ -122,7 +120,6 @@ public class DWD implements Serializable
 		{
 			this.roomID = roomID;
 		}
-
 
 	}
 
@@ -296,10 +293,12 @@ public class DWD implements Serializable
 				"The breastplate is made from one large piece of metal, which ",
 				10));
 		itemAL.add(new Weapon(5, "A Satchel of Carrots",
-				"To feed Buster the Bunny when he gets hungry so he won't turn you into a carrot and eat you!",
+				"To feed Buster the Bunny when he gets hungry so he won't \n"
+						+ "turn you into a carrot and eat you!",
 				10));
 		itemAL.add(new Weapon(6, "A Book of Sad Jokes",
-				"To use against Jake the Jester to make him sad and stop telling jokes and distracting you from you mission.",
+				"To use against Jake the Jester to make him sad and stop\n"
+						+ " telling jokes and distracting you from you mission.",
 				10));
 		itemAL.add(new Weapon(7, "Shock Collar",
 				"To put on Freaky Freddie so he has to stay at least 10 feet away from you.",
@@ -312,9 +311,8 @@ public class DWD implements Serializable
 				30));
 		itemAL.add(new Crack(10, "The Heisenberg Crack",
 				"The purest and most expensive crack on the market!", 2000));
-		itemAL.add(new Crack(11, "Brick", "A kilogram of crack", 15000));
-		itemAL.add(new Crack(12, "A Dimebag", "$10 worth of crack", 10));
 		itemAL.add(new Crack(11, "Brick", "A kilogram of crack", 1500));
+		itemAL.add(new Crack(12, "A Dimebag", "$10 worth of crack", 10));
 		itemAL.add(new Crack(12, "A Dimebag", "$10 worth of crack", 10));
 		itemAL.add(new Crack(13, "8 Ball", "Small bag of crack", 300));
 		itemAL.add(
@@ -346,10 +344,15 @@ public class DWD implements Serializable
 		System.out.println("Populating the rooms...");
 		roomAL.add(new Room(0,
 				"A furious rumble resounds in the area as stones come "
+<<<<<<< HEAD
 				+ "clattering through the doorway, "
 				+ "along with a thick cloud of "
 				+ "rock dust. The room beyond "
 				+ "is filled with rubble.",
+=======
+						+ "clattering through the doorway, along with a thick cloud of \n"
+						+ "rock dust. The room beyond is filled with rubble.",
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(1,
 				"A furious rumble resounds in the area as stones come ", null,
@@ -467,7 +470,8 @@ public class DWD implements Serializable
 	{
 		System.out.println("You are in room " + this.roomID);
 		System.out.println(roomAL.get(this.roomID).getrDescription());
-		if (getCurrentNPC() == null) {
+		if (getCurrentNPC() == null)
+		{
 			System.out.println("\nThere is no monster in the room");
 		}
 
@@ -483,14 +487,14 @@ public class DWD implements Serializable
 			System.out.println("There is no Riddle in the room");
 	}
 
-
 	/**
 	 * Method Name: displayEntryRoomInfo
 	 * Description: To give the user a status update when they enter a room
 	 *
 	 * @author: Kevin Anthony
 	 */
-	public void displayEntryRoomInfo() {
+	public void displayEntryRoomInfo()
+	{
 		System.out.println("\nRoom info");
 		System.out.println("You are in room " + this.roomID);
 		System.out.println(roomAL.get(this.roomID).getrDescription() + "\n");
@@ -517,7 +521,8 @@ public class DWD implements Serializable
 		makePlayer(name);
 	}
 
-	public boolean isCurrentRoomADevilRoom() {
+	public boolean isCurrentRoomADevilRoom()
+	{
 		return this.roomID >= 24 && this.roomID <= 29;
 	}
 }
