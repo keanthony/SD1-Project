@@ -347,20 +347,20 @@ public class DWD implements Serializable
 		
 		
 		roomAL.add(new Room(0,"This is your home. There are 5 rooms here. "
-				+ "The rooms are numbered 1, 2, 3, 4 and 5, What would you like to do?",  null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
+				+ "\nThe rooms are numbered 1, 2, 3, 4 and 5, What would you like to do?",  null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		
 		
 		roomAL.add(new Room(1,
 				"This is the kitchen of the house ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(2,
-				"A furious rumble resounds in the area as stones come ", null,
+				"this is your room ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(3,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now you are in the living room, What? can't you tell? ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(4,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Finally, this is your, grandmom's room. ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(5,
 				"A furious rumble resounds in the area as stones come ", null,
