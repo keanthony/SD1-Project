@@ -277,10 +277,10 @@ public class DWD implements Serializable
 		itemAL = new ArrayList<Item>();
 		System.out.println("Populating the rooms with items...");
 		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which "
-						+ "sits perfectly just under the shoulderplates. It covers "
-						+ "everything from the neck down and ending at the groin, but "
-						+ "the shoulder area is fairly exposed to allow for more "
+				"The breastplate is made from one large piece of metal, which \n"
+						+ "sits perfectly just under the shoulderplates. It covers \n"
+						+ "everything from the neck down and ending at the groin, but \n"
+						+ "the shoulder area is fairly exposed to allow for more \n"
 						+ "movement space.",
 				10));
 		itemAL.add(new Armor(1, "Anti Spell Cloak",
