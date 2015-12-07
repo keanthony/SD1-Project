@@ -473,9 +473,9 @@ public class DWD implements Serializable
 		roomAL.add(new Room(24,
 					"You are entering the house down the street. "
 							+ "\nThe house no one has dared to go in for years!"
-							+ "A furious rumble resounds in the area as stones come "
-							+ "clattering through the doorway, along with a thick cloud of "
-							+ "rock dust. The room beyond is filled with rubble. You are in HELL! ",
+							+ "\nA furious rumble resounds in the area as stones come "
+							+ "\nclattering through the doorway, along with a thick cloud of "
+							+ "\nrock dust. The room beyond is filled with rubble. You are in HELL! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(25,
@@ -503,9 +503,9 @@ public class DWD implements Serializable
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(29,
-				"A furious rumble resounds in the area as stones come "
-						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
+				"YOU HAVE REACHED THE ENDPOINT OF YOUR MISSION."
+						+ "\nHave you raised enough to bring back to Grannie?"
+						+ "\nYou shall perish in hell. If not lets go back home. Llalalalalala",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 

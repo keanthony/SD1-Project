@@ -103,9 +103,9 @@ public class LoginMainGUI extends Application {
 		User userInput = new User();
 
 		userInput.load();
-		//if (userInput.passMainMenu) {
+		if (userInput.passMainMenu) {
 			this.startGame(userInput.userName);
-		//}
+		}
 
     }
 	
