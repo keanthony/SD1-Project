@@ -9,7 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -40,9 +44,22 @@ public class LoginMainGUI extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		//Stage primaryStage = new Stage();
-
 		GridPane gp = new GridPane();
-		gp.setStyle("-fx-background-color: WHITE");
+		
+
+		/*BorderPane box = new BorderPane();
+		Image mole = new Image("mole.png");
+	       ImageView moleviewer = new ImageView(mole);
+	       gp.getChildren().add(moleviewer);
+	       box.setRight(gp);
+		*/
+		
+	       
+		
+	       
+	       
+		//gp.setStyle("-fx-background-color: WHITE");
+		gp.setStyle("-fx-background-image: url('mole.jpg')");
 		gp.setAlignment(Pos.CENTER);
 		gp.setPadding(new Insets(15, 15, 15, 15));
 
@@ -65,7 +82,7 @@ public class LoginMainGUI extends Application {
 		cancel.setOnAction(e-> cancel());
 
 		// Set a scene with a label in the stage
-		Scene scene = new Scene(gp);
+		Scene scene = new Scene(gp, 620, 330);
 		primaryStage.setTitle("Dealing with Death Login"); // Title of the stage
 		primaryStage.setScene(scene); // Place the scene in the stage
 		primaryStage.show();

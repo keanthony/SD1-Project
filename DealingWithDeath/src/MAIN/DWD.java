@@ -171,7 +171,7 @@ public class DWD implements Serializable
 	public void makeNPC()
 	{
 		npcAL = new ArrayList<NPC>();
-		System.out.println("Populating the rooms with crackheads...");
+		//System.out.println("Populating the rooms with crackheads...");
 		NPC npc0 = new NPC(0, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
 				30, true, 10000);
@@ -222,7 +222,7 @@ public class DWD implements Serializable
 	public void makeRiddle()
 	{
 		riddleAL = new ArrayList<Riddle>();
-		System.out.println("Populating the rooms with riddles...");
+		//System.out.println("Populating the rooms with riddles...");
 		riddleAL.add(new Riddle(0,
 				"What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n"
 						+ "3. A Snail\n4. A Human",
@@ -275,7 +275,7 @@ public class DWD implements Serializable
 	public void makeItem()
 	{
 		itemAL = new ArrayList<Item>();
-		System.out.println("Populating the rooms with items...");
+		//System.out.println("Populating the rooms with items...");
 		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
 				"The breastplate is made from one large piece of metal, which \n"
 						+ "sits perfectly just under the shoulderplates. It covers \n"
@@ -363,58 +363,58 @@ public class DWD implements Serializable
 				"Finally, this is your, grandmom's room. ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(5,
-				"A furious rumble resounds in the area as stones come ", null,
+				"This is the crackhead's house which you just stole the money from. There are 5 places to go ... ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(6,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now you are in his room, not much here to see! ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(7,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now this is his basement ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(8,
-				"A furious rumble resounds in the area as stones come ", null,
+				"This is the bathroom ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(9,
-				"A furious rumble resounds in the area as stones come ", null,
+				"You are enterig the livingroom. ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(10,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now you are in his roommate's room ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(11,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now this is the NPC house ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(12,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Kitchen ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(13,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Room ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(14,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Bathroom ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(15,
-				"A furious rumble resounds in the area as stones come ", null,
+				"master bedroom ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(16,
-				"A furious rumble resounds in the area as stones come ", null,
+				"This is the basement   ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(17,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now you have entered your nemesis's house. Be careful! ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(18,
-				"A furious rumble resounds in the area as stones come ", null,
+				"You have made it to his room safely ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(19,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Now you are in his basement ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(20,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Why are you going into his mother's room? oh well. ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(21,
-				"A furious rumble resounds in the area as stones come ", null,
+				"This is the bathroom, why would anyone want to be here, its disgusting! ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(22,
-				"A furious rumble resounds in the area as stones come ", null,
+				"Stop, don't come in here, Oh well, this is his brother's room. ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(23,
 				"A furious rumble resounds in the area as stones come ", null,
@@ -422,40 +422,40 @@ public class DWD implements Serializable
 		roomAL.add(new Room(24,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(25,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(26,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(27,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(28,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(29,
 				"A furious rumble resounds in the area as stones come "
 						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble.",
+						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
-		//TODO: Generate rooms
+
 	}
 
 	/**Method Name: getUserInput
@@ -464,11 +464,11 @@ public class DWD implements Serializable
 	 */
 	public void displayUserStatus()
 	{
-		System.out.println("You are in room " + this.roomID);
+		//System.out.println("You are in room " + this.roomID);
 		System.out.println(roomAL.get(this.roomID).getrDescription());
 		if (getCurrentNPC() == null)
 		{
-			System.out.println("\nThere is no monster in the room");
+			System.out.println("\nThere is no one in the room");
 		}
 
 		System.out.println(
@@ -492,7 +492,7 @@ public class DWD implements Serializable
 	public void displayEntryRoomInfo()
 	{
 		System.out.println("\nRoom info");
-		System.out.println("You are in room " + this.roomID);
+		//System.out.println("You are in room " + this.roomID);
 		System.out.println(roomAL.get(this.roomID).getrDescription() + "\n");
 	}
 
