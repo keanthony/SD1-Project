@@ -1,8 +1,5 @@
 package MAIN;
-
-
 import javafx.application.Application;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -147,7 +144,7 @@ public class LoginMainGUI extends Application {
 	}
 
 	private boolean isValidInput(String inputString) {
-		Boolean isValid = false;
+		//Boolean isValid = false;
 		switch (inputString) {
 			case "1":
 			case "2":

@@ -35,14 +35,13 @@ public class Battle implements Serializable
 	private void npcAttack()
 	{
 		double damage = Math.ceil(_content.getCurrentNPC().getDamage()
-				* (_content.getRoomID() / 100) * (r.nextInt(4) + 1) + 1);
+				* (_content.getRoomID() / 10) * (r.nextInt(4) + 1) + 1);
 		int playeHealth = (int) (_content.getPlayer().getHealth() - damage);
 		_content.getPlayer().setHealth(playeHealth);
-		System.out.println(enemy.getName() + " attacks " + player.getName()
-				+ " for " + damage + " damage");
+		System.out.println(enemy.getName() + " attacks you for " + damage + " damage");
 		try
 		{
-			Thread.sleep(250);
+			Thread.sleep(500);
 		}
 		catch (InterruptedException e)
 		{
@@ -58,13 +57,13 @@ public class Battle implements Serializable
 		double damage = Math.ceil(
 				_content.getPlayer().getDamage() * (.33) * (r.nextInt(4) + 1)
 						+ 1);
-		System.out.println(player.getName() + " attacks " + enemy.getName()
+		System.out.println("You attack " + enemy.getName()
 				+ " for " + damage + " damage");
 		int enemyHealth = (int) (enemy.getHealth() - damage);
 		_content.getCurrentNPC().setHealth(enemyHealth);
 		try
 		{
-			Thread.sleep(250);
+			Thread.sleep(500);
 		}
 		catch (InterruptedException e)
 		{
