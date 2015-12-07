@@ -400,9 +400,19 @@ public class DWD implements Serializable
 				"We have walked in another room of the house that has been completely destroyed."
 				, null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
+<<<<<<< HEAD
+		roomAL.add(new Room(10,
+				"We walk into the living room with a TV playing some music videos from MTV. \nThe TV could be of some value but would be very hard to carry..", null,
+=======
 		roomAL.add(new Room(10, "Now you are in his roommate's room ", null,
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
+<<<<<<< HEAD
+		roomAL.add(new Room(11,
+				"We go into the closet because we hear people coming in. We may think its actual owner... the Drug Dealer. Lets get out safe to the next house.", null,
+=======
 		roomAL.add(new Room(11, "Now this is the NPC house ", null,
+>>>>>>> branch 'master' of https://github.com/keanthony/SD1-Project.git
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(12, "Kitchen ", null, npcAL.get(r.nextInt(7) + 1),
 				itemAL.get(r.nextInt(15))));
