@@ -353,40 +353,52 @@ public class DWD implements Serializable
 				"This is your home. There are 5 rooms here. "
 						+ "\nThe rooms are numbered 1, 2, 3, 4 and 5, What would you like to do?",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-
 		roomAL.add(new Room(1, "This is the kitchen of the house ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(2, "this is your room ", null,
 		roomAL.add(new Room(2,
-				"In the kitchen now, You are thinking about what we can \ndo to make that much amount of money quickly. \nDo we have anything to sell? Nope the car got repoed last week."
-				+ "\n Lets check in the creepy cellar.....", null,
+				"In the kitchen now, You are thinking about what we can \n"
+				+ "do to make that much amount of money quickly. \n"
+						+"Do we have anything to sell? Nope the car got \n"
+				+ "repoed last week. Lets check in the creepy cellar.....", 
+				null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(3,
-				"We are now down in the basement...\nWe see a few items we can sell, like grannies old music player. \nLet's talk to grannie about it and go back upstairs..", null,
+				"We are now down in the basement...\n"
+				+ "We see a few items we can sell, like grannies old music player."
+						+ "\nLet's talk to granny about it and go back upstairs..", 
+						null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(4, "Finally, this is your, grandmom's room. ", null,
 		roomAL.add(new Room(4,
-				"We're back in the living room with Grannie. \nYou ask her - Can we sell this? - \n Grannie: She doesn't say anything at first, she slaps you behind your head \nand says -GO MAKE SOME REAL MONEY NEXT DOOR-", null,	
+				"We're back in the living room with Grannie. \n"
+				+ "You ask her - Can we sell this? - \n "
+						+ "Grannie: She doesn't say anything at first, she slaps you behind your head"
+				+ "\nand says -GO MAKE SOME REAL MONEY NEXT DOOR-", null,	
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(5,
-				"This is the crackhead's house which you just stole the money from. There are 5 places to go ... ",
+				"We are nextdoor...We are in a crackhead's house and see a few junkies laying around."
+				+ "\nWe could check for their pulse but we all know their fate."
+						+ "\nLet's just see if we can find anything in the next rooms..",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-				"We are nextdoor...We are in a crackhead's house and see a few junkies laying around. \nWe could check for their pulse but we all know their fate. \nLet's just see if we can find anything in the next rooms..", null,
-				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(6,
-				"We're in the kitchen of the crack house. We see leftover lasagana but with flies rolling around in it...\nWhat can we get here?", null,
+				"We're in the kitchen of the crack house. We see leftover \n"
+				+ "lasagana but with flies rolling around in it...\n"
+						+"What can we get here?", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(7, "Now this is his basement ", null,
 		roomAL.add(new Room(7,
-				"Now in the bedroom, we see mattress up against the wall with an X marked on it \nwith graffiti and the wall behind it has a hole in it.. \nDo you think there is something in there?", null,
+				"Now in the bedroom, we see mattress up against the wall with an X marked on it"
+				+ "\nwith graffiti and the wall behind it has a hole in it.. \n"
+				+ "Do you think there is something in there?", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(8, "This is the bathroom ", null,
 		roomAL.add(new Room(8,
-				"We are in the bathroom. \nThere's a junkie in a dinosaur suit sleeping in the bathtub. Let's hope we don't wake him up. \nThe mirror is cracked, let's see if we can find anything in the storage behind it...", null,
+				"We are in the bathroom. \n"
+				+ "There's a junkie in a dinosaur suit sleeping in the bathtub."
+						+" Let's hope we don't wake him up. \n"
+						+ "The mirror is cracked, let's see if we can find "
+						+ "anything in the storage behind it...", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(9, "You are enterig the livingroom. ", null,
 		roomAL.add(new Room(9,
-				"We have walked in another room of the house that has been completely destroyed. \nWe see nobody at all and no items in this room.", null,
+				"We have walked in another room of the house that has been completely destroyed."
+				, null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(10, "Now you are in his roommate's room ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
@@ -413,7 +425,7 @@ public class DWD implements Serializable
 				"Why are you going into his mother's room? oh well. ", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(21,
-				"This is the bathroom, why would anyone want to be here, its disgusting! ",
+				"This is the bathroom, why would anyone want to be here, its disgusting!",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(22,
 				"Stop, don't come in here, Oh well, this is his brother's room. ",
