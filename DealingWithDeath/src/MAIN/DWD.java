@@ -343,102 +343,139 @@ public class DWD implements Serializable
 		roomAL = new ArrayList<Room>();
 		System.out.println("Populating the rooms...");
 		System.out.println("You are a young man who is selling drugs to \n"
-				+ "raise money to pay off your grandmother’s student loans.\n"
+				+ "raise money to pay off your grandmotherï¿½s student loans.\n"
 				+ "The objective of the game is to collect enough cash to \n"
-				+ "pay off granny’s debts by any means. You will have to \n"
+				+ "pay off grannyï¿½s debts by any means. You will have to \n"
 				+ "sell drugs and kill hooligans until you earn enough money.\n"
 				+ "If you get killed you end up in hell.  While in hell you \n"
 				+ "must answer a riddle or fight The Devil to escape ");
 		roomAL.add(new Room(0,
-				"This is your home. There are 5 rooms here. "
+					"This is your home. There are 5 rooms here. "
 						+ "\nThe rooms are numbered 1, 2, 3, 4 and 5, What would you like to do?",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(1, "This is the kitchen of the house ", null,
+		roomAL.add(new Room(1, "Grannie is in the kitchen. "
+							+ "\nShe says - WE NEED MONEY! Think of something! OR there will be CONSEQUENCES!-", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(2,
-				"In the kitchen now, You are thinking about what we can \n"
-						+ "do to make that much amount of money quickly. \n"
-						+ "Do we have anything to sell? Nope the car got \n"
-						+ "repoed last week. Lets check in the creepy cellar.....",
+					"In the living room now, You are thinking about what we can \n"
+							+ "do to make that much amount of money quickly. \n"
+							+ "Do we have anything to sell? Nope the car got \n"
+							+ "repoed last week. Lets check in the creepy cellar.....",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(3,
-				"We are now down in the basement...\n"
-						+ "We see a few items we can sell, like grannies old music player."
-						+ "\nLet's talk to granny about it and go back upstairs..",
+					"We are now down in the basement...\n"
+							+ "We see a few items we can sell, like grannies old music player."
+							+ "\nLet's talk to granny about it and go back upstairs..",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(4,
-				"We're back in the living room with Grannie. \n"
-						+ "You ask her - Can we sell this? - \n "
-						+ "Grannie: She doesn't say anything at first, she slaps you behind your head"
-						+ "\nand says -GO MAKE SOME REAL MONEY NEXT DOOR-",
+					"We're back in the Kitchen with Grannie. \n"
+							+ "You ask her - Can we sell this? - \n "
+							+ "Grannie: She doesn't say anything at first, she slaps you behind your head"
+							+ "\nand says -GO MAKE SOME REAL MONEY NEXT DOOR-",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(5,
-				"We are nextdoor...We are in a crackhead's house and see a few junkies laying around."
-						+ "\nWe could check for their pulse but we all know their fate."
-						+ "\nLet's just see if we can find anything in the next rooms..",
+					"We are nextdoor...We are in a crackhead's house and see a few junkies laying around."
+							+ "\nWe could check for their pulse but we all know their fate."
+							+ "\nLet's just see if we can find anything in the next rooms..",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(6,
-				"We're in the kitchen of the crack house. We see leftover \n"
-						+ "lasagana but with flies rolling around in it...\n"
-						+ "What can we get here?",
+					"We're in the kitchen of the crack house. We see leftover \n"
+							+ "lasagana but with flies rolling around in it...\n"
+							+ "What can we get here?",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(7,
-				"Now in the bedroom, we see mattress up against the wall with an X marked on it"
-						+ "\nwith graffiti and the wall behind it has a hole in it.. \n"
-						+ "Do you think there is something in there?",
+					"Now in the bedroom, we see mattress up against the wall with an X marked on it"
+							+ "\nwith graffiti and the wall behind it has a hole in it.. \n"
+							+ "Do you think there is something in there?",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(8,
-				"We are in the bathroom. \n"
-						+ "There's a junkie in a dinosaur suit sleeping in the bathtub."
-						+ " Let's hope we don't wake him up. \n"
-						+ "The mirror is cracked, let's see if we can find "
-						+ "anything in the storage behind it...",
+					"We are in the bathroom. \n"
+							+ "There's a junkie in a dinosaur suit sleeping in the bathtub."
+							+ " Let's hope we don't wake him up. \n"
+							+ "The mirror is cracked, let's see if we can find "
+							+ "anything in the storage behind it...",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(9,
-				"We have walked in another room of the house that has been completely destroyed.",
+						"We have walked in another room of the house that has been completely destroyed.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(10,
-				"We walk into the living room with a TV playing some music videos from MTV. \n"
-						+ "The TV could be of some value but would be very hard to carry..",
+						"We walk into the living room with a TV playing some music videos from MTV. \n"
+							+ "\nThe TV could be of some value but would be very hard to carry..",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(11,
-				"We go into the closet because we hear people coming in. We "
-						+ "may think its actual owner... the Drug Dealer. Lets get out "
-						+ " safe to the next house.",
+						"We go into the closet because we hear people coming in. "
+							+ "\nWe may think its actual owner... the Drug Dealer. Lets get out!"
+							+ "\nsafe to the next house.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(12, "Kitchen ", null, npcAL.get(r.nextInt(7) + 1),
+		roomAL.add(new Room(12, 
+						"Now we are in the next house down."
+							+ "\nGood thing we are out of that place. We are in your girlfriend's house but she's not home."
+							+ "\nShe lives with her brother. Lets check around.", null, npcAL.get(r.nextInt(7) + 1),
 				itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(13, "Room ", null, npcAL.get(r.nextInt(7) + 1),
+		roomAL.add(new Room(13, 
+						"We are in her brother's room..."
+							+ "\nThe room is messy and reeks of something beint burnt..Lets inspect.", null, npcAL.get(r.nextInt(7) + 1),	
 				itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(14, "Bathroom ", null, npcAL.get(r.nextInt(7) + 1),
+		roomAL.add(new Room(14, 
+						"In the bathroom, we hear drops of water coming down but it's just a loose handle. "
+							+ "\nLets check for anything in the cabinets...", null, npcAL.get(r.nextInt(7) + 1),
 				itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(15, "master bedroom ", null,
+		roomAL.add(new Room(15, 
+						"Lets go into the main bedroom, "
+							+ "\nIt's a pretty girlie  room, but lets see if we can find "
+							+ "\nanything of good use on our money find adventure.", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(16, "This is the basement   ", null,
+		roomAL.add(new Room(16, 
+						"We are in the kitchen. "
+							+ "\nLets find anything to re-energize our selves and move on. "
+							+ "\nBefore we head out to our next location.", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(17,
-				"Now you have entered your nemesis's house. Be careful! ", null,
+						"We have entered your enemies house. "
+							+ "\nWe know he sells drugs but now we have to find them."
+							+ "\nYou're entering the living room as we enter the house."
+							+ "\nYou believe no one is home. Lets check around....", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(18, "You have made it to his room safely ", null,
+		roomAL.add(new Room(18, 
+						"Let's check out the main bedroom of the house.."
+							+ "\nThis might be his momma bedroom"
+							+ "\nLet's hope we don't come across anybody..."
+							+ "\nWe dont know who else lives here....", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(19, "Now you are in his basement ", null,
+		roomAL.add(new Room(19, 
+						"You go into the next room which you believe might be his bedroom."
+							+ "	\nOnly one thing we can to people we dont like. Let's burn his room! (and hope we dont get caught)"
+							+ "\nBut first... lets check around and burn later. Let's not forget we on a mission.", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(20,
-				"Why are you going into his mother's room? oh well. ", null,
+					"We find another room in the house. "
+							+ "\n Looks like this where he grows and the drugs... "
+							+ "\n Let's see if he left anything behind..."
+							+ "\n But did you hear that?!", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(21,
-				"This is the bathroom, why would anyone want to be here, its disgusting!",
+					"That may have been the lotter winning room! "
+							+ "\nBut let's check out the basement. "
+							+ "\nThe basement always has some skeletons to hide."
+							+ "\nBecareful...there are no lights down here.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(22,
-				"Stop, don't come in here, Oh well, this is his brother's room. ",
+					"Your enemy sure does have some skeletons. "
+							+ "\nHe's got really a big house full of them..."
+							+ "\nWe have come across another room with a really bad smell..."
+							+ "\nLets be noisy..... and get back upstair before someone catches you!",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(23,
-				"A furious rumble resounds in the area as stones come ", null,
+					"Back upstairs...."
+							+ "\nLet's burn this place down and get back to our mission. "
+							+ "\nWe have to visit the creepy house next.", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(24,
-				"A furious rumble resounds in the area as stones come "
-						+ "clattering through the doorway, along with a thick cloud of "
-						+ "rock dust. The room beyond is filled with rubble. You are in the Hell! ",
+					"You are entering the house down the street. "
+							+ "\nThe house no one has dared to go in for years!"
+							+ "A furious rumble resounds in the area as stones come "
+							+ "clattering through the doorway, along with a thick cloud of "
+							+ "rock dust. The room beyond is filled with rubble. You are in HELL! ",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(25,
