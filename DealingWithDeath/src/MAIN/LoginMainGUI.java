@@ -68,10 +68,10 @@ public class LoginMainGUI extends Application {
 		Button newGame = new Button("New Game");
 		Button loadGame = new Button("Load Game");
 		Button cancel = new Button("Cancel");
-		gp.add(saveGame, 3, 10);
-		gp.add(newGame, 2, 10);
+		
+		gp.add(newGame, 0, 10);
 		gp.add(loadGame, 1, 10);
-		gp.add(cancel, 0, 10);
+		gp.add(cancel, 2, 10);
 		
 		saveGame.setOnAction(e-> saveGame());
 		newGame.setOnAction(e-> newGame());
@@ -136,16 +136,27 @@ public class LoginMainGUI extends Application {
 
 	private String GetUserInput() {
 		boolean shouldShowRiddles = this.gls.getContent().isCurrentRoomADevilRoom();
+		boolean hideGetItem = this.gls.getContent().isCurrentRoomADevilRoom();
+		boolean hideSellItem = this.gls.getContent().isCurrentRoomADevilRoom();
+		boolean hideFight = this.gls.getContent().isCurrentRoomADevilRoom();
 		
 		System.out.println("Please enter a number corresponding with your action type");
+		if (!hideGetItem) {
 		System.out.println("1. Get an Item");
+		}
+		if (!hideSellItem) {
 		System.out.println("2. Sell an Item");
+		}
+		if (!hideFight) {
 		System.out.println("3. Fight");
+		}
+		
 		System.out.println("4. Move to the next Room");
 		if (shouldShowRiddles) {
 			System.out.println("5. Solve Riddle");
 		}
 		System.out.println("6. Save Game");
+		System.out.println("7. End Game");
 		System.out.println("\n");
 
 		// create a scanner so we can read the command-line input
@@ -169,6 +180,7 @@ public class LoginMainGUI extends Application {
 			case "4":
 			case "5":
 			case "6":
+			case "7":
 				return true;
 			default:
 				return false;
