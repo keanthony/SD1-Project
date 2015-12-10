@@ -35,7 +35,7 @@ public class Battle implements Serializable
 	private void npcAttack()
 	{
 		double damage = Math.ceil(_content.getCurrentNPC().getDamage()
-				* (_content.getRoomID() / 10) * (r.nextInt(4) + 1) + 1);
+				* (_content.getRoomID() / 5) * (r.nextInt(4) + 1) + 1);
 		int playeHealth = (int) (_content.getPlayer().getHealth() - damage);
 		_content.getPlayer().setHealth(playeHealth);
 		System.out.println(enemy.getName() + " attacks you for " + damage + " damage");

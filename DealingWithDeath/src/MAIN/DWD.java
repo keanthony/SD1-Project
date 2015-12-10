@@ -340,15 +340,14 @@ public class DWD implements Serializable
 		roomAL = new ArrayList<Room>();
 		System.out.println("Populating the rooms...");
 		System.out.println("You are a young man who is selling drugs to \n"
-				+ "raise money to pay off your grandmother�s student loans.\n"
+				+ "raise money to pay off your grandmothers student loans.\n"
 				+ "The objective of the game is to collect enough cash to \n"
-				+ "pay off granny�s debts by any means. You will have to \n"
+				+ "pay off grannys debts by any means. You will have to \n"
 				+ "sell drugs and kill hooligans until you earn enough money.\n"
 				+ "If you get killed you end up in hell.  While in hell you \n"
 				+ "must answer a riddle or fight The Devil to escape ");
 		roomAL.add(new Room(0,
-					"This is your home. There are 5 rooms here. "
-						+ "\nThe rooms are numbered 1, 2, 3, 4 and 5, What would you like to do?",
+					"This is your home. There are 5 rooms here. ",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(1, "Grannie is in the kitchen. "
 							+ "\nShe says - WE NEED MONEY! Think of something! OR there will be CONSEQUENCES!-", null,
