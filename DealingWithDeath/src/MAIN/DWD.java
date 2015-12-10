@@ -315,11 +315,11 @@ public class DWD implements Serializable
 		itemAL.add(new Armor(4, "Breastplate of Lost Dreams",
 				"The breastplate is made from one large piece of metal, which ",
 				10));
-		itemAL.add(new Crack(5, "$20,000 worth of crack.",
+		itemAL.add(new Crack(5, "Lottery winning crack.",
 						"\nYou ALMOST hit the Lottery."
 						+ "\nYou ONLY need $1,000 to get your needed amount of money! "
-						+ "\nDon't forge to sell. "
-						+ "\nGrannie wouldn't be happy you brought back crack.",
+						+ "\nDon't forge to sell when you get the chance. "
+						+ "\nGrannie wouldn't be happy if you brought back crack.",
 				20000));
 		itemAL.add(new Crack(6, "A few pills",
 				"Looks like it can be worth something."
@@ -432,12 +432,13 @@ public class DWD implements Serializable
 		roomAL.add(new Room(8,
 					"We are in the bathroom. \n"
 							+ "There's a junkie in a dinosaur suit sleeping in the bathtub."
-							+ " Let's hope we don't wake him up. \n"
+							+ " Let's hope we don't wake him up but if that's your thing, go ahead.\n"
 							+ "The mirror is cracked, let's see if we can find "
 							+ "anything in the storage behind it...",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(9,
-						"We have walked in another room of the house that has been completely destroyed.",
+						"We have walked in another room of the house that has been completely destroyed."
+						+ "but we've got some people looking at us.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(10,
 						"We walk into the living room with a TV playing some music videos from MTV. \n"
@@ -495,7 +496,7 @@ public class DWD implements Serializable
 							+ "\n But did you hear that?!", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(21,
-					"That may have been the lotter winning room! "
+					"That may have been the lottery winning room! "
 							+ "\nBut let's check out the basement. "
 							+ "\nThe basement always has some skeletons to hide."
 							+ "\nBecareful...there are no lights down here.",
