@@ -70,7 +70,16 @@ public class GameLogicService
 			if (currentNPC.getHealth() > 0)
 			{
 				System.out.println(
-						"The monster is blocking the path to an item. Looks like we need to fight it");
+						"Someone is blocking the door and they dont look very"
+								+ "nice, but we must get to the item!");
+				try
+				{
+					Thread.sleep(6000);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				return true;
 			}
 			return true;

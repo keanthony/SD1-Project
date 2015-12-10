@@ -12,11 +12,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.in;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class LoginMainGUI extends Application {
 
@@ -112,11 +117,25 @@ public class LoginMainGUI extends Application {
 	public void saveGame() {
 		User userInput = new User();
 		userInput.save();
-		
-		
-
 	}
 
+	/**
+	 * A simple Java sound file example (i.e., Java code to play a sound file).
+	 */
+	 public void sound() 
+	  throws Exception
+	  {
+	    // open the sound file as a Java input stream
+	    String gongFile = "OMG.wav";
+	    InputStream in = new FileInputStream(gongFile);
+	 
+	    // create an audiostream from the inputstream
+	    AudioStream audioStream = new AudioStream(in);
+	 
+	    // play the audio clip with the audioplayer class
+	    AudioPlayer.player.start(audioStream);
+	  }
+	 
 	private void startGame(String userName) {
 		scanner = new Scanner(in);
 		gls = new GameLogicService(content, scanner);

@@ -8,7 +8,11 @@ import NPC.NPC;
 import PLAYER.Player;
 import ROOM.Riddle;
 import ROOM.Room;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
@@ -330,7 +334,8 @@ public class DWD implements Serializable
 		}
 		return n;
 	}
-
+	
+	
 	/**Method Name: makeRoom
 	 * Description: Rooms 0-23 do not get a Riddle or the Devil NPC.  Rooms 24-
 	 * 29 get a random Riddle and a random chance of the Devil.
@@ -347,7 +352,7 @@ public class DWD implements Serializable
 				+ "If you get killed you end up in hell.  While in hell you \n"
 				+ "must answer a riddle or fight The Devil to escape ");
 		roomAL.add(new Room(0,
-					"This is your home. There are 5 rooms here. ",
+					"You wake up in a bed and you are like OH MY GOD! ",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(1, "Grannie is in the kitchen. "
 							+ "\nShe says - WE NEED MONEY! Think of something! OR there will be CONSEQUENCES!-", null,
@@ -531,7 +536,22 @@ public class DWD implements Serializable
 		else
 			System.out.println("There is no Riddle in the room");
 	}
-
+	/**
+	 * A simple Java sound file example (i.e., Java code to play a sound file).
+	 */
+	 public void sound() 
+	  throws Exception
+	  {
+	    // open the sound file as a Java input stream
+	    String omg = "OMG.wav";
+	    InputStream in = new FileInputStream(omg);
+	 
+	    // create an audiostream from the inputstream
+	    AudioStream audioStream = new AudioStream(in);
+	 
+	    // play the audio clip with the audioplayer class
+	    AudioPlayer.player.start(audioStream);
+	  }
 	/**
 	 * Method Name: displayEntryRoomInfo
 	 * Description: To give the user a status update when they enter a room
@@ -541,6 +561,17 @@ public class DWD implements Serializable
 	{
 		System.out.println("\nRoom info");
 		System.out.println("You are in room " + this.roomID);
+		if(this.roomID == 0)
+		{
+			try
+			{
+				sound();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
 		System.out.println(roomAL.get(this.roomID).getrDescription() + "\n");
 	}
 
