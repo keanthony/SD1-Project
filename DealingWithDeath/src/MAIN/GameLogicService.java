@@ -143,6 +143,9 @@ public class GameLogicService
 			LoginMainGUI save = new LoginMainGUI();
 			save.saveGame();
 			return true;
+		case "END":
+			System.exit(0);
+			return true;
 		case "DIE":
 			player.setHealth(0);
 			this._content.setRoomID(24); // devil room is 24.

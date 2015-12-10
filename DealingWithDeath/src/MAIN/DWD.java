@@ -206,7 +206,7 @@ public class DWD implements Serializable
 
 		npcAL.add(npcArray[0]);
 
-		for (int i = 1; i < 30; i++)
+		for (int i = 1; i < 10; i++)
 		{
 			if (r.nextInt(10) < 8)
 				npcAL.add(npcArray[r.nextInt(7)]);
@@ -276,35 +276,32 @@ public class DWD implements Serializable
 	{
 		itemAL = new ArrayList<Item>();
 		System.out.println("Populating the rooms with items...");
-		itemAL.add(new Armor(0, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which \n"
-						+ "sits perfectly just under the shoulderplates. It covers \n"
-						+ "everything from the neck down and ending at the groin, but \n"
-						+ "the shoulder area is fairly exposed to allow for more \n"
-						+ "movement space.",
-				10));
-		itemAL.add(new Armor(1, "Anti Spell Cloak",
-				"Protects you from Suzie Q's mysterious spells. ", 10));
+		itemAL.add(new Crack(0, "Prescription drugs",
+				"Prescribed drugs are the gateway to the street drugs. Perfect!", 500));
+		itemAL.add(new Armor(1, "Chloroform",
+				"This can knock out anybody in your way. Just one woof!", 10));
 		itemAL.add(new Armor(2, "Earplugs",
-				"Protects you from Leon's freightening laughter. ", 10));
-		itemAL.add(new Armor(3, "Poison Elixer",
-				"Counteracts Furious Fiona's poisonous apples. ", 10));
+				"Protects you from Grannies yelling if you don't come home with $40,000..Yikes!", 10));
+		itemAL.add(new Crack(3, "5 LBS of Meth",
+				"This is hot in the market right now. It's ready to ruin the perfect life!", 5000));
 		itemAL.add(new Armor(4, "Breastplate of Lost Dreams",
 				"The breastplate is made from one large piece of metal, which ",
 				10));
-		itemAL.add(new Weapon(5, "A Satchel of Carrots",
-				"To feed Buster the Bunny when he gets hungry so he won't \n"
-						+ "turn you into a carrot and eat you!",
-				10));
-		itemAL.add(new Weapon(6, "A Book of Sad Jokes",
-				"To use against Jake the Jester to make him sad and stop\n"
-						+ " telling jokes and distracting you from you mission.",
-				10));
+		itemAL.add(new Crack(5, "$20,000 worth of crack.",
+						"\nYou ALMOST hit the Lottery."
+						+ "\nYou ONLY need $1,000 to get your needed amount of money! "
+						+ "\nDon't forge to sell. "
+						+ "\nGrannie wouldn't be happy you brought back crack.",
+				20000));
+		itemAL.add(new Crack(6, "A few pills",
+				"Looks like it can be worth something."
+						+ "Let's sell it.",
+				1));
 		itemAL.add(new Weapon(7, "Shock Collar",
 				"To put on Freaky Freddie so he has to stay at least 10 feet away from you.",
 				10));
-		itemAL.add(new Weapon(8, "Glow in the Dark Paint",
-				"To throw in Cammie the Chameleon so he camo doesn't work in the light or dark. ",
+		itemAL.add(new Weapon(8, "Metal Flashlight",
+				"Hit somebody with it or use it for its intended use....LIGHT! ",
 				10));
 		itemAL.add(new Weapon(9, "Collector Gun",
 				"Collects all of the enemy's powers and shoots them back at the enemy.",
