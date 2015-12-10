@@ -176,6 +176,14 @@ public class DWD implements Serializable
 	{
 		npcAL = new ArrayList<NPC>();
 		System.out.println("Populating the rooms with crackheads...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		NPC npc0 = new NPC(0, "The Devil",
 				"18ft tall, 4 wings, enormous in size, power and strength", 200,
 				30, true, 10000);
@@ -227,6 +235,14 @@ public class DWD implements Serializable
 	{
 		riddleAL = new ArrayList<Riddle>();
 		System.out.println("Populating the rooms with riddles...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		riddleAL.add(new Riddle(0,
 				"What has a foot, but no legs?\n1. A Roach\n2. A Turtle\n"
 						+ "3. A Snail\n4. A Human",
@@ -280,6 +296,14 @@ public class DWD implements Serializable
 	{
 		itemAL = new ArrayList<Item>();
 		System.out.println("Populating the rooms with items...");
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		itemAL.add(new Crack(0, "Prescription drugs",
 				"Prescribed drugs are the gateway to the street drugs. Perfect!", 500));
 		itemAL.add(new Armor(1, "Chloroform",
@@ -344,13 +368,29 @@ public class DWD implements Serializable
 	{
 		roomAL = new ArrayList<Room>();
 		System.out.println("Populating the rooms...");
-		System.out.println("You are a young man who is selling drugs to \n"
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println("\nYou are a young man who is selling drugs to \n"
 				+ "raise money to pay off your grandmothers student loans.\n"
 				+ "The objective of the game is to collect enough cash to \n"
 				+ "pay off grannys debts by any means. You will have to \n"
 				+ "sell drugs and kill hooligans until you earn enough money.\n"
 				+ "If you get killed you end up in hell.  While in hell you \n"
 				+ "must answer a riddle or fight The Devil to escape ");
+		try
+		{
+			Thread.sleep(5000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		roomAL.add(new Room(0,
 					"You wake up in a bed and you are like OH MY GOD! ",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
@@ -539,8 +579,7 @@ public class DWD implements Serializable
 	/**
 	 * A simple Java sound file example (i.e., Java code to play a sound file).
 	 */
-	 public void sound() 
-	  throws Exception
+	 public void sound() throws Exception
 	  {
 	    // open the sound file as a Java input stream
 	    String omg = "OMG.wav";
@@ -560,11 +599,20 @@ public class DWD implements Serializable
 	public void displayEntryRoomInfo()
 	{
 		System.out.println("\nRoom info");
-		System.out.println("You are in room " + this.roomID);
+		try
+		{
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println("\nYou are in room \n" + this.roomID);
 		if(this.roomID == 0)
 		{
 			try
 			{
+				Thread.sleep(2000);
 				sound();
 			}
 			catch (Exception e)
