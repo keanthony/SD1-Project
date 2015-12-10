@@ -8,6 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -45,23 +50,16 @@ public class LoginMainGUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		//Stage primaryStage = new Stage();
 		GridPane gp = new GridPane();
 		
-
-		/*BorderPane box = new BorderPane();
-		Image mole = new Image("mole.png");
-	       ImageView moleviewer = new ImageView(mole);
-	       gp.getChildren().add(moleviewer);
-	       box.setRight(gp);
-		*/
-		
-	       
-		
-	       
-	       
-		//gp.setStyle("-fx-background-color: WHITE");
-		gp.setStyle("-fx-background-image: url('mole.jpg')");
+		Image image = new Image("http://xdesktopwallpapers.com/wp-content/uploads/2012/04/Death%20Card%20Game%20And%20Black%20Background.jpg");
+		// new BackgroundSize(width, height, widthAsPercentage, heightAsPercentage, contain, cover)
+		BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true, false, false);
+		// new BackgroundImage(image, repeatX, repeatY, position, size)
+		BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, backgroundSize);
+		// new Background(images...)
+		Background background = new Background(backgroundImage);
+		gp.setBackground(background);
 		gp.setAlignment(Pos.CENTER);
 		gp.setPadding(new Insets(15, 15, 15, 15));
 
