@@ -505,7 +505,7 @@ public class DWD implements Serializable
 		roomAL.add(new Room(29,
 				"YOU HAVE REACHED THE ENDPOINT OF YOUR MISSION."
 						+ "\nHave you raised enough to bring back to Grannie?"
-						+ "\nYou shall perish in hell. If not lets go back home. Llalalalalala",
+						+ "\nYou shall perish in hell. If not lets go back home. lalalalalala",
 				riddleAL.get(r.nextInt(7)), devil(),
 				itemAL.get(r.nextInt(15))));
 
