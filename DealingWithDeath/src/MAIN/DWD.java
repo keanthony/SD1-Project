@@ -218,7 +218,7 @@ public class DWD implements Serializable
 
 		npcAL.add(npcArray[0]);
 
-		for (int i = 1; i < 10; i++)
+		for (int i = 1; i < 7.5; i++)
 		{
 			if (r.nextInt(10) < 8)
 				npcAL.add(npcArray[r.nextInt(7)]);
