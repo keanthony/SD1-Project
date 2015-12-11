@@ -382,7 +382,7 @@ public class DWD implements Serializable
 				+ "You will have to sell drugs and kill anyone in your way,\n "
 				+ "even the devil until you earn enough money.\n"
 				+ "If you get killed you will end up in hell.  While in hell, you \n"
-				+ "must answer a riddle to return to the room you died in."
+				+ "must answer a riddle to return to the room you died in.\n"
 				+ "You'll have to go through hell again to finish the mission. ");
 		try
 		{
@@ -594,83 +594,6 @@ public class DWD implements Serializable
 		// play the audio clip with the audioplayer class
 		AudioPlayer.player.start(audioStream);
 	}
-
-
-	public void sound2() throws Exception
-	{
-		// open the sound file as a Java input stream
-		String gameover = "game_over.wav";
-		InputStream in = new FileInputStream(gameover);
-
-		// create an audiostream from the inputstream
-		AudioStream as = new AudioStream(in);
-
-		// play the audio clip with the audioplayer class
-		AudioPlayer.player.start(as);
-
-
-	}
-	
-	
-	
-	/*	public void sound3() throws Exception
-	{
-		// open the sound file as a Java input stream
-		String defeat = "defeat.wav";
-		InputStream in = new FileInputStream(defeat);
-
-		// create an audiostream from the inputstream
-		AudioStream audioStream = new AudioStream(in);
-
-		// play the audio clip with the audioplayer class
-		AudioPlayer.player.start(audioStream);
-		
-		if (this.roomID == 29)
-		{
-			try 
-			{ 
-				sound2();
-			}
-			catch (InterruptedException e)
-			{
-				e.printStackTrace();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-	}
-	
-	public void sound4() throws Exception
-	{
-		// open the sound file as a Java input stream
-		String nomercy = "nomercy.wav";
-		InputStream in = new FileInputStream(nomercy);
-
-		// create an audiostream from the inputstream
-		AudioStream audioStream = new AudioStream(in);
-
-		// play the audio clip with the audioplayer class
-		AudioPlayer.player.start(audioStream);
-		
-		if (this.roomID == 24)
-		{
-			try 
-			{ 
-				sound4();
-			}
-			catch (InterruptedException e)
-			{
-				e.printStackTrace();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-	}*/
-
 
 
 
