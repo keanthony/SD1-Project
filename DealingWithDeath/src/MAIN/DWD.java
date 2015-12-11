@@ -28,6 +28,9 @@ import java.util.Random;
  * Monsters, and Puzzles
  */
 
+/**
+ *
+ */
 public class DWD implements Serializable
 {
 	private static ArrayList<Room> roomAL = new ArrayList<Room>();
@@ -579,23 +582,20 @@ public class DWD implements Serializable
 		else
 			System.out.println("There is no Riddle in the room");
 	}
-	/**
-	 * A simple Java sound file example (i.e., Java code to play a sound file).
+	
+
+	/**Method Name: sound
+	 * Description: Plays a sound
+	 * @throws Exception
+	 * @author Kevin
 	 */
 	public void sound() throws Exception
 	{
-		// open the sound file as a Java input stream
 		String omg = "OMG.wav";
 		InputStream in = new FileInputStream(omg);
-
-		// create an audiostream from the inputstream
 		AudioStream audioStream = new AudioStream(in);
-
-		// play the audio clip with the audioplayer class
 		AudioPlayer.player.start(audioStream);
 	}
-
-
 
 	/**
 	 * Method Name: displayEntryRoomInfo

@@ -1,6 +1,3 @@
-/**
- *
- */
 package MAIN;
 
 import INVENTORY.Crack;
@@ -15,14 +12,8 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author jortiz
- *
- */
 public class GameLogicService
 {
-
 	private final DWD _content;
 	private final Scanner _scanner;
 	protected Player player;
@@ -59,12 +50,44 @@ public class GameLogicService
 				inventory.add(currentItem);
 				System.out
 						.println("\nYou found " + currentItem.getName() + ".");
+				try
+				{
+					Thread.sleep(1000);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				System.out.println("Item Description: "
 						+ currentItem.getDescription() + ".");
+				try
+				{
+					Thread.sleep(1000);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				System.out.println("You stuffed the " + currentItem.getName()
 						+ " into your backpack.");
+				try
+				{
+					Thread.sleep(1000);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				System.out.println("You now have " + inventory.size()
 						+ " number of items");
+				try
+				{
+					Thread.sleep(1000);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				return true;
 			}
 			if (currentNPC.getHealth() > 0)
@@ -73,8 +96,7 @@ public class GameLogicService
 						"Someone is blocking our way and they dont look too happy, \n"
 								+ "but we must get to the item! It could be worth money!");
 				try
-				{
-					
+				{					
 					DWD omgSound = new DWD();
 					omgSound.sound();
 					Thread.sleep(6000);
@@ -89,7 +111,6 @@ public class GameLogicService
 				return true;
 			}
 			return true;
-
 			
 		case "SELL":
 
@@ -104,9 +125,33 @@ public class GameLogicService
 				{
 					System.out.println(item.getItemIndex() + " "
 							+ item.getName() + " - " + item.getDescription());
+					try
+					{
+						Thread.sleep(250);
+					}
+					catch (InterruptedException e)
+					{
+						e.printStackTrace();
+					}
 				}
 				System.out.println("\n What do you want to sell?");
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				System.out.println("Please enter an item index value");
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				String inputString = _scanner.next();
 				Boolean isValidItemIndex = false;
 				while (!isValidItemIndex)
@@ -124,6 +169,14 @@ public class GameLogicService
 						int sellValue = itemToSell.getValue();
 						System.out.println(
 								"Selling your crack for $ " + sellValue + " .");
+						try
+						{
+							Thread.sleep(500);
+						}
+						catch (InterruptedException e)
+						{
+							e.printStackTrace();
+						}
 						int total = player.getMoney() + sellValue;
 						ArrayList<Item> filteredList = new ArrayList<>(player
 								.getInventory().stream()
@@ -133,6 +186,14 @@ public class GameLogicService
 						player.setInventory(filteredList);
 						player.setMoney(total);
 						System.out.println("You have a total of $" + total);
+						try
+						{
+							Thread.sleep(500);
+						}
+						catch (InterruptedException e)
+						{
+							e.printStackTrace();
+						}
 						isValidItemIndex = true;
 						return true;
 					}
@@ -141,6 +202,14 @@ public class GameLogicService
 			else
 			{
 				System.out.println("You have no items to sell");
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 			}
 			return true;
 		case "ATTACK":
@@ -166,11 +235,35 @@ public class GameLogicService
 			player.setHealth(0);
 			this._content.setRoomID(24); // devil room is 24.
 			System.out.println("Welcome to Hell.");
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 			return true;
 		case "RIDDLE":
 			System.out.println("Riddle");
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 			System.out.println(this._content.getCurrentRiddle().getQuestion());
 			System.out.println("Please enter an item index value");
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 			String inputString = _scanner.next();
 			//TODO: validate input
 			int inputIndex = Integer.parseInt(inputString);
@@ -181,6 +274,14 @@ public class GameLogicService
 			while (!isCorrect)
 			{
 				System.out.println("Please enter an item index value");
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
 				inputString = _scanner.next();
 				inputIndex = Integer.parseInt(inputString);
 				result = this._content.getCurrentRiddle()
@@ -191,11 +292,27 @@ public class GameLogicService
 
 			}
 			System.out.println("Your life has been reset to 100");
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 			player.setHealth(100);
 			int previousAliveRoomID = DWD.roomHistoryAl
 					.get(DWD.roomHistoryAl.size() - 1).getRoomId();
 			System.out.println("Welcome back to the room you died in, Room "
 					+ previousAliveRoomID);
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 			this._content.setRoomID(previousAliveRoomID);
 			return true;
 
@@ -209,7 +326,6 @@ public class GameLogicService
 		return (int) (_content.getCurrentNPC().getHealth() - Math.ceil(
 				_content.getPlayer().getDamage() * (.33) * (r.nextInt(4) + 1)
 						+ 1));
-
 	}
 
 	public Boolean setPlayerAction(String actionType)
