@@ -44,6 +44,8 @@ public class GameLogicService
 	{
 		this._content.initialize(name);
 	}
+	
+	
 
 	public Boolean setPlayerAction(String actionType, String[] params)
 	{
@@ -70,20 +72,27 @@ public class GameLogicService
 			if (currentNPC.getHealth() > 0)
 			{
 				System.out.println(
-						"Someone is blocking the door and they dont look very"
-								+ "nice, but we must get to the item!");
+						"Someone is blocking our way and they dont look too happy, \n"
+								+ "but we must get to the item! It could be worth money!");
 				try
 				{
+					
+					DWD omgSound = new DWD();
+					omgSound.sound();
 					Thread.sleep(6000);
 				}
 				catch (InterruptedException e)
 				{
+					e.printStackTrace();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				return true;
 			}
 			return true;
 
+			
 		case "SELL":
 
 			ArrayList<Item> inventory = player.getInventory();

@@ -14,6 +14,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -47,19 +48,18 @@ public class LoginMainGUI extends Application
 		Image image = new Image(
 				"http://xdesktopwallpapers.com/wp-content/uploads/2012/04/Death%20Card%20Game%20And%20Black%20Background.jpg");
 		// new BackgroundSize(width, height, widthAsPercentage, heightAsPercentage, contain, cover)
-		BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true,
-				false, false);
+		BackgroundSize backgroundSize = new BackgroundSize(1, 1, true, true,false, false);
 		// new BackgroundImage(image, repeatX, repeatY, position, size)
 		BackgroundImage backgroundImage = new BackgroundImage(image,
-				BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT,
-				BackgroundPosition.CENTER, backgroundSize);
+				BackgroundRepeat.NO_REPEAT, BackgroundRepeat.REPEAT,BackgroundPosition.CENTER, backgroundSize);
 		// new Background(images...)
 		Background background = new Background(backgroundImage);
 		gp.setBackground(background);
 		gp.setAlignment(Pos.CENTER);
 		gp.setPadding(new Insets(15, 15, 15, 15));
-
-		gp.add(new Label("User Name:"), 0, 4);
+		Label lab1 = new Label("User Name:");
+		gp.add(lab1, 0, 4);
+		lab1.setTextFill(Color.web("white"));
 
 		gp.add(tfUserName = new TextField(), 1, 4);
 
@@ -119,10 +119,10 @@ public class LoginMainGUI extends Application
 	}
 
 	/**Method Name: sound
-	* Description: Plays a sound file
-	* @author Kevin
-	* @throws Exception
-	*/
+	 * Description: Plays a sound file
+	 * @author Kevin
+	 * @throws Exception
+	 */
 	public void sound() throws Exception
 	{
 		// open the sound file as a Java input stream
@@ -201,6 +201,7 @@ public class LoginMainGUI extends Application
 		return inputString;
 
 	}
+	
 
 	private boolean isValidInput(String inputString)
 	{

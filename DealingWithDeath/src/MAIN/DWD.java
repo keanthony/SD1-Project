@@ -218,9 +218,9 @@ public class DWD implements Serializable
 
 		npcAL.add(npcArray[0]);
 
-		for (int i = 1; i < 7.5; i++)
+		for (int i = 1; i < 10; i++)
 		{
-			if (r.nextInt(10) < 8)
+			if (r.nextInt(4) < 8)
 				npcAL.add(npcArray[r.nextInt(7)]);
 
 		}
@@ -312,8 +312,8 @@ public class DWD implements Serializable
 				"Protects you from Grannies yelling if you don't come home with $40,000..Yikes!", 10));
 		itemAL.add(new Crack(3, "5 LBS of Meth",
 				"This is hot in the market right now. It's ready to ruin the perfect life!", 5000));
-		itemAL.add(new Armor(4, "Breastplate of Lost Dreams",
-				"The breastplate is made from one large piece of metal, which ",
+		itemAL.add(new Crack(4, "Acid",
+				"This can definetely trip somebody out.",
 				10));
 		itemAL.add(new Crack(5, "Lottery winning crack.",
 						"\nYou ALMOST hit the Lottery."
@@ -392,9 +392,11 @@ public class DWD implements Serializable
 			e.printStackTrace();
 		}
 		roomAL.add(new Room(0,
-					"You wake up in a bed and you are like OH MY GOD! ",
+					"You wake up in a bed thinking today will be another regular day.."
+					+ "\nWe hear Grannie call us into the Kitchen."
+					+ "\nLets move to the next room before doing anything else.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
-		roomAL.add(new Room(1, "Grannie is in the kitchen. "
+		roomAL.add(new Room(1, "Grannie is standing in the kitchen with a worried but angry face. "
 							+ "\nShe says - WE NEED MONEY! Think of something! OR there will be CONSEQUENCES!-", null,
 				npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(2,
@@ -405,8 +407,8 @@ public class DWD implements Serializable
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(3,
 					"We are now down in the basement...\n"
-							+ "We see a few items we can sell, like grannies old music player."
-							+ "\nLet's talk to granny about it and go back upstairs..",
+							+ "We see a few items we can sell, like granny's old music player."
+							+ "\nLet's talk to grannie about it and go back upstairs..",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(4,
 					"We're back in the Kitchen with Grannie. \n"
@@ -437,8 +439,8 @@ public class DWD implements Serializable
 							+ "anything in the storage behind it...",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(9,
-						"We have walked in another room of the house that has been completely destroyed."
-						+ "but we've got some people looking at us.",
+						"We have walked in another room of the house that has been "
+						+ "\n completely destroyed but we've got some people looking at us.",
 				null, npcAL.get(r.nextInt(7) + 1), itemAL.get(r.nextInt(15))));
 		roomAL.add(new Room(10,
 						"We walk into the living room with a TV playing some music videos from MTV. \n"
@@ -608,19 +610,8 @@ public class DWD implements Serializable
 		{
 			e.printStackTrace();
 		}
-		System.out.println("\nYou are in room \n" + this.roomID);
-		if(this.roomID == 0)
-		{
-			try
-			{
-				Thread.sleep(2000);
-				sound();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
+		System.out.println("\nYou are in room " + this.roomID);
+		
 		System.out.println(roomAL.get(this.roomID).getrDescription() + "\n");
 	}
 
