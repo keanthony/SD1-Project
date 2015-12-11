@@ -35,7 +35,7 @@ public class Battle implements Serializable
 	private void npcAttack()
 	{
 		double damage = Math.ceil(_content.getCurrentNPC().getDamage()
-				* (_content.getRoomID() / 5) * (r.nextInt(4) + 1) + 1);
+				* (_content.getRoomID() / 10) * (r.nextInt(4) + 1) + 1);
 		int playeHealth = (int) (_content.getPlayer().getHealth() - damage);
 		_content.getPlayer().setHealth(playeHealth);
 		System.out.println(enemy.getName() + " attacks you for " + damage + " damage");
@@ -99,6 +99,13 @@ public class Battle implements Serializable
 			}
 			else if (_content.getCurrentNPC().getHealth() <= 0)
 			{
+				/*DWD omgSound = new DWD();
+				try {
+					omgSound.sound3();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
 				System.out.println("You have defeated the enemy.");
 				stillFighting = false;
 				return true;

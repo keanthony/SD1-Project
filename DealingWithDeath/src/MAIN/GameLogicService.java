@@ -45,8 +45,6 @@ public class GameLogicService
 		this._content.initialize(name);
 	}
 	
-	
-
 	public Boolean setPlayerAction(String actionType, String[] params)
 	{
 		Player player = this._content.getPlayer();
@@ -196,7 +194,7 @@ public class GameLogicService
 			player.setHealth(100);
 			int previousAliveRoomID = DWD.roomHistoryAl
 					.get(DWD.roomHistoryAl.size() - 1).getRoomId();
-			System.out.println("Welcome back to the room you died in room "
+			System.out.println("Welcome back to the room you died in, Room "
 					+ previousAliveRoomID);
 			this._content.setRoomID(previousAliveRoomID);
 			return true;
